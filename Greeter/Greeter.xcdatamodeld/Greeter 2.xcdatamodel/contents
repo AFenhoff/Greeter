@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13C64" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Make" syncable="YES">
+        <attribute name="make" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="makeCode" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Model" syncable="YES">
+        <attribute name="model" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="modelCode" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Supplier" representedClassName="Supplier" syncable="YES">
+        <attribute name="cfcExpDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fingerPrint" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idPhoto" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="idRequired" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rowid" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="supplierName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="supplierNo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="supplierType" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Make" positionX="288" positionY="225" width="128" height="75"/>
+        <element name="Model" positionX="315" positionY="243" width="128" height="75"/>
+        <element name="Supplier" positionX="315" positionY="261" width="128" height="210"/>
+    </elements>
+</model>

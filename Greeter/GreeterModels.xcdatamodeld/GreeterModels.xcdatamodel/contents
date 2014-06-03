@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13C64" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Make" representedClassName="Make" syncable="YES">
+        <attribute name="make" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="makeCode" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Model" representedClassName="Model" syncable="YES">
+        <attribute name="model" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="modelCode" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Ticket" syncable="YES">
+        <attribute name="supplierName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="supplierNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ticketNumber" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Ticket" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="Make" positionX="9" positionY="36" width="128" height="75"/>
+        <element name="Model" positionX="27" positionY="54" width="128" height="75"/>
+    </elements>
+</model>

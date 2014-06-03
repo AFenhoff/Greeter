@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PreferenceSpecifiers</key>
+	<array>
+		<dict>
+			<key>Titles</key>
+			<array>
+				<string>Kaley</string>
+				<string>Pinellas Park</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>KL</string>
+				<string>PP</string>
+			</array>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Branch</string>
+			<key>Key</key>
+			<string>branch</string>
+			<key>DefaultValue</key>
+			<string>Pinellas Park</string>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Environment</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Production</string>
+			<key>Key</key>
+			<string>isProduction</string>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Mode</string>
+			<key>Key</key>
+			<string>applicationMode</string>
+			<key>DefaultValue</key>
+			<string>Both</string>
+			<key>Titles</key>
+			<array>
+				<string>Greeter and Inspector</string>
+				<string>Inspector</string>
+				<string>Greeter</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<integer>0</integer>
+				<integer>1</integer>
+				<integer>2</integer>
+			</array>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTitleValueSpecifier</string>
+			<key>Title</key>
+			<string>Version</string>
+			<key>Key</key>
+			<string>version</string>
+			<key>DefaultValue</key>
+			<string>0.0.0</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Greeter Mode</string>
+			<key>Key</key>
+			<string>greeterMode</string>
+			<key>DefaultValue</key>
+			<string>Both</string>
+			<key>Titles</key>
+			<array>
+				<string>FE and NF</string>
+				<string>FE</string>
+				<string>NF</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<integer>0</integer>
+				<integer>1</integer>
+				<integer>2</integer>
+			</array>
+		</dict>
+	</array>
+	<key>StringsTable</key>
+	<string>Root</string>
+</dict>
+</plist>
