@@ -25,6 +25,10 @@
 -(void) syncBaseData;
 -(void) syncData;
 -(NSArray *)getEntities:(NSString *)entityName;
+
 -(void)getSuppliersByLastName:(NSString *)name forDelegate:(id)delegate;
+-(void)getSupplierVehiclesBySupplierNo:(NSString *)supplierNo andIDNumber:(NSString *)idNumber forDelegate:(id)delegate;
+-(void)getSuppliersBySupplierName:(NSString *)supplierName forDelegate:(id)delegate;
+-(void)getSupplierByIDNumber:(NSString *)idNumber andState:(NSString *)state forDelegate:(id)delegate;
 
 @end

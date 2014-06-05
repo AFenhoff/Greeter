@@ -9,6 +9,7 @@
 #import "DataManager.h"
 #import "BaseDataAccess.h"
 #import "SupplierDataAccess.h"
+#import "VehicleDataAccess.h"
 
 @implementation DataManager
 
@@ -93,11 +94,29 @@
     [s getSuppliersByLastName:name];
 }
 
+-(void)getSupplierVehiclesBySupplierNo:(NSString *)supplierNo andIDNumber:(NSString *)idNumber forDelegate:(id)delegate
+{
+    VehicleDataAccess *v = [[VehicleDataAccess alloc] init];
+    v.delegate = self;
+    [v getSupplierVehiclesBySupplier:supplierNo andIDNumber:idNumber];
+}
+
 -(void)didReceiveData:(NSMutableArray *)data
 {
     NSLog(@"DataManager didReceiveData");
     [self.delegate dataDidSync:self];
 }
+
+-(void)getSuppliersBySupplierName:(NSString *)supplierName forDelegate:(id)delegate
+{
+    
+}
+
+-(void)getSupplierByIDNumber:(NSString *)idNumber andState:(NSString *)state forDelegate:(id)delegate
+{
+    
+}
+
 
 
 @end

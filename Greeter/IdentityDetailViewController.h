@@ -25,6 +25,7 @@
 @property (nonatomic) BOOL allItemsComplete;
 
 -(IBAction)finishButtonPressed:(id)sender;
+-(IBAction)vehicleButtonPressed:(id)sender;
 
 @end
 

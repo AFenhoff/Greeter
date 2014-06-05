@@ -10,4 +10,7 @@
 #import "BarcodeViewController.h"
 
 @interface VehicleMenuViewController : BaseModalViewController <BarcodeViewControllerDelegate,BaseModalViewControllerDelegate>
+
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+
 @end

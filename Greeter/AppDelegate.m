@@ -11,6 +11,8 @@
 #import "GreeterMenuViewController.h"
 #import "ModelGenerator.h"
 #import "SharedObjects.h"
+#import "NSString+ContainsString.h"
+#import "LicenseDecoder.h"
 
 @implementation AppDelegate
 
@@ -50,7 +52,6 @@
     m.managedObjectContext = self.managedObjectContext;
     [m createMakes];
     [m createModels];
-    
     
     return YES;
 }

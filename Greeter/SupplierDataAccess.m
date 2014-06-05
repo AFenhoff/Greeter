@@ -14,8 +14,22 @@
 
 -(void)getSuppliersByLastName:(NSString *)name
 {
-    self.lastRequestURL = [NSString stringWithFormat:@"suppliers/get/%@", name];
+    self.lastRequestURL = [NSString stringWithFormat:@"suppliers/getbylastname/%@", name];
     [super executeAPIMethod:self.lastRequestURL forDelegate:self];
+}
+
+-(void)getSuppliersBySupplierName:(NSString *)supplierName
+{
+    self.lastRequestURL = [NSString stringWithFormat:@"suppliers/getbysuppliername/%@", supplierName];
+    [super executeAPIMethod:self.lastRequestURL forDelegate:self];
+   
+}
+
+-(void)getSupplierByIDNumber:(NSString *)idNumber andState:(NSString *)state
+{
+    self.lastRequestURL = [NSString stringWithFormat:@"suppliers/getbyidnumber/%@/%@", idNumber, state];
+    [super executeAPIMethod:self.lastRequestURL forDelegate:self];
+ 
 }
 
 

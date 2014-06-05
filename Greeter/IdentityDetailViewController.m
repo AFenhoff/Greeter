@@ -138,8 +138,8 @@ bool _materialCaptured = NO;
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    /*
     ((BaseModalViewController *)segue.destinationViewController).delegate = self;
-    
     
     switch (((UIBarButtonItem *)sender).tag) {
         case 0: //Vehicle
@@ -155,7 +155,22 @@ bool _materialCaptured = NO;
         default:
             break;
     }
+     */
     
+}
+
+-(IBAction)vehicleButtonPressed:(id)sender
+{
+    SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
+    sharedObjects.dataManager.delegate = self;
+    [sharedObjects.dataManager getSupplierVehiclesBySupplierNo:selectedSupplier.supplierNo andIDNumber:selectedSupplier.idNumber forDelegate:self];
+    
+}
+
+-(void)dataDidSync:(id)sender
+{
+    //DataManager's delegate method (dataDidSync) needs more info so we can determine which segue to fire
+    [self performSegueWithIdentifier:@"vehicles" sender:self];
 }
 
 -(void)modalComplete:(id)sender

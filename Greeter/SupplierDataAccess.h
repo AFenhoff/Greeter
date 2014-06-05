@@ -12,6 +12,7 @@
 @interface SupplierDataAccess : BaseDataAccess <ADFSViewControllerDelegate>
 
 -(void)getSuppliersByLastName:(NSString *)name;
-
+-(void)getSuppliersBySupplierName:(NSString *)supplierName;
+-(void)getSupplierByIDNumber:(NSString *)idNumber andState:(NSString *)state;
 
 @end
