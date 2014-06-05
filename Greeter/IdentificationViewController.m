@@ -89,7 +89,7 @@ bool scanActive=false;
     
     SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
     sharedObjects.dataManager.delegate = self;
-    [sharedObjects.dataManager getSup:supplierNameTextField.text forDelegate:self];
+    [sharedObjects.dataManager getSuppliersBySupplierName:supplierNameTextField.text forDelegate:self];
 
     [self performSegueWithIdentifier:@"SuppleirSearch" sender:self];
 }
