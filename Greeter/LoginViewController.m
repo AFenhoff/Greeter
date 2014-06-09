@@ -20,7 +20,7 @@
 
 @synthesize managedObjectContext, employeeIDTextField, loginButton;//, user;
 
-//ben test
+//andrew test
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
