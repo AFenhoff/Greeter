@@ -5,7 +5,7 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>5D8E5EA2-8D8D-4277-9A11-442B5A800011</string>
+	<string>C9FE0303-0667-4602-BBC0-7FB630FBF0F8</string>
 	<key>IDESourceControlProjectName</key>
 	<string>YardOps</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
@@ -17,8 +17,6 @@
 	<string>YardOps.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>92A29AE3-AFF3-4EE8-B28A-61125327CED5</key>
-		<string>../../Greeter</string>
 		<key>ADF2A78F-464E-4D37-80FE-F618618CB13A</key>
 		<string>../..</string>
 	</dict>
@@ -35,14 +33,6 @@
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>ADF2A78F-464E-4D37-80FE-F618618CB13A</string>
-			<key>IDESourceControlWCCName</key>
-			<string>Greeter</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>92A29AE3-AFF3-4EE8-B28A-61125327CED5</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Greeter</string>
 		</dict>

@@ -102,7 +102,19 @@
             [self performSegueWithIdentifier:@"greeterAndInspector" sender:self];
             break;
         case 1: //Greeter
-            [self performSegueWithIdentifier:@"greeter" sender:self];
+            switch ([Common getIntSetting:@""]) {
+                case 1:
+                    //fe
+                    [self performSegueWithIdentifier:@"LoginGreeterAndFESelected" sender:self];
+                    break;
+                case 2:
+                    //nf
+                    [self performSegueWithIdentifier:@"LoginGreeterAndNFSelected" sender:self];
+                    break;
+                default:
+                    [self performSegueWithIdentifier:@"greeter" sender:self];
+                    break;
+            }
             break;
         case 2: //Inspector
             [self performSegueWithIdentifier:@"inspector" sender:self];
