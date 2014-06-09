@@ -46,7 +46,6 @@
         {
             [cookies addObject:[cookie toCookie]];
         }
-            
         return cookies;
     }
     return nil;

@@ -35,7 +35,7 @@
 - (NSArray *) toArray
 {
     NSMutableArray *cookieProperties = [[NSMutableArray alloc] init];
-    //[cookieProperties setValue:self.name        forKey:@"name"];
+    [cookieProperties setValue:self.name        forKey:@"name"];
     [cookieProperties setValue:self.value       forKey:@"value"];
     [cookieProperties setValue:self.domain      forKey:@"domain"];
     [cookieProperties setValue:self.path        forKey:@"path"];
@@ -51,7 +51,13 @@
 
 - (NSDictionary *) toDictionary
 {
-    NSDictionary *cookieProperties = [[NSDictionary alloc] init];
+    NSArray *keys = [NSArray arrayWithObjects:@"name", @"value", @"domain", @"path", @"expiresDate", @"isSessionOnly", @"isSecure", nil];
+    NSArray *objects = [NSArray arrayWithObjects:self.name, self.value, self.domain, self.path
+                        , self.expiresDate ? self.expiresDate : @"", self.isSessionOnly ? @"1" : @"0",self.isSecure ? @"1" : @"0", nil];
+    NSDictionary *cookieProperties = [NSDictionary dictionaryWithObjects:objects
+                                                           forKeys:keys];
+    
+    /*NSDictionary *cookieProperties = [[NSDictionary alloc] init];
     [cookieProperties setValue:self.name        forKey:@"name"];
     [cookieProperties setValue:self.value       forKey:@"value"];
     [cookieProperties setValue:self.domain      forKey:@"domain"];
@@ -62,7 +68,7 @@
     [cookieProperties setValue:self.comment     forKey:@"comment"];
     [cookieProperties setValue:self.commentURL  forKey:@"commentURL"];
     [cookieProperties setValue:[NSString stringWithFormat:@"%d", self.version]     forKey:@"version"];
-    
+    */
     return cookieProperties;
 }
 
