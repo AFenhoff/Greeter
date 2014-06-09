@@ -20,11 +20,7 @@
 
 @synthesize managedObjectContext, employeeIDTextField, loginButton;//, user;
 
-<<<<<<< HEAD
 //ben test ahhhhhhhhh
-=======
-//andrew test
->>>>>>> FETCH_HEAD
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
