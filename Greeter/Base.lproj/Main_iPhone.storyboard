@@ -789,12 +789,12 @@ THIS CONTRACT IS VALID FOR THREE (3) YEARS FROM DATE ABOVE
                         <outlet property="supplierNameSearchButton" destination="o7O-SD-ste" id="LgJ-5f-NB7"/>
                         <outlet property="supplierNameTextField" destination="vaB-GD-xfF" id="sfb-IR-OGJ"/>
                         <segue destination="MAd-nE-pK3" kind="push" identifier="NameSearch" id="BQo-kr-5N3"/>
-                        <segue destination="MAd-nE-pK3" kind="push" identifier="SupplierSearch" id="wUu-4N-PLN"/>
+                        <segue destination="Jsj-fg-pI3" kind="push" identifier="SupplierFound" id="Ver-6X-rsN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MwQ-UB-9F1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2482" y="64"/>
+            <point key="canvasLocation" x="2480" y="43"/>
         </scene>
         <!--Search Results Table View Controller - Search Results-->
         <scene sceneID="Y8g-DI-hNz">
@@ -1635,10 +1635,10 @@ THIS CONTRACT IS VALID FOR THREE (3) YEARS FROM DATE ABOVE
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="E4v-VV-M4P"/>
-        <segue reference="Z7r-A5-gWs"/>
+        <segue reference="VQN-MU-vAj"/>
+        <segue reference="dkl-fe-HlM"/>
         <segue reference="azn-Y9-aFW"/>
-        <segue reference="wUu-4N-PLN"/>
+        <segue reference="Ver-6X-rsN"/>
         <segue reference="mk5-1U-Cnp"/>
     </inferredMetricsTieBreakers>
 </document>

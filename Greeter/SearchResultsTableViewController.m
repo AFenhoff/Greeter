@@ -104,7 +104,8 @@
     //NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
     //    ((TakeInventoryViewController *)segue.destinationViewController).inventoryLocation =     [[object valueForKey:@"inventoryDescription"] description];
     //pass it to the IdentityDetails screen
-    ((IdentityDetailViewController *)segue.destinationViewController).selectedSupplier = selectedSupplier;
+    SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
+    sharedObjects.selectedSupplier = selectedSupplier;
 }
 
 #pragma mark - Fetched results controller

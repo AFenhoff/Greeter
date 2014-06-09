@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-
 @protocol DataManagerDelegate<NSObject>
 @optional
 
@@ -30,5 +29,7 @@
 -(void)getSupplierVehiclesBySupplierNo:(NSString *)supplierNo andIDNumber:(NSString *)idNumber forDelegate:(id)delegate;
 -(void)getSuppliersBySupplierName:(NSString *)supplierName forDelegate:(id)delegate;
 -(void)getSupplierByIDNumber:(NSString *)idNumber andState:(NSString *)state forDelegate:(id)delegate;
+-(void)getSupplierVehicleByBarcode:(NSString *)barcode forDelegate:(id)delegate;
+-(void)getUserByEmployeeID:(NSNumber *)employeeID forDelegate:(id)delegate;
 
 @end

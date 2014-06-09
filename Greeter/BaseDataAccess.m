@@ -11,10 +11,16 @@
 #import "Common.h"
 #import "ADFSViewController.h"
 #import "SharedObjects.h"
+#import "NSString+ContainsString.h"
+#import "User.h"
+#import "UserDataAccess.h"
+#import "NSHTTPCookie+ToString.h"
 
 @implementation BaseDataAccess
 
-@synthesize cookie, returnedObjects, responseStatusCode, responseStatusMsg, returnedData, callbackDelegate, lastRequestURL;
+@synthesize cookie, returnedObjects, responseStatusCode,
+    responseStatusMsg, returnedData, callbackDelegate, lastRequestURL,
+    returnedResponse;
 
 
 +(void)clearAllObjectsForEntity:(NSString *)entityName
@@ -195,16 +201,17 @@
     }
 }
 
--(void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
-{
-    NSLog(@"\nAuth Challenge %@\n\n", connection.currentRequest.URL);
-}
-
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
     
     if (!returnedData) { returnedData = [[NSMutableData alloc] init]; }
     [returnedData appendData:data];
     
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    returnedResponse = response;
+    [self handleResponse:response];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
@@ -225,8 +232,43 @@
          load the webview in the Auth from with myString
          When it comes back, redirect to the requested URL
          **/
+    }else{
+        //if connecton.URL contains User (the initial user authentication) save the cookies to the custom cookie store
+        //CookieStore *cookieStore = [[CookieStore alloc] init];
+        NSString *urlPath = [returnedResponse.URL.path lowercaseString];
+        if([[[urlPath stringByReplacingOccurrencesOfString:@"/" withString:@""] stringByReplacingOccurrencesOfString:@"%2F" withString:@""] containsString:@"usergetemployeeid"])
+        {
+            NSString *myString = [[NSString alloc] initWithData:returnedData encoding:NSUTF8StringEncoding];
+            NSData *jsonData = [myString dataUsingEncoding:NSUTF8StringEncoding];
+            NSError *e;
+            NSMutableArray *jsonList = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:&e];
+            
+            SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
+            //for(int i = 0; i < jsonList.count; i++)
+            NSDictionary *string = (NSDictionary *)jsonList;
+//            for(NSDictionary *string in jsonList)
+//            {
+                //NSDictionary *string = jsonList[i];
+                //Clear only the record for this user
+                [self saveUserCookiesInResponse:(NSHTTPURLResponse *)returnedResponse forEmployeeID:[string objectForKey:@"EmployeeID"]];
+                [UserDataAccess clearUser:[string objectForKey:@"EmployeeID"]];
+                User *user = (User *)[NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:sharedObjects.managedObjectContext];
+                
+                user.employeeID          = [string objectForKey:@"EmployeeID"];
+                user.userName            = [string objectForKey:@"UserName"];
+                user.cookieStore         = nil;
+                
+                NSError *error = nil;
+                if (![sharedObjects.managedObjectContext save:&error])
+                {
+                    // Handle the error.
+                }
+                sharedObjects.currentUser = user;
+//            }
+        }
     }
     //NSLog(@"\nPosting complete %@\n\nReturned Data:\n%@", connection.currentRequest.URL, myString);
+    
     
     NSData *jsonData = [myString dataUsingEncoding:NSUTF8StringEncoding];
     
@@ -240,14 +282,9 @@
     
 }
 
--(void)connection:(NSURLConnection*)connection didReceiveResponse:(NSURLResponse *)response
-{
-    [self handleResponse:response];
-}
-
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    NSLog(@"\nPosting ERROR %@\n\n%@\n\n", connection.currentRequest.URL, error);
+    NSLog(@"\nPosting ERROR %@\n\n%@\n\n", connection.currentRequest.URL.path, error);
     if(activityIndicator)
     {
         [activityIndicator stopAnimating];
@@ -344,7 +381,7 @@
     }
     [activityIndicator startAnimating];
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", WCF_BASE_URL, methodPath]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", WCF_BASE_URL, [methodPath stringByEncodingSpecialCharacters] ]];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     
     /*
@@ -356,9 +393,14 @@
     [request setHTTPMethod:@"GET"];
     [request addValue:@"application/json" forHTTPHeaderField:@"content-type"];
     
-    //Set ADFS cookies here
-    
-	//[request setHTTPBody:jsonData];
+    //TODO: Set ADFS cookies here
+    //Pull cookieStore from User entity in CoreData db
+    // set all retreived cookies for this request
+    //[theRequest setValue:@"myCookie" forHTTPHeaderField:@"Cookie"];
+    [self handleCookiesInRequest:request];
+
+	//Set post body
+    //[request setHTTPBody:jsonData];
     
     if(conn)
     {
@@ -369,5 +411,37 @@
     conn = [NSURLConnection connectionWithRequest:request delegate:self];
 }
 
+-(void)saveUserCookiesInResponse:(NSHTTPURLResponse *)response forEmployeeID:(NSNumber *)employeeID
+{
+    NSMutableArray *cookies =[[NSMutableArray alloc]init];
+    for (NSHTTPCookie *thisCookie in [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies])
+    {
+        // should be OK, check out category
+        [cookies addObject:[thisCookie toDictionary]];
+    }
+    
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    [prefs setObject:cookies forKey:[NSString stringWithFormat:@"%@Cookies", employeeID]];
+}
+
+-(void) handleCookiesInRequest:(NSMutableURLRequest*) request
+{
+    //Create toCookie on NSString to repopulate cookies
+    
+    SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
+    NSArray *cookies = [UserDataAccess getUserCookiesForEmployeeID:sharedObjects.currentUser.employeeID];
+    
+    if(!cookies || cookies.count == 0) { return; }
+    
+    NSDictionary* headers = [NSHTTPCookie requestHeaderFieldsWithCookies:cookies];
+    
+    NSUInteger count = [headers count];
+    __unsafe_unretained id keys[count], values[count];
+    [headers getObjects:values andKeys:keys];
+    
+    for (NSUInteger i=0;i<count;i++) {
+        [request setValue:values[i] forHTTPHeaderField:keys[i]];
+    }
+}
 
 @end

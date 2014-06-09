@@ -8,7 +8,7 @@
 
 #import "LoginViewController.h"
 #import "GreeterMenuViewController.h"
-//#import "UserDataAccess.h"
+#import "UserDataAccess.h"
 #import "NSString+ToDate.h"
 #import "Common.h"
 
@@ -52,73 +52,11 @@
 
 -(IBAction)loginButtonPress:(id)sender;
 {
-/*
-     Find User by EmployeeID
-
-    user = [Common getUserByEmployeeID:[NSNumber numberWithInt:[employeeIDTextField.text intValue]] inObjectContext:managedObjectContext];
-    if(!user)
-    {
-*/        /*
-        If EmployeeID not found
-        prompt for password
-            validate
-        //user.password = ;
-        user = (User *)[NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:managedObjectContext];
-        user.employeeID = [NSNumber numberWithInt:[employeeIDTextField.text intValue]];
-        [Common showAlert:@"Enter Password" forDelegate:self withAlertViewStyle:UIAlertViewStyleSecureTextInput];
-    }else{
-           */
-    /*
-        If lastPasswordChangeDate + 90 days < today
-        prompt for password
-            validate
-     
-        UserDataAccess *uda = [[UserDataAccess alloc] init];
-        uda.delegate = self;
-        [uda validateUser:user withManagedObject:managedObjectContext];
-     */
-    
-       /*
-        if([[user.lastPasswordChangeDate toDate] dateByAddingTimeInterval:90 * 24 * 60 * 60] < [NSDate date])
-            //Not quite right
-            //           || [user.lastUpdated toDate] > [NSDate date])
-        {
-            [Common showAlert:@"Enter Password" forDelegate:self withAlertViewStyle:UIAlertViewStyleSecureTextInput];
-        }else{
-            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-            appDelegate.currentUser = user;
-            employeeIDTextField.text = @"";
-            //perform segue
-            [self performSegueWithIdentifier:@"loggedIn" sender:self];
-
-        }
-    
-        
-        //self.title = @"Logout";
-        
-    }
-            */
-    
-    //[self performSegueWithIdentifier:@"greeter" sender:self];
-    //[self performSegueWithIdentifier:@"inspector" sender:self];
-    /**************************************************/
-    switch ([Common getIntSetting:kApplicationModeSettingName]) {
-        case 0: //Greeter and Inspector
-            [self performSegueWithIdentifier:@"greeterAndInspector" sender:self];
-            break;
-        case 1: //Greeter
-            [self performSegueWithIdentifier:@"greeter" sender:self];
-            break;
-        case 2: //Inspector
-            [self performSegueWithIdentifier:@"inspector" sender:self];
-            break;
-        default:
-            [self performSegueWithIdentifier:@"greeterAndInspector" sender:self];
-            break;
-    }
-    ;
-    /****************************************************/
     self.title = @"Logout";
+    
+    SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
+    sharedObjects.dataManager.delegate = self;
+    [sharedObjects.dataManager getUserByEmployeeID:[NSNumber numberWithInt:[employeeIDTextField.text intValue]] forDelegate:self];
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
@@ -153,8 +91,25 @@
 {
     
 }
+*/
 
- */
+-(void)dataDidSync:(id)sender
+{
+    switch ([Common getIntSetting:kApplicationModeSettingName]) {
+        case 0: //Greeter and Inspector
+            [self performSegueWithIdentifier:@"greeterAndInspector" sender:self];
+            break;
+        case 1: //Greeter
+            [self performSegueWithIdentifier:@"greeter" sender:self];
+            break;
+        case 2: //Inspector
+            [self performSegueWithIdentifier:@"inspector" sender:self];
+            break;
+        default:
+            [self performSegueWithIdentifier:@"greeterAndInspector" sender:self];
+            break;
+    }
 
+}
 
 @end

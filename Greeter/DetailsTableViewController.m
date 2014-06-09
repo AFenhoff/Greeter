@@ -113,17 +113,43 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     switch (indexPath.row) {
-        case 0: //ID
-            cell.textLabel.text =@"Capture Photo";
-            cell.detailTextLabel.text = [NSString stringWithFormat:@"Images Captured: %d", imageCount];
-            cell.backgroundColor = [UIColor clearColor];
-            break;
-        case 1: //Adjustment
+        case 0: //Adjustment
             cell.textLabel.text = @"Deduct Weight";
             cell.detailTextLabel.text = [NSString stringWithFormat:@"%d LBS  (%d%%)", adjustmentLbs, adjustmentPct];
             cell.backgroundColor = [UIColor clearColor];
             break;
-/*
+            
+        case 1: //ID
+            cell.textLabel.text =@"Capture Load Photo";
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"Images Captured: %d", imageCount];
+            cell.backgroundColor = [UIColor clearColor];
+            break;
+
+        case 2: //ID
+            cell.textLabel.text =@"Capture Plate Photo";
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"Images Captured: %d", imageCount];
+            cell.backgroundColor = [UIColor clearColor];
+            break;
+
+        case 3: //ID
+            cell.textLabel.text =@"Capture Cabshot Photo";
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"Images Captured: %d", imageCount];
+            cell.backgroundColor = [UIColor clearColor];
+            break;
+
+        case 4: //ID
+            cell.textLabel.text =@"Capture ID Photo";
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"Images Captured: %d", imageCount];
+            cell.backgroundColor = [UIColor clearColor];
+            break;
+
+        case 5: //ID
+            cell.textLabel.text =@"Capture On Demand Photo";
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"Images Captured: %d", imageCount];
+            cell.backgroundColor = [UIColor clearColor];
+            break;
+
+            /*
         case 2: //Docs
             cell.textLabel.text = @"Documentation";
             cell.detailTextLabel.text = @"NONE ON FILE";
@@ -153,28 +179,27 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     switch (indexPath.row) {
-        case 0: //Photo Capture
+        case 0: //Adjustments
+            [self performSegueWithIdentifier:@"adjustmentSegue" sender:self];
+            break;
+
+        case 1: //Photo Capture
             //[self performSegueWithIdentifier:@"idMenu" sender:self];
             if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
             {
                 [Common showAlert:@"Camera Not Available" forDelegate:self];
                 return;
             }
-            
             [self.navigationController presentViewController:camera animated:YES completion:nil];
             break;
-        case 1: //Adjustments
-            [self performSegueWithIdentifier:@"adjustmentSegue" sender:self];
-            break;
+        
         case 2: //Docs
-            [self performSegueWithIdentifier:@"documentationMenu" sender:self];
             break;
         case 3: //Vehicle Info
             break;
         case 4: //Material
             break;
         case 5: //VINs
-            [self performSegueWithIdentifier:@"vinEntry" sender:self];
             break;
         default:
             break;

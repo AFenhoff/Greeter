@@ -60,7 +60,12 @@ bool scanActive=false;
 
 -(IBAction)lastNameSearch:(id)sender
 {
-    if([lastNameTextField.text length] == 0)
+    [self searchByLastNameOrBarcode:lastNameTextField.text];
+}
+
+-(void)searchByLastNameOrBarcode:(NSString *)lastNameOrBarcode
+{
+    if([lastNameOrBarcode length] == 0)
     {
         [Common showAlert:@"Please enter Last Name" forDelegate:self];
         [lastNameTextField becomeFirstResponder];
@@ -69,13 +74,24 @@ bool scanActive=false;
     
     SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
     sharedObjects.dataManager.delegate = self;
-    [sharedObjects.dataManager getSuppliersByLastName:lastNameTextField.text forDelegate:self];
-    //
+    [sharedObjects.dataManager getSuppliersByLastName:lastNameOrBarcode forDelegate:self];
+    
 }
 
 -(void)dataDidSync:(id)sender
 {
-    [self performSegueWithIdentifier:@"NameSearch" sender:self];
+    //If search by last name
+    
+    SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
+    if (sharedObjects.selectedSupplier)
+    {
+        [self performSegueWithIdentifier:@"SupplierFound" sender:self];
+    }else{
+        [self performSegueWithIdentifier:@"NameSearch" sender:self];
+    }
+
+    //if search by supplier name
+    //[self performSegueWithIdentifier:@"SuppleirSearch" sender:self];
 }
 
 -(IBAction)supplierNameSearch:(id)sender
@@ -91,7 +107,6 @@ bool scanActive=false;
     sharedObjects.dataManager.delegate = self;
     [sharedObjects.dataManager getSuppliersBySupplierName:supplierNameTextField.text forDelegate:self];
 
-    [self performSegueWithIdentifier:@"SuppleirSearch" sender:self];
 }
 
 
@@ -162,6 +177,7 @@ bool scanActive=false;
     //If this is a vehicle barcode
     if([[barcode  substringWithRange:NSMakeRange(0, 3)] isEqualToString:@"DJV"])
     {
+        
         [Common showAlert:[NSString stringWithFormat:@"Vehicle barcode: %@", barcode] forDelegate:self];
         return;
     }
@@ -169,15 +185,20 @@ bool scanActive=false;
     //If this is a loyalty card
     if([[barcode  substringWithRange:NSMakeRange(0, 1)] isEqualToString:@"%"])
     {
-        [Common showAlert:[NSString stringWithFormat:@"Loyalty Card barcode: %@", barcode] forDelegate:self];
+        [self searchByLastNameOrBarcode:barcode];
         return;
     }
     
     
     //[Common showAlert:barcode forDelegate:self];
     LicenseDecoder *ld = [[LicenseDecoder alloc] init];
+
     [ld decode2DBarcode:barcode];
-    [Common showAlert:[NSString stringWithFormat:@"Decoded Values: %@\n%@\n%@", ld.FirstName, ld.LastName, ld.Address1] forDelegate:self];
+    
+    SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
+    sharedObjects.dataManager.delegate = self;
+    [sharedObjects.dataManager getSupplierByIDNumber:ld.ID andState:ld.State forDelegate:self];
+    
 }
 
 //DTDevice delegate method
@@ -193,7 +214,11 @@ bool scanActive=false;
     */
     LicenseDecoder *ld = [[LicenseDecoder alloc] init];
     [ld decodeMagStripeTracks:track1 withTrack2:track2 andTrack3:track3];
-    [Common showAlert:[NSString stringWithFormat:@"Decoded Values: %@\n%@\n%@", ld.FirstName, ld.LastName, ld.Address1] forDelegate:self];
+    
+    SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
+    sharedObjects.dataManager.delegate = self;
+    [sharedObjects.dataManager getSupplierByIDNumber:ld.ID andState:ld.State forDelegate:self];
+    
 }
 
 @end

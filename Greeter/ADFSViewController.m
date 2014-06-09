@@ -8,6 +8,7 @@
 
 #import "ADFSViewController.h"
 #import "Common.h"
+#import "NSString+ContainsString.h"
 
 @interface ADFSViewController ()
 
@@ -67,7 +68,9 @@
 {
     NSLog(@"Webview shouldStartLoadWithRequest:NavigationType: %i", navigationType);
 
-    if ([request.URL.absoluteString isEqualToString:urlRequest.URL.absoluteString])
+    //DO THIS FIRST Trouble here because of HTTP encoding of the URL during the request
+
+    if ([[request.URL.absoluteString stringByReplacingOccurrencesOfString:@"/" withString:@""] isEqualToString:[[urlRequest.URL.absoluteString stringByReplacingOccurrencesOfString:@"/" withString:@""] stringByReplacingOccurrencesOfString:@"%2F" withString:@""]])
     {
         NSLog(@"This is the original request %@", request.description);
         
@@ -76,6 +79,7 @@
         NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
         for (cookie in [cookieJar cookies])
         {
+            NSLog(@"Cookie: %@", cookie.name);
             if([cookie.name isEqualToString:@"FedAuth"])
                 
                 [delegate authenticationComplete:self];

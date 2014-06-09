@@ -14,7 +14,7 @@
 
 -(void)getSuppliersByLastName:(NSString *)name
 {
-    self.lastRequestURL = [NSString stringWithFormat:@"suppliers/getbylastname/%@", name];
+    self.lastRequestURL = [NSString stringWithFormat:@"suppliers/getbylastnameorbarcode/%@", name];
     [super executeAPIMethod:self.lastRequestURL forDelegate:self];
 }
 
@@ -22,14 +22,12 @@
 {
     self.lastRequestURL = [NSString stringWithFormat:@"suppliers/getbysuppliername/%@", supplierName];
     [super executeAPIMethod:self.lastRequestURL forDelegate:self];
-   
 }
 
 -(void)getSupplierByIDNumber:(NSString *)idNumber andState:(NSString *)state
 {
-    self.lastRequestURL = [NSString stringWithFormat:@"suppliers/getbyidnumber/%@/%@", idNumber, state];
+    self.lastRequestURL = [NSString stringWithFormat:@"suppliers/getsuppliersbyidnumber/%@/%@", idNumber, state];
     [super executeAPIMethod:self.lastRequestURL forDelegate:self];
- 
 }
 
 
@@ -46,8 +44,11 @@
     [BaseDataAccess clearAllObjectsForEntity:@"Supplier"];
     SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
     
-    for (id string in data)
+    //for (id string in data)
+    for(int i = 0; i < data.count; i++)
     {
+        NSDictionary *string = data[i];
+        
         Supplier *supp = (Supplier *)[NSEntityDescription insertNewObjectForEntityForName:@"Supplier" inManagedObjectContext:sharedObjects.managedObjectContext];
         
         supp.supplierName   = [string objectForKey:@"SupplierName"];
@@ -66,6 +67,8 @@
         if (![sharedObjects.managedObjectContext save:&error]) {
             // Handle the error.
         }
+        
+        if(data.count == 0) { sharedObjects.selectedSupplier = supp; }
         
     }
     

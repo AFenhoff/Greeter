@@ -19,7 +19,6 @@
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *vehicleButton;
 @property (nonatomic, retain) IBOutlet UIButton *finishButton;
 @property (nonatomic, retain) IBOutlet UIToolbar *toolbar;
-@property (nonatomic, retain) Supplier *selectedSupplier;
 
 @property (nonatomic) BOOL vehicleOrIDRequired;
 @property (nonatomic) BOOL allItemsComplete;

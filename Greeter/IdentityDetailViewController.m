@@ -19,7 +19,7 @@
 @implementation IdentityDetailViewController
 
 @synthesize tableView, finishButton, materialButton, documentsButton, vehicleButton, toolbar;
-@synthesize vehicleOrIDRequired, allItemsComplete, syncButton, selectedSupplier;
+@synthesize vehicleOrIDRequired, allItemsComplete, syncButton;
 
 bool _vehicleCaptured = NO;
 bool _documentsCaptured = NO;
@@ -82,26 +82,32 @@ bool _materialCaptured = NO;
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
+    SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
+    
     switch (indexPath.row) {
         case 0:
             cell.textLabel.text = @"NAME";
-            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", selectedSupplier.firstName, selectedSupplier.lastName];//@"ANDREW FENHOFF";
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", sharedObjects.selectedSupplier.firstName, sharedObjects.selectedSupplier.lastName];//@"ANDREW FENHOFF";
             break;
         case 1:
             cell.textLabel.text = @"SUPPLIER NAME";
-            cell.detailTextLabel.text = selectedSupplier.supplierName;//@"N/A";
+            cell.detailTextLabel.text = sharedObjects.selectedSupplier.supplierName;//@"N/A";
             break;
         case 2:
             cell.textLabel.text = @"ID NUMBER";
-            cell.detailTextLabel.text = selectedSupplier.idNumber;//@"N/A";
+            cell.detailTextLabel.text = sharedObjects.selectedSupplier.idNumber;//@"N/A";
             break;
         case 3:
             cell.textLabel.text = @"SUPPLIER TYPE";
-            cell.detailTextLabel.text = [selectedSupplier.supplierType length] == 0 ? @"N/A" : selectedSupplier.supplierType;//@"PEDDLER (may have suppliers)";
+            cell.detailTextLabel.text = [sharedObjects.selectedSupplier.supplierType length] == 0 ? @"N/A" : sharedObjects.selectedSupplier.supplierType;//@"PEDDLER (may have suppliers)";
             break;
         case 4:
-            cell.textLabel.text = @"VEHICLE / ID REQUIRED";
-            cell.detailTextLabel.text = [selectedSupplier.idRequired intValue] == 1 ? @"YES" : @"NO";
+            cell.textLabel.text = @"VEHICLE / ID REQUIRED : ID Photo On File";
+            cell.detailTextLabel.text = [sharedObjects.selectedSupplier.idRequired intValue] == 1 ? @"YES" : @"NO";
+            break;
+        case 5: //License expiration date and Age, make it red if under 18
+            //button to view license photo
+            
             break;
             
         default:
@@ -163,7 +169,8 @@ bool _materialCaptured = NO;
 {
     SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
     sharedObjects.dataManager.delegate = self;
-    [sharedObjects.dataManager getSupplierVehiclesBySupplierNo:selectedSupplier.supplierNo andIDNumber:selectedSupplier.idNumber forDelegate:self];
+    [sharedObjects.dataManager getSupplierVehiclesBySupplierNo:sharedObjects.selectedSupplier.supplierNo
+                                                   andIDNumber:sharedObjects.selectedSupplier.idNumber forDelegate:self];
     
 }
 

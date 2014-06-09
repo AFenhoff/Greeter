@@ -19,10 +19,15 @@
     {
         supplierNo = @"BRANCHPEDDLER";
     }
-    self.lastRequestURL = [NSString stringWithFormat:@"suppliers/vehicles/get/%@/%@", supplierNo, idNumber];
+    self.lastRequestURL = [NSString stringWithFormat:@"suppliers/vehicles/getbysuppliernoidnumber/%@/%@", supplierNo, idNumber];
     [super executeAPIMethod:self.lastRequestURL forDelegate:self];
 }
 
+-(void)getSupplierVehicleByBarcode:(NSString *)barcode
+{
+    self.lastRequestURL = [NSString stringWithFormat:@"suppliers/vehicles/getbybarcode/%@", barcode];
+    [super executeAPIMethod:self.lastRequestURL forDelegate:self];
+}
 
 -(void)authenticationComplete:(id)sender
 {
@@ -37,10 +42,10 @@
     [BaseDataAccess clearAllObjectsForEntity:@"Vehicle"];
     SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
     
-    for (id string in data)
+    for(int i = 0; i < data.count; i++)
     {
+        NSDictionary *string = data[i];
         Vehicle *veh = (Vehicle *)[NSEntityDescription insertNewObjectForEntityForName:@"Vehicle" inManagedObjectContext:sharedObjects.managedObjectContext];
-        
         
         veh.supplierNo      = [string objectForKey:@"SupplierNo"];
         veh.idNumber        = [string objectForKey:@"IDNumber"];
@@ -58,6 +63,7 @@
         if (![sharedObjects.managedObjectContext save:&error]) {
             // Handle the error.
         }
+        if(data.count == 1) { sharedObjects.selectedVehicle = veh; }
         
     }
     

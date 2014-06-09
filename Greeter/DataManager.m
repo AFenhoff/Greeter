@@ -10,6 +10,7 @@
 #import "BaseDataAccess.h"
 #import "SupplierDataAccess.h"
 #import "VehicleDataAccess.h"
+#import "UserDataAccess.h"
 
 @implementation DataManager
 
@@ -94,6 +95,20 @@
     [s getSuppliersByLastName:name];
 }
 
+-(void)getSupplierIDNumber:(NSString *)idNumber andState:(NSString *)state forDelegate:(id)delegate;
+{
+    SupplierDataAccess *s = [[SupplierDataAccess alloc] init];
+    s.delegate = self;
+    [s getSupplierByIDNumber:idNumber andState:state];
+}
+
+-(void)getSuppliersBySupplierName:(NSString *)supplierName forDelegate:(id)delegate
+{
+    SupplierDataAccess *s = [[SupplierDataAccess alloc] init];
+    s.delegate = self;
+    [s getSuppliersBySupplierName:supplierName];
+}
+
 -(void)getSupplierVehiclesBySupplierNo:(NSString *)supplierNo andIDNumber:(NSString *)idNumber forDelegate:(id)delegate
 {
     VehicleDataAccess *v = [[VehicleDataAccess alloc] init];
@@ -101,21 +116,33 @@
     [v getSupplierVehiclesBySupplier:supplierNo andIDNumber:idNumber];
 }
 
+-(void)getSupplierVehicleByBarcode:(NSString *)barcode forDelegate:(id)delegate
+{
+    VehicleDataAccess *v = [[VehicleDataAccess alloc] init];
+    v.delegate = self;
+    [v getSupplierVehicleByBarcode:barcode];
+}
+
+-(void)getUserByEmployeeID:(NSNumber *)employeeID forDelegate:(id)delegate
+{
+    //Check to see if this user has authenticated (has a user record in NSUserDefaults)
+    //Need to change this to inspect NSUserDefaults
+    if(![UserDataAccess getUserCookiesForEmployeeID:employeeID])
+    {
+        UserDataAccess *userDataAccess = [[UserDataAccess alloc] init];
+        userDataAccess.delegate = self;
+        [userDataAccess authenticateUser];
+    }
+    
+}
+
+
 -(void)didReceiveData:(NSMutableArray *)data
 {
     NSLog(@"DataManager didReceiveData");
     [self.delegate dataDidSync:self];
 }
 
--(void)getSuppliersBySupplierName:(NSString *)supplierName forDelegate:(id)delegate
-{
-    
-}
-
--(void)getSupplierByIDNumber:(NSString *)idNumber andState:(NSString *)state forDelegate:(id)delegate
-{
-    
-}
 
 
 

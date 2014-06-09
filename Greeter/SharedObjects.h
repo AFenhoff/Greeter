@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "ADFSViewController.h"
 #import "DataManager.h"
+#import "Supplier.h"
+#import "Vehicle.h"
+#import "User.h"
 
 @interface SharedObjects : NSObject <DataManagerDelegate>
 
@@ -17,6 +20,9 @@
 @property (strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (nonatomic, retain) DataManager *dataManager;
 @property (nonatomic, retain) ADFSViewController *authScreen;
+@property (nonatomic, retain) Supplier *selectedSupplier;
+@property (nonatomic, retain) Vehicle *selectedVehicle;
+@property (nonatomic, retain) User *currentUser;
 
 + (id)getSharedObjects;
 

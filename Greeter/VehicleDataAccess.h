@@ -12,5 +12,6 @@
 @interface VehicleDataAccess : BaseDataAccess <ADFSViewControllerDelegate>
 
 -(void)getSupplierVehiclesBySupplier:(NSString *)supplierNo andIDNumber:(NSString *)idNumber;
+-(void)getSupplierVehicleByBarcode:(NSString *)barcode;
 
 @end

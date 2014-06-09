@@ -8,6 +8,7 @@
 
 #import "BaseTableViewController.h"
 #import "AppDelegate.h"
+#import "SharedObjects.h"
 
 @interface BaseTableViewController ()
 
@@ -102,6 +103,25 @@
     
     return cell;
 }
+
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    CGFloat width = CGRectGetWidth(tableView.bounds) - 25;
+    CGFloat height = [self tableView:tableView heightForHeaderInSection:section];
+    UIView *container = [[UIView alloc] initWithFrame:CGRectMake(0,0,width,height)];
+    
+    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(12,0,width,height)];
+    headerLabel.backgroundColor = [UIColor clearColor];
+    headerLabel.font= [UIFont boldSystemFontOfSize:12.0f];
+    headerLabel.shadowOffset = CGSizeMake(1, 1);
+    //headerLabel.shadowColor = [UIColor darkGrayColor];
+    headerLabel.textAlignment = NSTextAlignmentCenter;
+    //NSString *title = [self tableView:tableView titleForHeaderInSection:section];
+    SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
+    headerLabel.text = [NSString stringWithFormat:@"On Device: %@", sharedObjects.currentUser.userName];//title;
+    [container addSubview:headerLabel];
+    return container;
+}
+
 
 /*
 // Override to support conditional editing of the table view.

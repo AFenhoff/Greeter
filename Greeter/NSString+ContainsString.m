@@ -43,5 +43,14 @@
     return YES;
   }
 
+-(NSString *)stringByEncodingSpecialCharacters
+{
+    return (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+                                                               (CFStringRef)self,
+                                                               NULL,
+                                                               CFSTR("!@#$%^&*()_+=-\\][{}|';:""/.,<>?`~"), //"//!*'\"();:@&=+$,/?%#[]%~<>.|`"),
+                                                               kCFStringEncodingUTF8));
+    
+}
 
 @end

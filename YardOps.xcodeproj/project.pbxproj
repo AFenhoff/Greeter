@@ -22,6 +22,11 @@
 		346E68121940180800E7B8E3 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 346E68111940180800E7B8E3 /* ExternalAccessory.framework */; };
 		346E681819401AB300E7B8E3 /* libdtdev.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 346E681719401AB300E7B8E3 /* libdtdev.a */; };
 		346E681A19410A1A00E7B8E3 /* signature.png in Resources */ = {isa = PBXBuildFile; fileRef = 346E681919410A1A00E7B8E3 /* signature.png */; };
+		349732D71943F45F001DC1A6 /* CookieStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 349732D61943F45F001DC1A6 /* CookieStore.m */; };
+		349732DA1944099F001DC1A6 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 349732D91944099F001DC1A6 /* User.m */; };
+		349732DD194545C1001DC1A6 /* UserDataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 349732DC194545C1001DC1A6 /* UserDataAccess.m */; };
+		349732E01945E8E9001DC1A6 /* NSHTTPCookie+ToString.m in Sources */ = {isa = PBXBuildFile; fileRef = 349732DF1945E8E9001DC1A6 /* NSHTTPCookie+ToString.m */; };
+		349732E91946022C001DC1A6 /* NSDictionary+ToCookie.m in Sources */ = {isa = PBXBuildFile; fileRef = 349732E81946022C001DC1A6 /* NSDictionary+ToCookie.m */; };
 		3499AD08180583CF00CA6981 /* RoundedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3499AD07180583CF00CA6981 /* RoundedButton.m */; };
 		3499AD0B1805893100CA6981 /* GreeterHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3499AD0A1805893100CA6981 /* GreeterHomeViewController.m */; };
 		3499AD0E1805912B00CA6981 /* InspectorMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3499AD0D1805912B00CA6981 /* InspectorMenuViewController.m */; };
@@ -122,6 +127,17 @@
 		346E68111940180800E7B8E3 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		346E681719401AB300E7B8E3 /* libdtdev.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libdtdev.a; sourceTree = "<group>"; };
 		346E681919410A1A00E7B8E3 /* signature.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = signature.png; path = Images/signature.png; sourceTree = "<group>"; };
+		349732D41943E4E9001DC1A6 /* Greeter 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Greeter 4.xcdatamodel"; sourceTree = "<group>"; };
+		349732D51943F45F001DC1A6 /* CookieStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CookieStore.h; sourceTree = "<group>"; };
+		349732D61943F45F001DC1A6 /* CookieStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CookieStore.m; sourceTree = "<group>"; };
+		349732D81944099F001DC1A6 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		349732D91944099F001DC1A6 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		349732DB194545C1001DC1A6 /* UserDataAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDataAccess.h; sourceTree = "<group>"; };
+		349732DC194545C1001DC1A6 /* UserDataAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDataAccess.m; sourceTree = "<group>"; };
+		349732DE1945E8E9001DC1A6 /* NSHTTPCookie+ToString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSHTTPCookie+ToString.h"; sourceTree = "<group>"; };
+		349732DF1945E8E9001DC1A6 /* NSHTTPCookie+ToString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSHTTPCookie+ToString.m"; sourceTree = "<group>"; };
+		349732E71946022C001DC1A6 /* NSDictionary+ToCookie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+ToCookie.h"; sourceTree = "<group>"; };
+		349732E81946022C001DC1A6 /* NSDictionary+ToCookie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+ToCookie.m"; sourceTree = "<group>"; };
 		3499AD06180583CF00CA6981 /* RoundedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedButton.h; sourceTree = "<group>"; };
 		3499AD07180583CF00CA6981 /* RoundedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedButton.m; sourceTree = "<group>"; };
 		3499AD091805893100CA6981 /* GreeterHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GreeterHomeViewController.h; sourceTree = "<group>"; };
@@ -255,8 +271,27 @@
 				34E30CAA17ECEEA4005963B7 /* Common.m */,
 				346E6808193F788A00E7B8E3 /* LicenseDecoder.h */,
 				346E6809193F788A00E7B8E3 /* LicenseDecoder.m */,
+				349732D51943F45F001DC1A6 /* CookieStore.h */,
+				349732D61943F45F001DC1A6 /* CookieStore.m */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		349732D31941F80B001DC1A6 /* Greeter */ = {
+			isa = PBXGroup;
+			children = (
+				3499AD0F18064A6F00CA6981 /* IdentificationMenuViewController.h */,
+				3499AD1018064A6F00CA6981 /* IdentificationMenuViewController.m */,
+				345B9A7718CE3358009A459D /* IdentificationViewController.h */,
+				345B9A7818CE3358009A459D /* IdentificationViewController.m */,
+				345B9A7D18CE53FA009A459D /* IdentityDetailViewController.h */,
+				345B9A7E18CE53FA009A459D /* IdentityDetailViewController.m */,
+				345B9A7A18CE4C80009A459D /* SearchResultsTableViewController.h */,
+				345B9A7B18CE4C80009A459D /* SearchResultsTableViewController.m */,
+				34B2354618D0D7510075BB28 /* VehicleMenuViewController.h */,
+				34B2354718D0D7510075BB28 /* VehicleMenuViewController.m */,
+			);
+			name = Greeter;
 			sourceTree = "<group>";
 		};
 		3499AD05180583B200CA6981 /* Controls */ = {
@@ -285,6 +320,8 @@
 			isa = PBXGroup;
 			children = (
 				34E30C7017ECEC9A005963B7 /* Greeter.xcdatamodeld */,
+				349732D81944099F001DC1A6 /* User.h */,
+				349732D91944099F001DC1A6 /* User.m */,
 				346E6801193EBAF200E7B8E3 /* Vehicle.h */,
 				346E6802193EBAF200E7B8E3 /* Vehicle.m */,
 				346E67FD193E23B100E7B8E3 /* Supplier.h */,
@@ -395,6 +432,8 @@
 				346E67FA193E062400E7B8E3 /* SharedObjects.m */,
 				346E6804193EBB1500E7B8E3 /* VehicleDataAccess.h */,
 				346E6805193EBB1500E7B8E3 /* VehicleDataAccess.m */,
+				349732DB194545C1001DC1A6 /* UserDataAccess.h */,
+				349732DC194545C1001DC1A6 /* UserDataAccess.m */,
 			);
 			name = DataAccess;
 			sourceTree = "<group>";
@@ -424,16 +463,7 @@
 				3499AD19180D8A5400CA6981 /* DocumentationMenuViewController.m */,
 				3499AD20180D91D400CA6981 /* SignatureViewController.h */,
 				3499AD21180D91D400CA6981 /* SignatureViewController.m */,
-				3499AD0F18064A6F00CA6981 /* IdentificationMenuViewController.h */,
-				3499AD1018064A6F00CA6981 /* IdentificationMenuViewController.m */,
-				345B9A7718CE3358009A459D /* IdentificationViewController.h */,
-				345B9A7818CE3358009A459D /* IdentificationViewController.m */,
-				345B9A7D18CE53FA009A459D /* IdentityDetailViewController.h */,
-				345B9A7E18CE53FA009A459D /* IdentityDetailViewController.m */,
-				345B9A7A18CE4C80009A459D /* SearchResultsTableViewController.h */,
-				345B9A7B18CE4C80009A459D /* SearchResultsTableViewController.m */,
-				34B2354618D0D7510075BB28 /* VehicleMenuViewController.h */,
-				34B2354718D0D7510075BB28 /* VehicleMenuViewController.m */,
+				349732D31941F80B001DC1A6 /* Greeter */,
 				34CB2F1918DA0C1E00C1A66C /* DocumentDetailViewController.h */,
 				34CB2F1A18DA0C1E00C1A66C /* DocumentDetailViewController.m */,
 				34CB2F1C18DA2AEA00C1A66C /* BarcodeViewController.h */,
@@ -475,6 +505,10 @@
 				34E30CC017ECEF43005963B7 /* NSString+ToDate.m */,
 				346E680B193F88EA00E7B8E3 /* NSString+ContainsString.h */,
 				346E680C193F88EA00E7B8E3 /* NSString+ContainsString.m */,
+				349732DE1945E8E9001DC1A6 /* NSHTTPCookie+ToString.h */,
+				349732DF1945E8E9001DC1A6 /* NSHTTPCookie+ToString.m */,
+				349732E71946022C001DC1A6 /* NSDictionary+ToCookie.h */,
+				349732E81946022C001DC1A6 /* NSDictionary+ToCookie.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -582,6 +616,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				349732DA1944099F001DC1A6 /* User.m in Sources */,
 				34E30CAB17ECEEA4005963B7 /* Common.m in Sources */,
 				3499AD171806554800CA6981 /* DetailsTableViewController.m in Sources */,
 				34B4EA8218F5E31500251AAB /* Model.m in Sources */,
@@ -594,6 +629,7 @@
 				3499AD25180D947700CA6981 /* VINEntryViewController.m in Sources */,
 				346E6806193EBB1500E7B8E3 /* VehicleDataAccess.m in Sources */,
 				34E30C9C17ECED96005963B7 /* LoginViewController.m in Sources */,
+				349732E91946022C001DC1A6 /* NSDictionary+ToCookie.m in Sources */,
 				34B4EA8718F6326700251AAB /* SearchViewController.m in Sources */,
 				345B9A7C18CE4C80009A459D /* SearchResultsTableViewController.m in Sources */,
 				34CB2F1E18DA2AEA00C1A66C /* BarcodeViewController.m in Sources */,
@@ -601,6 +637,7 @@
 				346E67FF193E23B100E7B8E3 /* Supplier.m in Sources */,
 				3499AD0B1805893100CA6981 /* GreeterHomeViewController.m in Sources */,
 				34B4EA7B18F5E0E600251AAB /* Make.m in Sources */,
+				349732D71943F45F001DC1A6 /* CookieStore.m in Sources */,
 				34E30CA117ECEDDD005963B7 /* BaseTableViewController.m in Sources */,
 				346E680A193F788A00E7B8E3 /* LicenseDecoder.m in Sources */,
 				34E30C7217ECEC9A005963B7 /* Greeter.xcdatamodeld in Sources */,
@@ -614,6 +651,8 @@
 				34E30C6917ECEC99005963B7 /* AppDelegate.m in Sources */,
 				34E30CA517ECEE0E005963B7 /* DataManager.m in Sources */,
 				3450AD571924E90C00742A96 /* AdjustmentsViewController.m in Sources */,
+				349732DD194545C1001DC1A6 /* UserDataAccess.m in Sources */,
+				349732E01945E8E9001DC1A6 /* NSHTTPCookie+ToString.m in Sources */,
 				3450ADA0193D1A9300742A96 /* ADFSViewController.m in Sources */,
 				3450AD9D193D0BAB00742A96 /* SupplierDataAccess.m in Sources */,
 				34E30C6517ECEC99005963B7 /* main.m in Sources */,
@@ -875,11 +914,12 @@
 		34E30C7017ECEC9A005963B7 /* Greeter.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				349732D41943E4E9001DC1A6 /* Greeter 4.xcdatamodel */,
 				346E67FC193E223200E7B8E3 /* Greeter 2.xcdatamodel */,
 				346E6800193EA06700E7B8E3 /* Greeter 3.xcdatamodel */,
 				34E30C7117ECEC9A005963B7 /* Greeter.xcdatamodel */,
 			);
-			currentVersion = 346E6800193EA06700E7B8E3 /* Greeter 3.xcdatamodel */;
+			currentVersion = 349732D41943E4E9001DC1A6 /* Greeter 4.xcdatamodel */;
 			path = Greeter.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

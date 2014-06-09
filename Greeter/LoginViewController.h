@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 
-@interface LoginViewController : BaseViewController <UIAlertViewDelegate>
+@interface LoginViewController : BaseViewController <UIAlertViewDelegate, DataManagerDelegate>
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) IBOutlet UITextField *employeeIDTextField;

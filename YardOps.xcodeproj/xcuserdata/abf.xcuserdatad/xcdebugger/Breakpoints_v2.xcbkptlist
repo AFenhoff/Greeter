@@ -80,16 +80,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Greeter/BaseDataAccess.m"
-            timestampString = "423505094.38931"
+            filePath = "Greeter/IdentificationViewController.m"
+            timestampString = "423753779.37165"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "262"
-            endingLineNumber = "262"
-            landmarkName = "-handleResponse:"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
+            landmarkName = "-barcodeData:type:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Greeter/IdentificationViewController.m"
+            timestampString = "423753843.489944"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "-dataDidSync:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

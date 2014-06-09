@@ -12,5 +12,6 @@
 
 - (BOOL) containsString: (NSString*) substring;
 - (BOOL) stringIsValidASCIIString;
+- (NSString *)stringByEncodingSpecialCharacters;
 
 @end

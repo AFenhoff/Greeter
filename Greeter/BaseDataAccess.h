@@ -63,6 +63,7 @@
 @property (nonatomic, retain) id callbackDelegate;
 @property (nonatomic, retain) NSString * GUID;
 @property (nonatomic, retain) NSString *lastRequestURL;
+@property (nonatomic, retain) NSURLResponse *returnedResponse;
 
 +(void)clearAllObjectsForEntity:(NSString *)entityName;
 
