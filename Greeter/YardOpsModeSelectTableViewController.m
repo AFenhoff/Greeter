@@ -46,11 +46,11 @@
         switch ([Common getIntSetting:kGreeterMode]) {
             case 1:
                 //fe
-                [self performSegueWithIdentifier:@"LoginGreeterAndFESelected" sender:self];
+                [self performSegueWithIdentifier:@"SelectModeGreeterAndFESelected" sender:self];
                 break;
             case 2:
                 //nf
-                [self performSegueWithIdentifier:@"LoginGreeterAndNFSelected" sender:self];
+                [self performSegueWithIdentifier:@"SelectModeGreeterAndNFSelected" sender:self];
                 break;
             default:
                 [self performSegueWithIdentifier:@"greeter" sender:self];

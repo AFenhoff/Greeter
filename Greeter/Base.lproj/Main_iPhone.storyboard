@@ -158,10 +158,10 @@
             </objects>
             <point key="canvasLocation" x="1988" y="224"/>
         </scene>
-        <!--Table View Controller - Select Mode-->
+        <!--Yard Ops Mode Select Table View Controller - Select Mode-->
         <scene sceneID="AWe-1r-74O">
             <objects>
-                <tableViewController id="mzO-2o-rXt" sceneMemberID="viewController">
+                <tableViewController id="mzO-2o-rXt" customClass="YardOpsModeSelectTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="pAt-zn-GAl">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

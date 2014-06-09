@@ -13,6 +13,7 @@
 #define kApplicationModeSettingName         @"applicationMode"
 #define kVersionSettingName                 @"version"
 #define kGreeterMode                        @"greeterMode"
+#define kBranchSettingName                  @"branch"
 
 
 @interface Common : NSObject
