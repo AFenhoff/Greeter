@@ -12,6 +12,7 @@
 #define kIsProductionSettingName            @"isProduction"
 #define kApplicationModeSettingName         @"applicationMode"
 #define kVersionSettingName                 @"version"
+#define kGreeterMode                        @"greeterMode"
 
 
 @interface Common : NSObject

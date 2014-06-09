@@ -102,7 +102,7 @@
             [self performSegueWithIdentifier:@"greeterAndInspector" sender:self];
             break;
         case 1: //Greeter
-            switch ([Common getIntSetting:@""]) {
+            switch ([Common getIntSetting:kGreeterMode]) {
                 case 1:
                     //fe
                     [self performSegueWithIdentifier:@"LoginGreeterAndFESelected" sender:self];

@@ -187,9 +187,6 @@
                                         <accessibility key="accessibilityConfiguration" label="mjbkjh">
                                             <accessibilityTraits key="traits" none="YES"/>
                                         </accessibility>
-                                        <connections>
-                                            <segue destination="0WT-FN-3Ig" kind="push" identifier="greeter" id="VQN-MU-vAj"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Gke-po-YVB">
                                         <rect key="frame" x="0.0" y="44" width="320" height="44"/>
@@ -221,10 +218,15 @@
                     <navigationItem key="navigationItem" title="Select Mode" id="0fK-gK-qZS">
                         <barButtonItem key="backBarButtonItem" title="Logout" id="igM-fF-hHN"/>
                     </navigationItem>
+                    <connections>
+                        <segue destination="0WT-FN-3Ig" kind="push" identifier="greeter" id="tC1-Qx-Ahk"/>
+                        <segue destination="QjY-3L-dsD" kind="push" identifier="SelectModeGreeterAndFESelected" id="mur-kE-wGf"/>
+                        <segue destination="ftc-3q-k4Y" kind="push" identifier="SelectModeGreeterAndNFSelected" id="FA5-Fj-kcg"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K2F-GZ-RJu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="977" y="180"/>
+            <point key="canvasLocation" x="965" y="156"/>
         </scene>
         <!--Greeter Menu View Controller-->
         <scene sceneID="VgW-fR-Quf">
@@ -1637,11 +1639,11 @@ THIS CONTRACT IS VALID FOR THREE (3) YEARS FROM DATE ABOVE
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="mk5-1U-Cnp"/>
+        <segue reference="mur-kE-wGf"/>
+        <segue reference="dkl-fe-HlM"/>
+        <segue reference="FA5-Fj-kcg"/>
+        <segue reference="tC1-Qx-Ahk"/>
         <segue reference="Ver-6X-rsN"/>
-        <segue reference="kum-bQ-Ksh"/>
-        <segue reference="Z7r-A5-gWs"/>
-        <segue reference="E4v-VV-M4P"/>
-        <segue reference="JpF-z8-4yc"/>
+        <segue reference="mk5-1U-Cnp"/>
     </inferredMetricsTieBreakers>
 </document>

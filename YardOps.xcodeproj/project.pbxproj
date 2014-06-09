@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2EFC9075194643C3002F4CCC /* YardOpsModeSelectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC9074194643C3002F4CCC /* YardOpsModeSelectTableViewController.m */; };
 		3450AD571924E90C00742A96 /* AdjustmentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3450AD561924E90C00742A96 /* AdjustmentsViewController.m */; };
 		3450AD9D193D0BAB00742A96 /* SupplierDataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 3450AD9C193D0BAB00742A96 /* SupplierDataAccess.m */; };
 		3450ADA0193D1A9300742A96 /* ADFSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3450AD9F193D1A9300742A96 /* ADFSViewController.m */; };
@@ -96,6 +97,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2EFC9073194643C3002F4CCC /* YardOpsModeSelectTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YardOpsModeSelectTableViewController.h; sourceTree = "<group>"; };
+		2EFC9074194643C3002F4CCC /* YardOpsModeSelectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YardOpsModeSelectTableViewController.m; sourceTree = "<group>"; };
 		3450AD551924E90C00742A96 /* AdjustmentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdjustmentsViewController.h; sourceTree = "<group>"; };
 		3450AD561924E90C00742A96 /* AdjustmentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdjustmentsViewController.m; sourceTree = "<group>"; };
 		3450AD9B193D0BAB00742A96 /* SupplierDataAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupplierDataAccess.h; sourceTree = "<group>"; };
@@ -476,6 +479,8 @@
 				3450AD561924E90C00742A96 /* AdjustmentsViewController.m */,
 				3450AD9E193D1A9300742A96 /* ADFSViewController.h */,
 				3450AD9F193D1A9300742A96 /* ADFSViewController.m */,
+				2EFC9073194643C3002F4CCC /* YardOpsModeSelectTableViewController.h */,
+				2EFC9074194643C3002F4CCC /* YardOpsModeSelectTableViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -655,6 +660,7 @@
 				349732E01945E8E9001DC1A6 /* NSHTTPCookie+ToString.m in Sources */,
 				3450ADA0193D1A9300742A96 /* ADFSViewController.m in Sources */,
 				3450AD9D193D0BAB00742A96 /* SupplierDataAccess.m in Sources */,
+				2EFC9075194643C3002F4CCC /* YardOpsModeSelectTableViewController.m in Sources */,
 				34E30C6517ECEC99005963B7 /* main.m in Sources */,
 				345B9A7F18CE53FA009A459D /* IdentityDetailViewController.m in Sources */,
 				34CB2F2518DC956500C1A66C /* BarcodeTableViewCell.m in Sources */,
