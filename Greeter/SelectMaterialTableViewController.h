@@ -9,8 +9,11 @@
 #import "BaseModalViewController.h"
 #import "Material.h"
 
-@interface SelectMaterialTableViewController : BaseModalViewController<NSFetchedResultsControllerDelegate>
+@interface SelectMaterialTableViewController : BaseModalViewController<NSFetchedResultsControllerDelegate, UISearchBarDelegate>
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, retain) NSArray* materials;
+
+-(void)filterMaterialsForText:(NSString *) searchString;
 
 @end
