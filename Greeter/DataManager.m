@@ -12,6 +12,7 @@
 #import "SupplierDataAccess.h"
 #import "VehicleDataAccess.h"
 #import "UserDataAccess.h"
+#import "GreeterQueueManager.h"
 
 @implementation DataManager
 
@@ -142,7 +143,15 @@
 -(void)getMaterialsForBranch:(NSString *)branchCode forDelegate:(id)delegate
 {
     MaterialDataAccess* materialDataAccess = [[MaterialDataAccess alloc] init];
+    materialDataAccess.delegate = self;
     [materialDataAccess getMaterialsForBranch:branchCode forDelegate:delegate];
+}
+
+-(void)saveGreeterQueue
+{
+    GreeterQueueManager *greeterQueueManager = [[GreeterQueueManager alloc] init];
+    greeterQueueManager.delegate = self;
+    [greeterQueueManager saveGreeterQueueRecord];
 }
 
 -(void)didReceiveData:(NSMutableArray *)data

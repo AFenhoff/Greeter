@@ -32,5 +32,6 @@
 -(void)getSupplierVehicleByBarcode:(NSString *)barcode forDelegate:(id)delegate;
 -(void)getUserByEmployeeID:(NSNumber *)employeeID forDelegate:(id)delegate;
 -(void)getMaterialsForBranch:(NSString *)branchCode forDelegate:(id)delegate;
+-(void)saveGreeterQueue;
 
 @end

@@ -178,6 +178,8 @@ bool _materialCaptured = NO;
 {
     //DataManager's delegate method (dataDidSync) needs more info so we can determine which segue to fire
     [self performSegueWithIdentifier:@"vehicles" sender:self];
+    
+    
 }
 
 -(void)modalComplete:(id)sender
