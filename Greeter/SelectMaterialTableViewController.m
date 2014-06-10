@@ -13,6 +13,7 @@
 @end
 
 @implementation SelectMaterialTableViewController
+@synthesize materials;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,6 +28,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self filterMaterialsForText:@""];
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,13 +51,22 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [[self.fetchedResultsController sections] count];
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
-    return [sectionInfo numberOfObjects];
+    return [self.materials count];
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Material *selectedMaterial = (Material *)[self.materials objectAtIndex:indexPath.row];
+    
+    SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
+    sharedObjects.selectedMaterial = selectedMaterial;
+    [self dismissViewControllerAnimated:TRUE completion:nil];
+    [self.delegate modalComplete:self];
 }
 
 /*
@@ -82,9 +93,11 @@
      Search should find first by BeginsWith then by Contains
      ******************************************************************/
     
-    Material *mat= [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = mat.materialDescription;
-    cell.detailTextLabel.text = mat.materialCode;
+    if (indexPath.section == 0) {
+        Material *mat= (Material *)[self.materials objectAtIndex:indexPath.row];
+        cell.textLabel.text = mat.materialDescription;
+        cell.detailTextLabel.text = mat.materialCode;
+    }
     
 }
 
@@ -180,6 +193,51 @@
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
     //[self.tableView endUpdates];
+}
+
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    [self filterMaterialsForText:searchText];
+}
+
+-(void)filterMaterialsForText:(NSString *) searchString
+{
+    if (searchString == nil) {
+        searchString = @"";
+    }
+    
+    NSFetchRequest* request = [[NSFetchRequest alloc]init];
+    
+    
+    if (![searchString isEqualToString:@""]) {
+        searchString = [searchString stringByAppendingString:@"*"];
+        NSPredicate* predicate = [NSPredicate predicateWithFormat:@"materialDescription LIKE[c] %@", searchString];
+        [request setPredicate:predicate];
+    }
+    
+    SharedObjects* sharedObject = [SharedObjects getSharedObjects];
+    NSManagedObjectContext* context = sharedObject.managedObjectContext;
+    NSEntityDescription* materialEntity = [NSEntityDescription entityForName:@"Material" inManagedObjectContext:context];
+    
+    [request setEntity:materialEntity];
+    
+    /*
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
+                                        initWithKey:@"materialCode" ascending:YES];
+    [request setSortDescriptors:@[sortDescriptor]];
+    */
+    NSError *error;
+    NSArray *array = [context executeFetchRequest:request error:&error];
+    if (array == nil)
+    {
+        //TODO: handle error
+    }
+    else
+    {
+        self.materials = array;
+    }
+    
+    [self.tableView reloadData];
 }
 
 @end

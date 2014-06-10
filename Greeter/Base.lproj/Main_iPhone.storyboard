@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rS3-R9-Ivy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rS3-R9-Ivy">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -1477,7 +1477,6 @@ THIS CONTRACT IS VALID FOR THREE (3) YEARS FROM DATE ABOVE
                 <searchDisplayController id="HkA-vB-z0j">
                     <connections>
                         <outlet property="delegate" destination="zR4-Im-IEL" id="APi-DH-kS0"/>
-                        <outlet property="searchBar" destination="3VQ-TC-Pwh" id="icR-Oj-4JA"/>
                         <outlet property="searchContentsController" destination="zR4-Im-IEL" id="NNj-UE-REX"/>
                         <outlet property="searchResultsDataSource" destination="zR4-Im-IEL" id="p06-mm-7Ze"/>
                         <outlet property="searchResultsDelegate" destination="zR4-Im-IEL" id="DJU-Ui-1QJ"/>
@@ -1639,11 +1638,11 @@ THIS CONTRACT IS VALID FOR THREE (3) YEARS FROM DATE ABOVE
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="mur-kE-wGf"/>
         <segue reference="dkl-fe-HlM"/>
-        <segue reference="FA5-Fj-kcg"/>
         <segue reference="tC1-Qx-Ahk"/>
-        <segue reference="Ver-6X-rsN"/>
+        <segue reference="FA5-Fj-kcg"/>
+        <segue reference="mur-kE-wGf"/>
+        <segue reference="jcF-oU-Qjy"/>
         <segue reference="mk5-1U-Cnp"/>
     </inferredMetricsTieBreakers>
 </document>

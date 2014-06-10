@@ -12,7 +12,7 @@
 
 -(void)getMaterialsForBranch:(NSString *)branchCode forDelegate:(id)delegate
 {
-    self.lastRequestURL = [NSString stringWithFormat:@"%@", @"materials/getallmaterials"];
+    self.lastRequestURL = [NSString stringWithFormat:@"%@/%@", @"materials/getallmaterials", branchCode];
     [super executeAPIMethod:self.lastRequestURL forDelegate:self];
 }
 
@@ -43,9 +43,6 @@
         if (![sharedObjects.managedObjectContext save:&error]) {
             // Handle the error.
         }
-        
-        if(data.count == 0) { sharedObjects.selectedSupplier = mat; }
-        
     }
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;

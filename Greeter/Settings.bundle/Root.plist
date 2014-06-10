@@ -5,24 +5,12 @@
 	<key>PreferenceSpecifiers</key>
 	<array>
 		<dict>
-			<key>Titles</key>
-			<array>
-				<string>Kaley</string>
-				<string>Pinellas Park</string>
-			</array>
-			<key>Values</key>
-			<array>
-				<string>KL</string>
-				<string>PP</string>
-			</array>
 			<key>Type</key>
-			<string>PSMultiValueSpecifier</string>
+			<string>PSTextFieldSpecifier</string>
 			<key>Title</key>
 			<string>Branch</string>
 			<key>Key</key>
 			<string>branch</string>
-			<key>DefaultValue</key>
-			<string>Pinellas Park</string>
 		</dict>
 		<dict>
 			<key>Title</key>
