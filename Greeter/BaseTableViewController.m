@@ -38,7 +38,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     UIButton *titleLabel = [UIButton buttonWithType:UIButtonTypeCustom];
 	titleLabel.titleLabel.font = [UIFont boldSystemFontOfSize:kNavBarTitleFontSize];
-	NSString* title = [NSString stringWithFormat:@"%@: %@",     [Common getStringSetting:@"DefaultBranchCode"],self.navigationItem.title];
+	NSString* title = [NSString stringWithFormat:@"%@ : %@",     [Common getStringSetting:kBranchSettingName],self.navigationItem.title];
 	[titleLabel setTitle:title forState:UIControlStateNormal];
 	titleLabel.frame = CGRectMake(0, 0, 120, 44);
 	[titleLabel addTarget:self action:@selector(titleTap:) forControlEvents:UIControlEventTouchUpInside];
@@ -51,7 +51,7 @@
 
 -(void)refreshTitle
 {
-    NSString* title = [NSString stringWithFormat:@"%@: %@",     [Common getStringSetting:@"DefaultBranchCode"],self.navigationItem.title];
+    NSString* title = [NSString stringWithFormat:@"%@ : %@",     [Common getStringSetting:kBranchSettingName],self.navigationItem.title];
     [((UIButton *)self.navigationItem.titleView) setTitle:title forState:UIControlStateNormal];
 }
 
