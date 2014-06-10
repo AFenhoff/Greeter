@@ -39,6 +39,7 @@
 +(NSArray *)getUserCookiesForEmployeeID:(NSNumber *)employeeID
 {
     NSArray *cookiesdata = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@Cookies", employeeID]];
+    /*
     if(cookiesdata.count > 0) {
         NSArray *cookiesAsDictionaries = [NSKeyedUnarchiver unarchiveObjectWithData:cookiesdata];
         NSMutableArray *cookies = [[NSMutableArray alloc] init];
@@ -49,6 +50,8 @@
         return cookies;
     }
     return nil;
+     */
+    return cookiesdata;
 }
 
 -(void)authenticateUser

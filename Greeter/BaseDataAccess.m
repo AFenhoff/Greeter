@@ -410,25 +410,33 @@
     }
     conn = [NSURLConnection connectionWithRequest:request delegate:self];
 }
-
+    
 -(void)saveUserCookiesInResponse:(NSHTTPURLResponse *)response forEmployeeID:(NSNumber *)employeeID
 {
+    /*********************************************
+     HAVING A HARD TIME GETTING THIS TO WORK
+     /*********************************************
     NSMutableArray *cookies =[[NSMutableArray alloc]init];
     for (NSHTTPCookie *thisCookie in [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies])
     {
+        NSLog(@"%@", thisCookie);
         // should be OK, check out category
         [cookies addObject:[thisCookie toDictionary]];
     }
     
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     [prefs setObject:cookies forKey:[NSString stringWithFormat:@"%@Cookies", employeeID]];
+    *********************************************/
 }
 
 -(void) handleCookiesInRequest:(NSMutableURLRequest*) request
 {
     //Create toCookie on NSString to repopulate cookies
     
-    SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
+    /*********************************************
+     HAVING A HARD TIME GETTING THIS TO WORK
+    /*********************************************
+     SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
     NSArray *cookies = [UserDataAccess getUserCookiesForEmployeeID:sharedObjects.currentUser.employeeID];
     
     if(!cookies || cookies.count == 0) { return; }
@@ -442,6 +450,7 @@
     for (NSUInteger i=0;i<count;i++) {
         [request setValue:values[i] forHTTPHeaderField:keys[i]];
     }
+    *********************************************/
 }
 
 @end

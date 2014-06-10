@@ -132,6 +132,8 @@
         UserDataAccess *userDataAccess = [[UserDataAccess alloc] init];
         userDataAccess.delegate = self;
         [userDataAccess authenticateUser];
+    }else{
+        [self.delegate dataDidSync:self];
     }
     
 }

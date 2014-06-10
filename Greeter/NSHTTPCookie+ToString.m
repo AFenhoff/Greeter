@@ -53,7 +53,7 @@
 {
     NSArray *keys = [NSArray arrayWithObjects:@"name", @"value", @"domain", @"path", @"expiresDate", @"isSessionOnly", @"isSecure", nil];
     NSArray *objects = [NSArray arrayWithObjects:self.name, self.value, self.domain, self.path
-                        , self.expiresDate ? self.expiresDate : @"", self.isSessionOnly ? @"1" : @"0",self.isSecure ? @"1" : @"0", nil];
+                        , self.expiresDate ? self.expiresDate : [NSDate dateWithTimeIntervalSinceNow:60 * 60 * 24 * 365], self.isSessionOnly ? @"0" : @"0",self.isSecure ? @"1" : @"0", nil];
     NSDictionary *cookieProperties = [NSDictionary dictionaryWithObjects:objects
                                                            forKeys:keys];
     
