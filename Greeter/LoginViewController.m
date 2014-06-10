@@ -97,6 +97,9 @@
 
 -(void)dataDidSync:(id)sender
 {
+    SharedObjects* currentObject = [SharedObjects getSharedObjects];
+    [currentObject.dataManager getMaterialsForBranch:[Common getStringSetting:kBranchSettingName] forDelegate:self];
+    
     switch ([Common getIntSetting:kApplicationModeSettingName]) {
         case 0: //Greeter and Inspector
             [self performSegueWithIdentifier:@"greeterAndInspector" sender:self];

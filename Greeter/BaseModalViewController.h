@@ -8,6 +8,7 @@
 
 #import "BaseViewController.h"
 #import "SharedObjects.h"
+#import "DataManager.h"
 
 @protocol BaseModalViewControllerDelegate<NSObject>
 

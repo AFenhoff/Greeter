@@ -31,5 +31,6 @@
 -(void)getSupplierByIDNumber:(NSString *)idNumber andState:(NSString *)state forDelegate:(id)delegate;
 -(void)getSupplierVehicleByBarcode:(NSString *)barcode forDelegate:(id)delegate;
 -(void)getUserByEmployeeID:(NSNumber *)employeeID forDelegate:(id)delegate;
+-(void)getMaterialsForBranch:(NSString *)branchCode forDelegate:(id)delegate;
 
 @end

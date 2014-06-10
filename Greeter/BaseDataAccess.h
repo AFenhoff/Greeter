@@ -23,6 +23,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AppDelegate.h"
+#import "Material.h"
 
 @protocol BaseDataAccessDelegate<NSObject>
 @optional

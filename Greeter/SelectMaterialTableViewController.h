@@ -7,7 +7,10 @@
 //
 
 #import "BaseModalViewController.h"
+#import "Material.h"
 
-@interface SelectMaterialTableViewController : BaseModalViewController
+@interface SelectMaterialTableViewController : BaseModalViewController<NSFetchedResultsControllerDelegate>
+
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @end

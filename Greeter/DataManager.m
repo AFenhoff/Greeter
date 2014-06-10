@@ -8,6 +8,7 @@
 
 #import "DataManager.h"
 #import "BaseDataAccess.h"
+#import "MaterialDataAccess.h"
 #import "SupplierDataAccess.h"
 #import "VehicleDataAccess.h"
 #import "UserDataAccess.h"
@@ -138,6 +139,11 @@
     
 }
 
+-(void)getMaterialsForBranch:(NSString *)branchCode forDelegate:(id)delegate
+{
+    MaterialDataAccess* materialDataAccess = [[MaterialDataAccess alloc] init];
+    [materialDataAccess getMaterialsForBranch:branchCode forDelegate:delegate];
+}
 
 -(void)didReceiveData:(NSMutableArray *)data
 {

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E6B2C401946509E003EFDED /* MaterialDataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6B2C3F1946509E003EFDED /* MaterialDataAccess.m */; };
+		2E6B2C49194691B7003EFDED /* Material.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6B2C48194691B7003EFDED /* Material.m */; };
 		2EFC9075194643C3002F4CCC /* YardOpsModeSelectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC9074194643C3002F4CCC /* YardOpsModeSelectTableViewController.m */; };
 		3450AD571924E90C00742A96 /* AdjustmentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3450AD561924E90C00742A96 /* AdjustmentsViewController.m */; };
 		3450AD9D193D0BAB00742A96 /* SupplierDataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 3450AD9C193D0BAB00742A96 /* SupplierDataAccess.m */; };
@@ -97,6 +99,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E6B2C3E1946509E003EFDED /* MaterialDataAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaterialDataAccess.h; sourceTree = "<group>"; };
+		2E6B2C3F1946509E003EFDED /* MaterialDataAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaterialDataAccess.m; sourceTree = "<group>"; };
+		2E6B2C47194691B7003EFDED /* Material.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Material.h; sourceTree = "<group>"; };
+		2E6B2C48194691B7003EFDED /* Material.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Material.m; sourceTree = "<group>"; };
 		2EFC9073194643C3002F4CCC /* YardOpsModeSelectTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YardOpsModeSelectTableViewController.h; sourceTree = "<group>"; };
 		2EFC9074194643C3002F4CCC /* YardOpsModeSelectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YardOpsModeSelectTableViewController.m; sourceTree = "<group>"; };
 		3450AD551924E90C00742A96 /* AdjustmentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdjustmentsViewController.h; sourceTree = "<group>"; };
@@ -323,6 +329,8 @@
 			isa = PBXGroup;
 			children = (
 				34E30C7017ECEC9A005963B7 /* Greeter.xcdatamodeld */,
+				2E6B2C47194691B7003EFDED /* Material.h */,
+				2E6B2C48194691B7003EFDED /* Material.m */,
 				349732D81944099F001DC1A6 /* User.h */,
 				349732D91944099F001DC1A6 /* User.m */,
 				346E6801193EBAF200E7B8E3 /* Vehicle.h */,
@@ -437,6 +445,8 @@
 				346E6805193EBB1500E7B8E3 /* VehicleDataAccess.m */,
 				349732DB194545C1001DC1A6 /* UserDataAccess.h */,
 				349732DC194545C1001DC1A6 /* UserDataAccess.m */,
+				2E6B2C3E1946509E003EFDED /* MaterialDataAccess.h */,
+				2E6B2C3F1946509E003EFDED /* MaterialDataAccess.m */,
 			);
 			name = DataAccess;
 			sourceTree = "<group>";
@@ -645,6 +655,7 @@
 				349732D71943F45F001DC1A6 /* CookieStore.m in Sources */,
 				34E30CA117ECEDDD005963B7 /* BaseTableViewController.m in Sources */,
 				346E680A193F788A00E7B8E3 /* LicenseDecoder.m in Sources */,
+				2E6B2C401946509E003EFDED /* MaterialDataAccess.m in Sources */,
 				34E30C7217ECEC9A005963B7 /* Greeter.xcdatamodeld in Sources */,
 				34B2354818D0D7510075BB28 /* VehicleMenuViewController.m in Sources */,
 				34E30CA817ECEE76005963B7 /* BaseDataAccess.m in Sources */,
@@ -654,6 +665,7 @@
 				34E30CC817ECEF43005963B7 /* NSString+BSJSONAdditions.m in Sources */,
 				34E30CC417ECEF43005963B7 /* NSDate+ToString.m in Sources */,
 				34E30C6917ECEC99005963B7 /* AppDelegate.m in Sources */,
+				2E6B2C49194691B7003EFDED /* Material.m in Sources */,
 				34E30CA517ECEE0E005963B7 /* DataManager.m in Sources */,
 				3450AD571924E90C00742A96 /* AdjustmentsViewController.m in Sources */,
 				349732DD194545C1001DC1A6 /* UserDataAccess.m in Sources */,
