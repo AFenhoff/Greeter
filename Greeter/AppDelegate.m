@@ -47,12 +47,6 @@
     so.managedObjectModel = self.managedObjectModel;
     so.persistentStoreCoordinator = self.persistentStoreCoordinator;
     
-    
-    ModelGenerator *m = [[ModelGenerator alloc]init];
-    m.managedObjectContext = self.managedObjectContext;
-    [m createMakes];
-    [m createModels];
-    
     return YES;
 }
 							
