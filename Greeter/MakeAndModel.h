@@ -1,8 +1,8 @@
 //
-//  Model.h
+//  MakeAndModel.h
 //  YardOps
 //
-//  Created by Andrew Fenhoff on 4/9/14.
+//  Created by loaner on 6/10/14.
 //  Copyright (c) 2014 DJJ. All rights reserved.
 //
 
@@ -10,9 +10,9 @@
 #import <CoreData/CoreData.h>
 
 
-@interface Model : NSManagedObject
+@interface MakeAndModel : NSManagedObject
 
+@property (nonatomic, retain) NSString * make;
 @property (nonatomic, retain) NSString * model;
-@property (nonatomic, retain) NSString * modelCode;
 
 @end

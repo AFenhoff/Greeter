@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E3FF5AA1947B2DD00989645 /* MakeAndModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3FF5A91947B2DD00989645 /* MakeAndModel.m */; };
+		2E3FF5AD1947BE9B00989645 /* MakeAndModelDataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3FF5AC1947BE9B00989645 /* MakeAndModelDataAccess.m */; };
 		2E6B2C401946509E003EFDED /* MaterialDataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6B2C3F1946509E003EFDED /* MaterialDataAccess.m */; };
 		2E6B2C49194691B7003EFDED /* Material.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6B2C48194691B7003EFDED /* Material.m */; };
 		2EFC9075194643C3002F4CCC /* YardOpsModeSelectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC9074194643C3002F4CCC /* YardOpsModeSelectTableViewController.m */; };
@@ -43,9 +45,7 @@
 		34B2354418D090EE0075BB28 /* Icon@2x_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 34B2354218D090EE0075BB28 /* Icon@2x_1.png */; };
 		34B2354518D090EE0075BB28 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34B2354318D090EE0075BB28 /* Icon@2x.png */; };
 		34B2354818D0D7510075BB28 /* VehicleMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34B2354718D0D7510075BB28 /* VehicleMenuViewController.m */; };
-		34B4EA7B18F5E0E600251AAB /* Make.m in Sources */ = {isa = PBXBuildFile; fileRef = 34B4EA7A18F5E0E600251AAB /* Make.m */; };
 		34B4EA7F18F5E1A300251AAB /* ModelGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 34B4EA7E18F5E1A300251AAB /* ModelGenerator.m */; };
-		34B4EA8218F5E31500251AAB /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 34B4EA8118F5E31500251AAB /* Model.m */; };
 		34B4EA8418F5EC6D00251AAB /* pile.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 34B4EA8318F5EC6D00251AAB /* pile.jpeg */; };
 		34B4EA8718F6326700251AAB /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34B4EA8618F6326700251AAB /* SearchViewController.m */; };
 		34B8854E18E30A9900C2D435 /* SelectMaterialTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34B8854D18E30A9900C2D435 /* SelectMaterialTableViewController.m */; };
@@ -101,6 +101,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E3FF5A71947B16700989645 /* YardOps1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = YardOps1.xcdatamodel; sourceTree = "<group>"; };
+		2E3FF5A81947B2DD00989645 /* MakeAndModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MakeAndModel.h; sourceTree = "<group>"; };
+		2E3FF5A91947B2DD00989645 /* MakeAndModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MakeAndModel.m; sourceTree = "<group>"; };
+		2E3FF5AB1947BE9B00989645 /* MakeAndModelDataAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MakeAndModelDataAccess.h; sourceTree = "<group>"; };
+		2E3FF5AC1947BE9B00989645 /* MakeAndModelDataAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MakeAndModelDataAccess.m; sourceTree = "<group>"; };
 		2E6B2C3E1946509E003EFDED /* MaterialDataAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaterialDataAccess.h; sourceTree = "<group>"; };
 		2E6B2C3F1946509E003EFDED /* MaterialDataAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaterialDataAccess.m; sourceTree = "<group>"; };
 		2E6B2C47194691B7003EFDED /* Material.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Material.h; sourceTree = "<group>"; };
@@ -173,12 +178,8 @@
 		34B2354318D090EE0075BB28 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "Images/Icon@2x.png"; sourceTree = "<group>"; };
 		34B2354618D0D7510075BB28 /* VehicleMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VehicleMenuViewController.h; sourceTree = "<group>"; };
 		34B2354718D0D7510075BB28 /* VehicleMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VehicleMenuViewController.m; sourceTree = "<group>"; };
-		34B4EA7918F5E0E600251AAB /* Make.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Make.h; sourceTree = "<group>"; };
-		34B4EA7A18F5E0E600251AAB /* Make.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Make.m; sourceTree = "<group>"; };
 		34B4EA7D18F5E1A300251AAB /* ModelGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelGenerator.h; sourceTree = "<group>"; };
 		34B4EA7E18F5E1A300251AAB /* ModelGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelGenerator.m; sourceTree = "<group>"; };
-		34B4EA8018F5E31500251AAB /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
-		34B4EA8118F5E31500251AAB /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 		34B4EA8318F5EC6D00251AAB /* pile.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = pile.jpeg; path = Images/pile.jpeg; sourceTree = "<group>"; };
 		34B4EA8518F6326700251AAB /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		34B4EA8618F6326700251AAB /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
@@ -335,6 +336,8 @@
 			isa = PBXGroup;
 			children = (
 				34E30C7017ECEC9A005963B7 /* Greeter.xcdatamodeld */,
+				2E3FF5A81947B2DD00989645 /* MakeAndModel.h */,
+				2E3FF5A91947B2DD00989645 /* MakeAndModel.m */,
 				349732F319476E46001DC1A6 /* GreeterQueue.h */,
 				349732F419476E46001DC1A6 /* GreeterQueue.m */,
 				2E6B2C47194691B7003EFDED /* Material.h */,
@@ -345,10 +348,6 @@
 				346E6802193EBAF200E7B8E3 /* Vehicle.m */,
 				346E67FD193E23B100E7B8E3 /* Supplier.h */,
 				346E67FE193E23B100E7B8E3 /* Supplier.m */,
-				34B4EA8018F5E31500251AAB /* Model.h */,
-				34B4EA8118F5E31500251AAB /* Model.m */,
-				34B4EA7918F5E0E600251AAB /* Make.h */,
-				34B4EA7A18F5E0E600251AAB /* Make.m */,
 				34B4EA7D18F5E1A300251AAB /* ModelGenerator.h */,
 				34B4EA7E18F5E1A300251AAB /* ModelGenerator.m */,
 			);
@@ -457,6 +456,8 @@
 				2E6B2C3F1946509E003EFDED /* MaterialDataAccess.m */,
 				349732ED1947338B001DC1A6 /* GreeterQueueManager.h */,
 				349732EE1947338B001DC1A6 /* GreeterQueueManager.m */,
+				2E3FF5AB1947BE9B00989645 /* MakeAndModelDataAccess.h */,
+				2E3FF5AC1947BE9B00989645 /* MakeAndModelDataAccess.m */,
 			);
 			name = DataAccess;
 			sourceTree = "<group>";
@@ -646,7 +647,6 @@
 				34E30CAB17ECEEA4005963B7 /* Common.m in Sources */,
 				349732EF1947338B001DC1A6 /* GreeterQueueManager.m in Sources */,
 				3499AD171806554800CA6981 /* DetailsTableViewController.m in Sources */,
-				34B4EA8218F5E31500251AAB /* Model.m in Sources */,
 				34B8854E18E30A9900C2D435 /* SelectMaterialTableViewController.m in Sources */,
 				34B4EA7F18F5E1A300251AAB /* ModelGenerator.m in Sources */,
 				34E30CC117ECEF43005963B7 /* BSJSONEncoder.m in Sources */,
@@ -663,7 +663,6 @@
 				3499AD08180583CF00CA6981 /* RoundedButton.m in Sources */,
 				346E67FF193E23B100E7B8E3 /* Supplier.m in Sources */,
 				3499AD0B1805893100CA6981 /* GreeterHomeViewController.m in Sources */,
-				34B4EA7B18F5E0E600251AAB /* Make.m in Sources */,
 				349732D71943F45F001DC1A6 /* CookieStore.m in Sources */,
 				34E30CA117ECEDDD005963B7 /* BaseTableViewController.m in Sources */,
 				346E680A193F788A00E7B8E3 /* LicenseDecoder.m in Sources */,
@@ -692,10 +691,12 @@
 				34E30CC617ECEF43005963B7 /* NSManagedObject+ToDictionary.m in Sources */,
 				34CB2F1B18DA0C1E00C1A66C /* DocumentDetailViewController.m in Sources */,
 				3499AD1A180D8A5400CA6981 /* DocumentationMenuViewController.m in Sources */,
+				2E3FF5AD1947BE9B00989645 /* MakeAndModelDataAccess.m in Sources */,
 				3499AD1118064A6F00CA6981 /* IdentificationMenuViewController.m in Sources */,
 				34E30CC717ECEF43005963B7 /* NSScanner+BSJSONAdditions.m in Sources */,
 				345B9A7918CE3358009A459D /* IdentificationViewController.m in Sources */,
 				3499AD22180D91D400CA6981 /* SignatureViewController.m in Sources */,
+				2E3FF5AA1947B2DD00989645 /* MakeAndModel.m in Sources */,
 				34CB2F1818D9C70900C1A66C /* BaseModalViewController.m in Sources */,
 				346E6803193EBAF200E7B8E3 /* Vehicle.m in Sources */,
 				34E30CC917ECEF43005963B7 /* NSString+NSString_LeftPadding.m in Sources */,
@@ -944,12 +945,13 @@
 		34E30C7017ECEC9A005963B7 /* Greeter.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				2E3FF5A71947B16700989645 /* YardOps1.xcdatamodel */,
 				349732D41943E4E9001DC1A6 /* Greeter 4.xcdatamodel */,
 				346E67FC193E223200E7B8E3 /* Greeter 2.xcdatamodel */,
 				346E6800193EA06700E7B8E3 /* Greeter 3.xcdatamodel */,
 				34E30C7117ECEC9A005963B7 /* Greeter.xcdatamodel */,
 			);
-			currentVersion = 349732D41943E4E9001DC1A6 /* Greeter 4.xcdatamodel */;
+			currentVersion = 2E3FF5A71947B16700989645 /* YardOps1.xcdatamodel */;
 			path = Greeter.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

@@ -99,6 +99,7 @@
 {
     SharedObjects* currentObject = [SharedObjects getSharedObjects];
     [currentObject.dataManager getMaterialsForBranch:[Common getStringSetting:kBranchSettingName] forDelegate:nil];
+    [currentObject.dataManager getMakesAndModels:self];
     
     switch ([Common getIntSetting:kApplicationModeSettingName]) {
         case 0: //Greeter and Inspector

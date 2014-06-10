@@ -16,7 +16,8 @@ enum DataManagerCallType : NSInteger {
     SupplierVehicles,
     Users,
     Materials,
-    PostGreeterQueue
+    PostGreeterQueue,
+    MakesAndModels
 };
 
 @protocol DataManagerDelegate<NSObject>
@@ -44,6 +45,7 @@ enum DataManagerCallType : NSInteger {
 -(void)getSupplierVehicleByBarcode:(NSString *)barcode forDelegate:(id)delegate;
 -(void)getUserByEmployeeID:(NSNumber *)employeeID forDelegate:(id)delegate;
 -(void)getMaterialsForBranch:(NSString *)branchCode forDelegate:(id)delegate;
+-(void)getMakesAndModels:(id)delegate;
 -(void)saveGreeterQueue;
 
 

@@ -90,7 +90,6 @@ bool scanActive=false;
             [self performSegueWithIdentifier:@"NameSearch" sender:self];
             break;
         case SupplierNameSearch:
-            if (
             [self performSegueWithIdentifier:@"SupplierFound" sender:self];
             break;
         case SupplierIDSearch:

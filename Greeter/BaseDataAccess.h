@@ -24,6 +24,7 @@
 #import <Foundation/Foundation.h>
 #import "AppDelegate.h"
 #import "Material.h"
+#import "MakeAndModel.h"
 #import "ADFSViewController.h"
 
 @protocol BaseDataAccessDelegate<NSObject>

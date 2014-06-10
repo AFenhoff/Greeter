@@ -7,7 +7,7 @@
 //
 
 #import "SearchViewController.h"
-#import "Make.h"
+#import "MakeAndModel.h"
 
 @interface SearchViewController ()
 
@@ -122,7 +122,7 @@
     
     //   TODO need to figure out how to tell this controller which object to create
     //      make vs model, etc
-    Make *make = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    MakeAndModel *make = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     cell.textLabel.text = make.make;
     
