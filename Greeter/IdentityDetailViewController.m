@@ -221,9 +221,9 @@ bool _materialCaptured = NO;
 
 -(void)allItemsAreComplete
 {
-    
-    syncButton.enabled = _vehicleCaptured && _documentsCaptured && _materialCaptured;
-    toolbar.backgroundColor = _vehicleCaptured && _documentsCaptured && _materialCaptured ? [UIColor grayColor] : [UIColor redColor];
+    SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
+    syncButton.enabled = _vehicleCaptured && _documentsCaptured && ((sharedObjects.greeterType == FE && _materialCaptured) || sharedObjects.greeterType == NF);
+    toolbar.backgroundColor = syncButton.enabled ? [UIColor grayColor] : [UIColor redColor];
 }
 
 @end

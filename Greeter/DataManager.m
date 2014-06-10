@@ -92,7 +92,7 @@
 
 -(void)getSuppliersByLastName:(NSString *)name forDelegate:(id)delegate;
 {
-    self.callType = Suppliers;
+    self.callType = LastNameSearch;
     SupplierDataAccess *s = [[SupplierDataAccess alloc] init];
     s.delegate = self;
     [s getSuppliersByLastName:name];
@@ -100,7 +100,7 @@
 
 -(void)getSupplierByIDNumber:(NSString *)idNumber andState:(NSString *)state forDelegate:(id)delegate;
 {
-    self.callType = Suppliers;
+    self.callType = SupplierIDSearch;
     SupplierDataAccess *s = [[SupplierDataAccess alloc] init];
     s.delegate = self;
     [s getSupplierByIDNumber:idNumber andState:state];
@@ -108,7 +108,7 @@
 
 -(void)getSuppliersBySupplierName:(NSString *)supplierName forDelegate:(id)delegate
 {
-    self.callType = Suppliers;
+    self.callType = SupplierNameSearch;
     SupplierDataAccess *s = [[SupplierDataAccess alloc] init];
     s.delegate = self;
     [s getSuppliersBySupplierName:supplierName];

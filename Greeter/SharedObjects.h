@@ -15,6 +15,12 @@
 #import "LicenseDecoder.h"
 #import "Material.h"
 
+typedef enum GreeterType : NSInteger GreeterType;
+enum GreeterType : NSInteger {
+    FE,
+    NF
+};
+
 @interface SharedObjects : NSObject <DataManagerDelegate>
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
@@ -31,9 +37,16 @@
 @property (nonatomic, retain) NSNumber *bodyCount;
 @property (nonatomic, retain) NSNumber *cfcTaken;
 @property (nonatomic, retain) NSNumber *titlesTaken;
+@property (nonatomic) int foundSupplierCount;
+@property (nonatomic) GreeterType greeterType;
+@property (nonatomic, retain) NSString *scannedBarcode;
+@property (nonatomic, retain) NSString *scannedTrack1;
+@property (nonatomic, retain) NSString *scannedTrack2;
+@property (nonatomic, retain) NSString *scannedTrack3;
 
 + (id)getSharedObjects;
 
 - (void)popAuthenticationForDelegate:(id)delegate withRequestURL:(NSURLRequest *)requestedURL;
+- (void)clearData;
 
 @end

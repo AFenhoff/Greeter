@@ -845,6 +845,8 @@
 					"$(PROJECT_DIR)/Greeter",
 				);
 				PRODUCT_NAME = YardOps;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -862,6 +864,8 @@
 					"$(PROJECT_DIR)/Greeter",
 				);
 				PRODUCT_NAME = YardOps;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
