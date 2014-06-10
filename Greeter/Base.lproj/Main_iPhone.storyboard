@@ -989,10 +989,10 @@ THIS CONTRACT IS VALID FOR THREE (3) YEARS FROM DATE ABOVE
                                                 <action selector="cancelButtonPressed:" destination="XtJ-pF-f34" id="s1a-Vf-ji8"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="IPp-6G-UqO">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="IPp-6G-UqO">
                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
-                                                <action selector="saveButtonPressed:" destination="XtJ-pF-f34" id="v8h-cT-H1s"/>
+                                                <action selector="saveButtonPressed:" destination="i3x-E8-YvL" id="BgJ-KF-rhC"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>

@@ -28,9 +28,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    super.saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:super.navigationItem.rightBarButtonItem.target action:super.navigationItem.rightBarButtonItem.action];
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -311,6 +308,11 @@
 }
 
 -(void)modalComplete:(id)sender
+{
+    
+}
+
+- (IBAction)saveButtonPressed:(id)sender
 {
     
 }
