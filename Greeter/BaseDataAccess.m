@@ -410,11 +410,60 @@
     }
     conn = [NSURLConnection connectionWithRequest:request delegate:self];
 }
+
+- (void) executeAPIPost:(NSString *)methodPath forDelegate:(id)delegate withObject:(NSManagedObject*)objectToSend
+{
+    callbackDelegate = delegate;
+    if(!activityIndicator)
+    {
+        activityIndicator = [Common getNewActivityIndicator];
+    }
+    [activityIndicator startAnimating];
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", WCF_BASE_URL, [methodPath stringByEncodingSpecialCharacters] ]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    NSManagedObject *theDb = objectToSend;
+    NSEntityDescription *theDescription = theDb.entity;
+    NSMutableDictionary *caseDict = [NSMutableDictionary dictionary];
+    [self loadDict:theDescription dictionary:caseDict caseDb:theDb];
+    
+    NSString *dataString;
+    NSData *data;
+    if ([NSJSONSerialization isValidJSONObject:caseDict])
+    {
+        data = [NSJSONSerialization dataWithJSONObject:caseDict options:0 error:nil];
+        dataString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    }
+    NSMutableString *urlString = [[NSMutableString alloc] initWithFormat:@"\"%@\":", [objectToSend class]];
+    [urlString appendFormat:@"%@", dataString];
+    NSData *postData = [urlString dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request addValue:@"application/json" forHTTPHeaderField:@"content-type"];
+    
+    //TODO: Set ADFS cookies here
+    //Pull cookieStore from User entity in CoreData db
+    // set all retreived cookies for this request
+    //[theRequest setValue:@"myCookie" forHTTPHeaderField:@"Cookie"];
+    [self handleCookiesInRequest:request];
+    
+	//Set post body
+    [request setHTTPBody:data];
+    
+    if(conn)
+    {
+        [conn cancel];
+        conn = nil;
+        returnedData = nil;
+    }
+    conn = [NSURLConnection connectionWithRequest:request delegate:self];
+}
     
 -(void)saveUserCookiesInResponse:(NSHTTPURLResponse *)response forEmployeeID:(NSNumber *)employeeID
 {
     /*********************************************
-     HAVING A HARD TIME GETTING THIS TO WORK
+     This works OK, putting back into request is a problem
      /*********************************************
     NSMutableArray *cookies =[[NSMutableArray alloc]init];
     for (NSHTTPCookie *thisCookie in [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies])
@@ -431,8 +480,6 @@
 
 -(void) handleCookiesInRequest:(NSMutableURLRequest*) request
 {
-    //Create toCookie on NSString to repopulate cookies
-    
     /*********************************************
      HAVING A HARD TIME GETTING THIS TO WORK
     /*********************************************

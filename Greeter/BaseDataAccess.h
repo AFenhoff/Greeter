@@ -24,6 +24,7 @@
 #import <Foundation/Foundation.h>
 #import "AppDelegate.h"
 #import "Material.h"
+#import "ADFSViewController.h"
 
 @protocol BaseDataAccessDelegate<NSObject>
 @optional
@@ -72,7 +73,9 @@
 - (void)executeWCFMethod:(NSString *)methodName forDelegate:(id)delegate withMoreInTheURL:(NSString *)moreURL;
 - (void)executeWCFMethod:(NSString *)methodName forDelegate:(id)delegate withObject:(NSManagedObject*)objectToSend;
 
+//This should get renamed to executeAPIGet
 - (void) executeAPIMethod:(NSString *)methodPath forDelegate:(id)delegate;
+- (void) executeAPIPost:(NSString *)methodPath forDelegate:(id)delegate withObject:(NSManagedObject*)objectToSend;
 
 
 @end

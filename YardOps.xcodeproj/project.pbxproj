@@ -30,6 +30,8 @@
 		349732DD194545C1001DC1A6 /* UserDataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 349732DC194545C1001DC1A6 /* UserDataAccess.m */; };
 		349732E01945E8E9001DC1A6 /* NSHTTPCookie+ToString.m in Sources */ = {isa = PBXBuildFile; fileRef = 349732DF1945E8E9001DC1A6 /* NSHTTPCookie+ToString.m */; };
 		349732E91946022C001DC1A6 /* NSDictionary+ToCookie.m in Sources */ = {isa = PBXBuildFile; fileRef = 349732E81946022C001DC1A6 /* NSDictionary+ToCookie.m */; };
+		349732EF1947338B001DC1A6 /* GreeterQueueManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 349732EE1947338B001DC1A6 /* GreeterQueueManager.m */; };
+		349732F21947380D001DC1A6 /* GreeterQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 349732F11947380D001DC1A6 /* GreeterQueue.m */; };
 		3499AD08180583CF00CA6981 /* RoundedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3499AD07180583CF00CA6981 /* RoundedButton.m */; };
 		3499AD0B1805893100CA6981 /* GreeterHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3499AD0A1805893100CA6981 /* GreeterHomeViewController.m */; };
 		3499AD0E1805912B00CA6981 /* InspectorMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3499AD0D1805912B00CA6981 /* InspectorMenuViewController.m */; };
@@ -147,6 +149,10 @@
 		349732DF1945E8E9001DC1A6 /* NSHTTPCookie+ToString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSHTTPCookie+ToString.m"; sourceTree = "<group>"; };
 		349732E71946022C001DC1A6 /* NSDictionary+ToCookie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+ToCookie.h"; sourceTree = "<group>"; };
 		349732E81946022C001DC1A6 /* NSDictionary+ToCookie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+ToCookie.m"; sourceTree = "<group>"; };
+		349732ED1947338B001DC1A6 /* GreeterQueueManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GreeterQueueManager.h; sourceTree = "<group>"; };
+		349732EE1947338B001DC1A6 /* GreeterQueueManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GreeterQueueManager.m; sourceTree = "<group>"; };
+		349732F01947380D001DC1A6 /* GreeterQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GreeterQueue.h; sourceTree = "<group>"; };
+		349732F11947380D001DC1A6 /* GreeterQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GreeterQueue.m; sourceTree = "<group>"; };
 		3499AD06180583CF00CA6981 /* RoundedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedButton.h; sourceTree = "<group>"; };
 		3499AD07180583CF00CA6981 /* RoundedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedButton.m; sourceTree = "<group>"; };
 		3499AD091805893100CA6981 /* GreeterHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GreeterHomeViewController.h; sourceTree = "<group>"; };
@@ -328,6 +334,8 @@
 		34B4EA7C18F5E15900251AAB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				349732F01947380D001DC1A6 /* GreeterQueue.h */,
+				349732F11947380D001DC1A6 /* GreeterQueue.m */,
 				34E30C7017ECEC9A005963B7 /* Greeter.xcdatamodeld */,
 				2E6B2C47194691B7003EFDED /* Material.h */,
 				2E6B2C48194691B7003EFDED /* Material.m */,
@@ -447,6 +455,8 @@
 				349732DC194545C1001DC1A6 /* UserDataAccess.m */,
 				2E6B2C3E1946509E003EFDED /* MaterialDataAccess.h */,
 				2E6B2C3F1946509E003EFDED /* MaterialDataAccess.m */,
+				349732ED1947338B001DC1A6 /* GreeterQueueManager.h */,
+				349732EE1947338B001DC1A6 /* GreeterQueueManager.m */,
 			);
 			name = DataAccess;
 			sourceTree = "<group>";
@@ -631,8 +641,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				349732F21947380D001DC1A6 /* GreeterQueue.m in Sources */,
 				349732DA1944099F001DC1A6 /* User.m in Sources */,
 				34E30CAB17ECEEA4005963B7 /* Common.m in Sources */,
+				349732EF1947338B001DC1A6 /* GreeterQueueManager.m in Sources */,
 				3499AD171806554800CA6981 /* DetailsTableViewController.m in Sources */,
 				34B4EA8218F5E31500251AAB /* Model.m in Sources */,
 				34B8854E18E30A9900C2D435 /* SelectMaterialTableViewController.m in Sources */,

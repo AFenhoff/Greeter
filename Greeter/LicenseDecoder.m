@@ -8,6 +8,7 @@
 
 #import "LicenseDecoder.h"
 #import "NSString+ContainsString.h"
+#import "SharedObjects.h"
 
 @implementation LicenseDecoder
 
@@ -196,6 +197,9 @@
      END TRACK 3
      ************************************************************************************************************/
     return  @"";
+    
+    SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
+    sharedObjects.scannedLicense = self;
 }
 
 -(void)decode2DBarcode:(NSString *)barcode;
@@ -316,6 +320,8 @@
     if(tmpExpDate){ ExpirationDate = [dateFormatter stringFromDate:tmpExpDate ]; }
     if(tmpIssueDate){ DateIssued = [dateFormatter stringFromDate:tmpIssueDate ]; }
 
+    SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
+    sharedObjects.scannedLicense = self;
 }
 
 @end

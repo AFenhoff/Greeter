@@ -12,6 +12,8 @@
 #import "Supplier.h"
 #import "Vehicle.h"
 #import "User.h"
+#import "LicenseDecoder.h"
+#import "Material.h"
 
 @interface SharedObjects : NSObject <DataManagerDelegate>
 
@@ -23,6 +25,12 @@
 @property (nonatomic, retain) Supplier *selectedSupplier;
 @property (nonatomic, retain) Vehicle *selectedVehicle;
 @property (nonatomic, retain) User *currentUser;
+@property (nonatomic, retain) LicenseDecoder *scannedLicense;
+@property (nonatomic, retain) NSString *inYardID;
+@property (nonatomic, retain) Material *selectedMaterial;
+@property (nonatomic, retain) NSNumber *bodyCount;
+@property (nonatomic, retain) NSNumber *cfcTaken;
+@property (nonatomic, retain) NSNumber *titlesTaken;
 
 + (id)getSharedObjects;
 
