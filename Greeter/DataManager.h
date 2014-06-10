@@ -8,6 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum DataManagerCallType : NSInteger DataManagerCallType;
+enum DataManagerCallType : NSInteger {
+    LastNameSearch,
+    SupplierNameSearch,
+    SupplierIDSearch,
+    SupplierVehicles,
+    Users,
+    Materials,
+    PostGreeterQueue
+};
+
 @protocol DataManagerDelegate<NSObject>
 @optional
 
@@ -19,6 +30,7 @@
 
 @property (nonatomic, assign) id<DataManagerDelegate> delegate;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic) DataManagerCallType callType;
 
 -(DataManager *)initWithObjectContext:(NSManagedObjectContext *)objectContext;
 -(void) syncBaseData;
@@ -33,5 +45,6 @@
 -(void)getUserByEmployeeID:(NSNumber *)employeeID forDelegate:(id)delegate;
 -(void)getMaterialsForBranch:(NSString *)branchCode forDelegate:(id)delegate;
 -(void)saveGreeterQueue;
+
 
 @end

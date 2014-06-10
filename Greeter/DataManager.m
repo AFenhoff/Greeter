@@ -92,13 +92,15 @@
 
 -(void)getSuppliersByLastName:(NSString *)name forDelegate:(id)delegate;
 {
+    self.callType = Suppliers;
     SupplierDataAccess *s = [[SupplierDataAccess alloc] init];
     s.delegate = self;
     [s getSuppliersByLastName:name];
 }
 
--(void)getSupplierIDNumber:(NSString *)idNumber andState:(NSString *)state forDelegate:(id)delegate;
+-(void)getSupplierByIDNumber:(NSString *)idNumber andState:(NSString *)state forDelegate:(id)delegate;
 {
+    self.callType = Suppliers;
     SupplierDataAccess *s = [[SupplierDataAccess alloc] init];
     s.delegate = self;
     [s getSupplierByIDNumber:idNumber andState:state];
@@ -106,6 +108,7 @@
 
 -(void)getSuppliersBySupplierName:(NSString *)supplierName forDelegate:(id)delegate
 {
+    self.callType = Suppliers;
     SupplierDataAccess *s = [[SupplierDataAccess alloc] init];
     s.delegate = self;
     [s getSuppliersBySupplierName:supplierName];
@@ -113,6 +116,7 @@
 
 -(void)getSupplierVehiclesBySupplierNo:(NSString *)supplierNo andIDNumber:(NSString *)idNumber forDelegate:(id)delegate
 {
+    self.callType = SupplierVehicles;
     VehicleDataAccess *v = [[VehicleDataAccess alloc] init];
     v.delegate = self;
     [v getSupplierVehiclesBySupplier:supplierNo andIDNumber:idNumber];
@@ -129,6 +133,7 @@
 {
     //Check to see if this user has authenticated (has a user record in NSUserDefaults)
     //Need to change this to inspect NSUserDefaults
+    self.callType = Users;
     if(![UserDataAccess getUserCookiesForEmployeeID:employeeID])
     {
         UserDataAccess *userDataAccess = [[UserDataAccess alloc] init];
@@ -142,13 +147,14 @@
 
 -(void)getMaterialsForBranch:(NSString *)branchCode forDelegate:(id)delegate
 {
+    self.callType = Materials;
     MaterialDataAccess* materialDataAccess = [[MaterialDataAccess alloc] init];
-    materialDataAccess.delegate = self;
     [materialDataAccess getMaterialsForBranch:branchCode forDelegate:delegate];
 }
 
 -(void)saveGreeterQueue
 {
+    self.callType = PostGreeterQueue;
     GreeterQueueManager *greeterQueueManager = [[GreeterQueueManager alloc] init];
     greeterQueueManager.delegate = self;
     [greeterQueueManager saveGreeterQueueRecord];

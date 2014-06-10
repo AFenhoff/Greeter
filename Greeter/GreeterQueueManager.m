@@ -18,12 +18,12 @@
     SharedObjects *so = [SharedObjects getSharedObjects];
     
     //Commit this to CoreData in case the save fails
-    GreeterQueue *gq = (GreeterQueue *)[NSEntityDescription insertNewObjectForEntityForName:@"GreeerQueue" inManagedObjectContext:so.managedObjectContext];
-    
-    gq.idNumber = so.scannedLicense.ID;
+    GreeterQueue *gq = (GreeterQueue *)[NSEntityDescription insertNewObjectForEntityForName:@"GreeterQueue" inManagedObjectContext:so.managedObjectContext];
+    gq.name = so.selectedSupplier.supplierName;
+    gq.idNumber = so.selectedSupplier.idNumber;
     gq.supplierNo = so.selectedSupplier.supplierNo;
     gq.supplierIDRowID = so.selectedSupplier.rowid;
-    gq.branch = [Common getStringSetting:@"Branch"];
+    gq.branch = [Common getStringSetting:kBranchSettingName];
     gq.queueType = [NSNumber numberWithInt:1];
     gq.user = [NSString stringWithFormat:@"%@",so.currentUser.employeeID];
     gq.inYardID = so.inYardID;
@@ -44,6 +44,7 @@
     
     if(so.scannedLicense)
     {
+        gq.idNumber = so.scannedLicense.ID;
         gq.idExpireDate = so.scannedLicense.ExpirationDate;
         gq.idIssuer = so.scannedLicense.State;
         gq.idType = @"DL";
@@ -60,6 +61,7 @@
         gq.weight = so.scannedLicense.Weight;
         gq.eyeColor = so.scannedLicense.EyeColor;
         gq.race = so.scannedLicense.Race;
+        gq.name = [NSString stringWithFormat:@"%@ %@", so.scannedLicense.FirstName, so.scannedLicense.LastName];
     }
     NSError *error = nil;
     if (![so.managedObjectContext save:&error]) {
@@ -100,7 +102,7 @@
 
 -(void)didReceiveData:(NSMutableArray *)data
 {
-    
+    [self.delegate didReceiveData:data];
 }
 
 

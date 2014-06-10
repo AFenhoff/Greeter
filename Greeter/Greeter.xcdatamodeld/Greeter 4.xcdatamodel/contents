@@ -33,6 +33,7 @@
         <attribute name="trailerTagNo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="trailerTagState" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="user" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="vehicleColor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="vehicleDesc" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="vehicleTagNo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="vehicleTagState" optional="YES" attributeType="String" syncable="YES"/>
@@ -85,12 +86,12 @@
         <attribute name="year" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
+        <element name="GreeterQueue" positionX="315" positionY="378" width="128" height="600"/>
         <element name="Make" positionX="288" positionY="225" width="128" height="75"/>
         <element name="Material" positionX="306" positionY="369" width="128" height="118"/>
         <element name="Model" positionX="315" positionY="243" width="128" height="75"/>
         <element name="Supplier" positionX="315" positionY="261" width="128" height="210"/>
         <element name="User" positionX="306" positionY="369" width="128" height="90"/>
         <element name="Vehicle" positionX="324" positionY="342" width="128" height="210"/>
-        <element name="GreeterQueue" positionX="315" positionY="378" width="128" height="583"/>
     </elements>
 </model>

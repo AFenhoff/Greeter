@@ -26,7 +26,7 @@
 
 -(void)getSupplierByIDNumber:(NSString *)idNumber andState:(NSString *)state
 {
-    self.lastRequestURL = [NSString stringWithFormat:@"suppliers/getsuppliersbyidnumber/%@/%@", idNumber, state];
+    self.lastRequestURL = [NSString stringWithFormat:@"suppliers/getsuppliersbyidnumber/%@", idNumber];
     [super executeAPIMethod:self.lastRequestURL forDelegate:self];
 }
 

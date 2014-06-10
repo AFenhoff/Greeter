@@ -185,4 +185,9 @@
 
  */
 
+- (IBAction)saveButtonPressed:(id)sender
+{
+    [self dismissViewControllerAnimated:TRUE completion:nil];
+    [self.delegate modalComplete:self];
+}
 @end

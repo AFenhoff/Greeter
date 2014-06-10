@@ -43,8 +43,11 @@ bool scanActive=false;
 	dtDevices.delegate = self;
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
     [dtDevices connect];
-   
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -80,16 +83,29 @@ bool scanActive=false;
 
 -(void)dataDidSync:(id)sender
 {
-    //If search by last name
-    
     SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
-    if (sharedObjects.selectedSupplier)
-    {
-        [self performSegueWithIdentifier:@"SupplierFound" sender:self];
-    }else{
-        [self performSegueWithIdentifier:@"NameSearch" sender:self];
+    //If search by last name
+    switch (((DataManager *)sender).callType) {
+        case LastNameSearch:
+            [self performSegueWithIdentifier:@"NameSearch" sender:self];
+            break;
+        case SupplierNameSearch:
+            if (
+            [self performSegueWithIdentifier:@"SupplierFound" sender:self];
+            break;
+        case SupplierIDSearch:
+                if (sharedObjects.selectedSupplier)
+                {
+                }else{
+                }
+                [self performSegueWithIdentifier:@"SupplierFound" sender:self];
+            break;
+        default:
+            break;
     }
-
+    
+    
+    
     //if search by supplier name
     //[self performSegueWithIdentifier:@"SuppleirSearch" sender:self];
 }

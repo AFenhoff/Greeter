@@ -130,20 +130,14 @@ bool _materialCaptured = NO;
     /***************************************************
      Save all information here
      ***************************************************/
-     
-    
-    for (UIViewController *controller in self.navigationController.viewControllers) {
-        if ([controller isKindOfClass:[GreeterHomeViewController class]]) {
-            [self.navigationController popToViewController:controller
-                                                  animated:YES];
-            break;
-        }
-    }
-    
+    SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
+    sharedObjects.dataManager.delegate = self;
+    [sharedObjects.dataManager saveGreeterQueue];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    ((BaseModalViewController *)segue.destinationViewController).delegate = self;
     /*
     ((BaseModalViewController *)segue.destinationViewController).delegate = self;
     
@@ -177,7 +171,25 @@ bool _materialCaptured = NO;
 -(void)dataDidSync:(id)sender
 {
     //DataManager's delegate method (dataDidSync) needs more info so we can determine which segue to fire
-    [self performSegueWithIdentifier:@"vehicles" sender:self];
+    switch (((DataManager *)sender).callType) {
+        case SupplierVehicles:
+            [self performSegueWithIdentifier:@"vehicles" sender:self];
+            break;
+        case PostGreeterQueue:
+            
+            for (UIViewController *controller in self.navigationController.viewControllers) {
+                if ([controller isKindOfClass:[GreeterHomeViewController class]]) {
+                    [self.navigationController popToViewController:controller
+                                                          animated:YES];
+                    break;
+                }
+            }
+            
+            break;
+        default:
+            break;
+    }
+    
     
     
 }
