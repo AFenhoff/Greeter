@@ -19,7 +19,7 @@
 
 @implementation IdentificationViewController
 
-@synthesize lastNameTextField, supplierNameTextField, dtDevices, lineaLabel;
+@synthesize lastNameTextField, supplierNameTextField, dtDevices, lineaLabel, processLineaCommands;
 
 bool scanActive=false;
 
@@ -42,17 +42,43 @@ bool scanActive=false;
     dtDevices = [DTDevices sharedDevice];
 	dtDevices.delegate = self;
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	[dtDevices connect];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [dtDevices connect];
+//too many disconnects and reconnects causes application to crash
+//problem is in eaClean method in dtDeviceManager library
+//    dtDevices = [DTDevices sharedDevice];
+//	  dtDevices.delegate = self;
+//    [dtDevices connect];
+// 	  dtDevices.delegate = self;
+    //We have to set this here because messing around with the delegate on dtDevices
+    //crashes the application. The bug is in the Linea SDK
+    processLineaCommands = YES;
+    SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
+    [sharedObjects clearData];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    //We have to set this here because messing around with the delegate on dtDevices
+    //crashes the application. The bug is in the Linea SDK
+    processLineaCommands = NO;
+    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    [dtDevices disconnect];
+//too many disconnects and reconnects causes application to crash
+//problem is in eaClean method in dtDeviceManager library
+//    dtDevices = [DTDevices sharedDevice];
+// 	  dtDevices.delegate = self;
+//    [dtDevices disconnect];
+//      dtDevices.delegate = nil;
+    //We have to set this here because messing around with the delegate on dtDevices
+    //crashes the application. The bug is in the Linea SDK
+    processLineaCommands = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -85,19 +111,49 @@ bool scanActive=false;
 {
     SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
     //If search by last name
+
     switch (((DataManager *)sender).callType) {
         case LastNameSearch:
+            if (sharedObjects.foundSupplierCount == 0)
+            {
+                [Common showAlert:@"No suppliers found." forDelegate:self];
+                return;
+            }
             [self performSegueWithIdentifier:@"NameSearch" sender:self];
             break;
         case SupplierNameSearch:
+            if (sharedObjects.foundSupplierCount == 0)
+            {
+                [Common showAlert:@"No suppliers found." forDelegate:self];
+                return;
+            }
             [self performSegueWithIdentifier:@"SupplierFound" sender:self];
             break;
         case SupplierIDSearch:
-                if (sharedObjects.selectedSupplier)
-                {
-                }else{
+            if(sharedObjects.foundSupplierCount == 0)
+            {
+                Supplier *supp = (Supplier *)[NSEntityDescription insertNewObjectForEntityForName:@"Supplier" inManagedObjectContext:sharedObjects.managedObjectContext];
+                
+                supp.supplierName   = @"Peddler (No Acct)";
+                supp.supplierNo     = @"******";
+                supp.supplierType   = @"P";
+                //supp.cfcExpDate     = ;
+                supp.idNumber       = sharedObjects.scannedLicense.ID;
+                supp.idPhoto        = 0;
+                supp.idRequired     = [NSNumber numberWithInt:1];
+                supp.fingerPrint    = 0;
+                supp.firstName      = sharedObjects.scannedLicense.FirstName;
+                supp.lastName       = sharedObjects.scannedLicense.LastName;
+                supp.rowid          = 0;
+                
+                NSError *error = nil;
+                if (![sharedObjects.managedObjectContext save:&error]) {
+                    // Handle the error.
                 }
-                [self performSegueWithIdentifier:@"SupplierFound" sender:self];
+                sharedObjects.selectedSupplier = supp;
+                
+            }
+            [self performSegueWithIdentifier:@"SupplierFound" sender:self];
             break;
         default:
             break;
@@ -158,6 +214,8 @@ bool scanActive=false;
 		case CONN_CONNECTING:
 			//[statusImage setImage:[UIImage imageNamed:@"disconnected.png"]];
 			[lineaLabel setText:[NSString stringWithFormat:@"Device is disconnected.\nSDK: ver %d.%d (%@)",dtDevices.sdkVersion/100,dtDevices.sdkVersion%100,[dateFormat stringFromDate:dtDevices.sdkBuildDate]]];
+            lineaLabel.backgroundColor = [UIColor redColor];
+            lineaLabel.textColor = [UIColor whiteColor];
 			//[batteryButton setHidden:TRUE];
 			//[scanButton setHidden:TRUE];
 			//[printButton setHidden:TRUE];
@@ -168,6 +226,8 @@ bool scanActive=false;
             scanActive=false;
 			//[statusImage setImage:[UIImage imageNamed:@"connected.png"]];
 			lineaLabel.text = [NSString stringWithFormat:@"SDK: ver %d.%d (%@)\n%@ %@ connected\nHardware revision: %@\nFirmware revision: %@\nSerial number: %@",dtDevices.sdkVersion/100,dtDevices.sdkVersion%100,[dateFormat stringFromDate:dtDevices.sdkBuildDate],dtDevices.deviceName,dtDevices.deviceModel,dtDevices.hardwareRevision,dtDevices.firmwareRevision,dtDevices.serialNumber];
+			lineaLabel.backgroundColor = [UIColor clearColor];
+            lineaLabel.textColor = [UIColor blackColor];
 			//[lineaLabel.text  setText:status];
             
 			//[scanButton setHidden:FALSE];
@@ -186,9 +246,12 @@ bool scanActive=false;
 }
 
 
+
 //DTDevice delegate method
 -(void)barcodeData:(NSString *)barcode type:(int)type
 {
+    if(!processLineaCommands) { return; }
+    
     //If this is a vehicle barcode
     if([[barcode  substringWithRange:NSMakeRange(0, 3)] isEqualToString:@"DJV"])
     {
@@ -209,16 +272,46 @@ bool scanActive=false;
     LicenseDecoder *ld = [[LicenseDecoder alloc] init];
 
     [ld decode2DBarcode:barcode];
-    
-    SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
-    sharedObjects.dataManager.delegate = self;
-    [sharedObjects.dataManager getSupplierByIDNumber:ld.ID andState:ld.State forDelegate:self];
+    if(ld.ID)
+    {
+        SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
+        sharedObjects.dataManager.delegate = self;
+        [sharedObjects.dataManager getSupplierByIDNumber:ld.ID andState:ld.State forDelegate:self];
+    }else{
+        [self searchByLastNameOrBarcode:barcode];
+    }
     
 }
+
+/*
+-(void)barcodeData:(NSString *)barcode isotype:(NSString *)isotype
+{
+    [Common showAlert:[NSString stringWithFormat:@"Vehicle barcode: %@", barcode] forDelegate:self];
+
+}
+
+-(void)barcodeNSData:(NSData *)barcode type:(int)type
+{
+    [Common showAlert:[NSString stringWithFormat:@"Vehicle barcode: %@", barcode] forDelegate:self];
+    
+}
+
+-(void)barcodeNSData:(NSData *)barcode isotype:(NSString *)isotype
+{
+    [Common showAlert:[NSString stringWithFormat:@"Vehicle barcode: %@", barcode] forDelegate:self];
+    
+}
+*/
 
 //DTDevice delegate method
 -(void)magneticCardData:(NSString *)track1 track2:(NSString *)track2 track3:(NSString *)track3
 {
+    
+    if(!processLineaCommands) { return; }
+    
+    int sound[]={2730,150,0,30,2730,150};
+	[dtDevices playSound:100 beepData:sound length:sizeof(sound) error:nil];
+	
     /*
      TRACK1
      %OHCINCINNATI^FENHOFF$ANDREW$B$^8582 CLOUGH PIKE^?
@@ -234,6 +327,15 @@ bool scanActive=false;
     sharedObjects.dataManager.delegate = self;
     [sharedObjects.dataManager getSupplierByIDNumber:ld.ID andState:ld.State forDelegate:self];
     
+}
+
+-(IBAction)reconnectDevices:(id)sender
+{
+    dtDevices = [DTDevices sharedDevice];
+	dtDevices.delegate = self;
+    [dtDevices disconnect];
+    [dtDevices connect];
+
 }
 
 @end

@@ -43,6 +43,7 @@
     NSLog(@"Supplier Data Received");
     [BaseDataAccess clearAllObjectsForEntity:@"Supplier"];
     SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
+    sharedObjects.foundSupplierCount = data.count;
     
     //for (id string in data)
     for(int i = 0; i < data.count; i++)
@@ -67,10 +68,10 @@
         if (![sharedObjects.managedObjectContext save:&error]) {
             // Handle the error.
         }
-        
-        if(data.count == 0) { sharedObjects.selectedSupplier = supp; }
+        if(data.count == 1) { sharedObjects.selectedSupplier = supp; }
         
     }
+    
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     

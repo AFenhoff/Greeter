@@ -95,10 +95,14 @@
     
     // THIS SHOULD BE SENT TO THE WEBSERVICE To DECODE SO THAT WE CAN HANDLE MORE GRACEFULLY AS NEW STATES ARE BROUGHT ONLINE
     int equalSignPos = 0;
+    int lastEqualSignPos = 0;
     NSString *fullIDString = @"";
     equalSignPos = [[track2 substringWithRange:NSMakeRange(7, 13)] containsString:@"="] ? [track2 rangeOfString:@"="].location : 20;
     fullIDString = equalSignPos < 20 ? [track2 substringWithRange:NSMakeRange(7, equalSignPos-7)] : [track2 substringWithRange:NSMakeRange(7, 13)];
-    
+    NSString *overflowIDString = @"";
+    // = + 12 chars to last =
+    lastEqualSignPos = [track2 rangeOfString:@"=" options:NSBackwardsSearch].location;
+    overflowIDString = [track2 substringWithRange:NSMakeRange(equalSignPos + 13, lastEqualSignPos - (equalSignPos + 13)) ];
     ID = fullIDString;
     
     if([State isEqualToString:@"FL"])
@@ -196,10 +200,12 @@
     /************************************************************************************************************
      END TRACK 3
      ************************************************************************************************************/
-    return  @"";
     
     SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
     sharedObjects.scannedLicense = self;
+    
+    return  @"";
+    
 }
 
 -(void)decode2DBarcode:(NSString *)barcode;
@@ -299,6 +305,8 @@
             Weight = [barcodePart substringFromIndex:[barcodePart rangeOfString:@"DCE"].location + 3];
         }
     }
+    
+    
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     

@@ -7,6 +7,7 @@
 //
 
 #import "GreeterHomeViewController.h"
+#import "SharedObjects.h"
 
 @interface GreeterHomeViewController ()
 
@@ -29,6 +30,12 @@
 	// Do any additional setup after loading the view.
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
+    [sharedObjects clearData];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -38,11 +45,15 @@
 -(IBAction)nfButtonPressed:(id)sender
 {
     //[self performSegueWithIdentifier:@"details" sender:self];
+    SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
+    sharedObjects.greeterType = NF;
 }
 
 -(IBAction)feButtonPressed:(id)sender
 {
     //[self performSegueWithIdentifier:@"details" sender:self];
+    SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
+    sharedObjects.greeterType = FE;
 }
 
 

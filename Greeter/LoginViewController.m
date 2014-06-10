@@ -38,6 +38,12 @@
     [employeeIDTextField becomeFirstResponder];
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    //SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
+    //[sharedObjects clearData];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

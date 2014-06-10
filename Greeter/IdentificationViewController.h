@@ -26,10 +26,11 @@
 @property (nonatomic, retain) IBOutlet UIButton *supplierNameSearchButton;
 
 @property (nonatomic, retain) DTDevices *dtDevices;
-
+@property (nonatomic) BOOL processLineaCommands;
 
 -(IBAction)lastNameSearch:(id)sender;
 -(IBAction)supplierNameSearch:(id)sender;
+-(IBAction)reconnectDevices:(id)sender;
 
 
 @end
