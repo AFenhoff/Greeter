@@ -354,9 +354,6 @@ bool scanActive=false;
     const int movementDistance = 80; // tweak as needed
     const float movementDuration = 0.3f; // tweak as needed
     
-    if (textField.) {
-        
-    }
     
     int movement = (up ? -movementDistance : movementDistance);
     

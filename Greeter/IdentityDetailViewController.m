@@ -39,6 +39,13 @@ bool _materialCaptured = NO;
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     vehicleOrIDRequired = YES;
+    
+    //Removes documents button until we are ready to do documents
+    NSMutableArray *toolbarButtons = [self.toolbar.items mutableCopy];
+    [toolbarButtons removeObject:self.documentsButton];
+    toolbar.items = toolbarButtons;
+    _documentsCaptured = YES;
+
 }
 
 - (void) viewDidAppear:(BOOL)animated
