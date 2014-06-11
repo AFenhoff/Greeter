@@ -14,5 +14,6 @@
 -(void)getSuppliersByLastName:(NSString *)name;
 -(void)getSuppliersBySupplierName:(NSString *)supplierName;
 -(void)getSupplierByIDNumber:(NSString *)idNumber andState:(NSString *)state;
+-(void)getSupplierByFirstName:(NSString *)firstName andLastName:(NSString *)lastName andAddress:(NSString *)address;
 
 @end

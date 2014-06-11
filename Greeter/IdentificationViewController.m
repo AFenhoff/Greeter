@@ -127,7 +127,6 @@ bool scanActive=false;
                 [Common showAlert:@"No suppliers found." forDelegate:self];
                 return;
             }
-            [self performSegueWithIdentifier:@"NameSearch" sender:self];
             break;
         case SupplierNameSearch:
             if (sharedObjects.foundSupplierCount == 0)
@@ -135,7 +134,6 @@ bool scanActive=false;
                 [Common showAlert:@"No suppliers found." forDelegate:self];
                 return;
             }
-            [self performSegueWithIdentifier:@"SupplierFound" sender:self];
             break;
         case SupplierIDSearch:
             if(sharedObjects.foundSupplierCount == 0)
@@ -159,18 +157,19 @@ bool scanActive=false;
                     // Handle the error.
                 }
                 sharedObjects.selectedSupplier = supp;
-                
             }
-            [self performSegueWithIdentifier:@"SupplierFound" sender:self];
             break;
         default:
             break;
     }
     
-    
-    
-    //if search by supplier name
-    //[self performSegueWithIdentifier:@"SuppleirSearch" sender:self];
+    if(sharedObjects.selectedSupplier)
+    {
+        [self performSegueWithIdentifier:@"SupplierFound" sender:self];
+    }else if(sharedObjects.foundSupplierCount > 0)
+    {
+        [self performSegueWithIdentifier:@"NameSearch" sender:self];
+    }
 }
 
 -(IBAction)supplierNameSearch:(id)sender
@@ -260,18 +259,21 @@ bool scanActive=false;
 {
     if(!processLineaCommands) { return; }
     
+    SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
+    sharedObjects.dataManager.delegate = self;
+    
     //If this is a vehicle barcode
     if([[barcode  substringWithRange:NSMakeRange(0, 3)] isEqualToString:@"DJV"])
     {
         
-        [Common showAlert:[NSString stringWithFormat:@"Vehicle barcode: %@", barcode] forDelegate:self];
+        [sharedObjects.dataManager getSupplierVehicleByBarcode:barcode forDelegate:self];
         return;
     }
     
     //If this is a loyalty card
     if([[barcode  substringWithRange:NSMakeRange(0, 1)] isEqualToString:@"%"])
     {
-        [self searchByLastNameOrBarcode:barcode];
+        [self searchByLastNameOrBarcode:[barcode substringFromIndex:1]];
         return;
     }
     
@@ -282,13 +284,10 @@ bool scanActive=false;
     [ld decode2DBarcode:barcode];
     if(ld.ID)
     {
-        SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
-        sharedObjects.dataManager.delegate = self;
         [sharedObjects.dataManager getSupplierByIDNumber:ld.ID andState:ld.State forDelegate:self];
     }else{
         [self searchByLastNameOrBarcode:barcode];
     }
-    
 }
 
 /*
@@ -333,7 +332,14 @@ bool scanActive=false;
     
     SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
     sharedObjects.dataManager.delegate = self;
-    [sharedObjects.dataManager getSupplierByIDNumber:ld.ID andState:ld.State forDelegate:self];
+    if(ld.ID)
+    {
+        [sharedObjects.dataManager getSupplierByIDNumber:ld.ID andState:ld.State forDelegate:self];
+    }else if(ld.FirstName && ld.LastName && ld.Address1){
+        [sharedObjects.dataManager getSupplierByFirstName:ld.FirstName andLastName:ld.LastName andAddress:ld.Address1];
+    }else{
+        [Common showAlert:@"Not enough data read to perform a search." forDelegate:self];
+    }
     
 }
 

@@ -34,6 +34,8 @@
 		349732E91946022C001DC1A6 /* NSDictionary+ToCookie.m in Sources */ = {isa = PBXBuildFile; fileRef = 349732E81946022C001DC1A6 /* NSDictionary+ToCookie.m */; };
 		349732EF1947338B001DC1A6 /* GreeterQueueManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 349732EE1947338B001DC1A6 /* GreeterQueueManager.m */; };
 		349732F519476E46001DC1A6 /* GreeterQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 349732F419476E46001DC1A6 /* GreeterQueue.m */; };
+		349732FE1948AA69001DC1A6 /* ColorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 349732FD1948AA69001DC1A6 /* ColorTableViewController.m */; };
+		349733011948B03D001DC1A6 /* AddVehicleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 349733001948B03D001DC1A6 /* AddVehicleViewController.m */; };
 		3499AD08180583CF00CA6981 /* RoundedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3499AD07180583CF00CA6981 /* RoundedButton.m */; };
 		3499AD0B1805893100CA6981 /* GreeterHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3499AD0A1805893100CA6981 /* GreeterHomeViewController.m */; };
 		3499AD0E1805912B00CA6981 /* InspectorMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3499AD0D1805912B00CA6981 /* InspectorMenuViewController.m */; };
@@ -158,6 +160,11 @@
 		349732EE1947338B001DC1A6 /* GreeterQueueManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GreeterQueueManager.m; sourceTree = "<group>"; };
 		349732F319476E46001DC1A6 /* GreeterQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GreeterQueue.h; sourceTree = "<group>"; };
 		349732F419476E46001DC1A6 /* GreeterQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GreeterQueue.m; sourceTree = "<group>"; };
+		349732F819487F66001DC1A6 /* YardOps 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "YardOps 2.xcdatamodel"; sourceTree = "<group>"; };
+		349732FC1948AA69001DC1A6 /* ColorTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorTableViewController.h; sourceTree = "<group>"; };
+		349732FD1948AA69001DC1A6 /* ColorTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorTableViewController.m; sourceTree = "<group>"; };
+		349732FF1948B03D001DC1A6 /* AddVehicleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddVehicleViewController.h; sourceTree = "<group>"; };
+		349733001948B03D001DC1A6 /* AddVehicleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddVehicleViewController.m; sourceTree = "<group>"; };
 		3499AD06180583CF00CA6981 /* RoundedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedButton.h; sourceTree = "<group>"; };
 		3499AD07180583CF00CA6981 /* RoundedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedButton.m; sourceTree = "<group>"; };
 		3499AD091805893100CA6981 /* GreeterHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GreeterHomeViewController.h; sourceTree = "<group>"; };
@@ -502,6 +509,10 @@
 				3450AD9F193D1A9300742A96 /* ADFSViewController.m */,
 				2EFC9073194643C3002F4CCC /* YardOpsModeSelectTableViewController.h */,
 				2EFC9074194643C3002F4CCC /* YardOpsModeSelectTableViewController.m */,
+				349732FC1948AA69001DC1A6 /* ColorTableViewController.h */,
+				349732FD1948AA69001DC1A6 /* ColorTableViewController.m */,
+				349732FF1948B03D001DC1A6 /* AddVehicleViewController.h */,
+				349733001948B03D001DC1A6 /* AddVehicleViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -666,6 +677,7 @@
 				3499AD08180583CF00CA6981 /* RoundedButton.m in Sources */,
 				346E67FF193E23B100E7B8E3 /* Supplier.m in Sources */,
 				3499AD0B1805893100CA6981 /* GreeterHomeViewController.m in Sources */,
+				349732FE1948AA69001DC1A6 /* ColorTableViewController.m in Sources */,
 				349732D71943F45F001DC1A6 /* CookieStore.m in Sources */,
 				34E30CA117ECEDDD005963B7 /* BaseTableViewController.m in Sources */,
 				346E680A193F788A00E7B8E3 /* LicenseDecoder.m in Sources */,
@@ -689,6 +701,7 @@
 				2EFC9075194643C3002F4CCC /* YardOpsModeSelectTableViewController.m in Sources */,
 				34E30C6517ECEC99005963B7 /* main.m in Sources */,
 				345B9A7F18CE53FA009A459D /* IdentityDetailViewController.m in Sources */,
+				349733011948B03D001DC1A6 /* AddVehicleViewController.m in Sources */,
 				34CB2F2518DC956500C1A66C /* BarcodeTableViewCell.m in Sources */,
 				34E30CC317ECEF43005963B7 /* NSData+AES256.m in Sources */,
 				34E30CC617ECEF43005963B7 /* NSManagedObject+ToDictionary.m in Sources */,
@@ -851,7 +864,7 @@
 					"$(PROJECT_DIR)/Greeter",
 				);
 				PRODUCT_NAME = YardOps;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "929D1308-5A33-475A-8ED1-001525C4C621";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
@@ -863,8 +876,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Greeter/YardOps-Prefix.pch";
 				INFOPLIST_FILE = "Greeter/YardOps-Info.plist";
@@ -873,7 +886,7 @@
 					"$(PROJECT_DIR)/Greeter",
 				);
 				PRODUCT_NAME = YardOps;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "929D1308-5A33-475A-8ED1-001525C4C621";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
@@ -959,12 +972,13 @@
 			isa = XCVersionGroup;
 			children = (
 				2E3FF5A71947B16700989645 /* YardOps1.xcdatamodel */,
+				349732F819487F66001DC1A6 /* YardOps 2.xcdatamodel */,
 				349732D41943E4E9001DC1A6 /* Greeter 4.xcdatamodel */,
 				346E67FC193E223200E7B8E3 /* Greeter 2.xcdatamodel */,
 				346E6800193EA06700E7B8E3 /* Greeter 3.xcdatamodel */,
 				34E30C7117ECEC9A005963B7 /* Greeter.xcdatamodel */,
 			);
-			currentVersion = 2E3FF5A71947B16700989645 /* YardOps1.xcdatamodel */;
+			currentVersion = 349732F819487F66001DC1A6 /* YardOps 2.xcdatamodel */;
 			path = Greeter.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

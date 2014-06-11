@@ -30,6 +30,12 @@
     [super executeAPIMethod:self.lastRequestURL forDelegate:self];
 }
 
+-(void)getSupplierByFirstName:(NSString *)firstName andLastName:(NSString *)lastName andAddress:(NSString *)address
+{
+    self.lastRequestURL = [NSString stringWithFormat:@"suppliers/getsuppliersbynameandaddress/%@/%@/%@", firstName, lastName, address];
+    [super executeAPIMethod:self.lastRequestURL forDelegate:self];
+}
+
 
 -(void)authenticationComplete:(id)sender
 {

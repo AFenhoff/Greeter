@@ -91,8 +91,11 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //Save this info
+    SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
+    sharedObjects.selectedVehicle = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [self.delegate modalComplete:self];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    //[self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 
 }
 
@@ -315,7 +318,7 @@
 - (IBAction)newVehicle:(id)sender
 {
     //Do some things and transition into new view control
-    [self performSegueWithIdentifier:@"makeSegue" sender:self];
+    [self performSegueWithIdentifier:@"addVehicle" sender:self];
 }
 
 @end

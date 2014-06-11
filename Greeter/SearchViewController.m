@@ -171,4 +171,15 @@
     return _fetchedResultsController;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //Save this info
+    SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
+    sharedObjects.selectedVehicle = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [self.delegate modalComplete:self];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    //if pushed on navigation controller [self.navigationController popViewControllerAnimated:YES];
+    
+}
+
 @end

@@ -222,20 +222,68 @@ bool _materialCaptured = NO;
 -(void)allItemsAreComplete
 {
     SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
-    syncButton.enabled = _vehicleCaptured && _documentsCaptured && ((sharedObjects.greeterType == FE && _materialCaptured) || sharedObjects.greeterType == NF);
+    syncButton.enabled = sharedObjects.selectedVehicle && _documentsCaptured && ((sharedObjects.greeterType == FE && _materialCaptured) || sharedObjects.greeterType == NF);
     //toolbar.backgroundColor = syncButton.enabled ? [UIColor grayColor] : [UIColor redColor];
     
     /**************************************************************
      TODO:
      Only turn Vehicle button red if vehicle required
      **************************************************************/
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.5];
+    
+    
     if (!syncButton.enabled)
     {
-        [self animateToolbarToColor:[UIColor redColor]];
-    }else{
-        [self animateToolbarToColor:[UIColor grayColor]];
-    }
+        //[self animateToolbarToColor:[UIColor redColor]];
+        toolbar.backgroundColor = [UIColor redColor];
 
+    }else{
+        [syncButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                               [UIFont fontWithName:@"Helvetica-Bold" size:26.0], NSFontAttributeName,
+                                               [UIColor greenColor], NSForegroundColorAttributeName,
+                                               nil]
+                                     forState:UIControlStateNormal];
+        //[self animateToolbarToColor:[UIColor grayColor]];
+        toolbar.backgroundColor = [UIColor grayColor];
+    }
+    
+    if(!sharedObjects.selectedVehicle)
+    {
+        [vehicleButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                        [UIFont fontWithName:@"Helvetica-Bold" size:26.0], NSFontAttributeName,
+                                        [UIColor greenColor], NSForegroundColorAttributeName,
+                                        nil] 
+                              forState:UIControlStateNormal];
+    }else{
+        [vehicleButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                               [UIFont fontWithName:@"System" size:17.0], NSFontAttributeName,
+                                               [UIColor whiteColor], NSForegroundColorAttributeName,
+                                               nil]
+                                     forState:UIControlStateNormal];
+
+    }
+    [UIView commitAnimations];
+
+    
 }
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the specified item to be editable.
+    return indexPath.row == 0;
+}
+
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+     if (editingStyle == UITableViewCellEditingStyleDelete) {
+     // Delete the row from the data source
+     //[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+     }
+     else if (editingStyle == UITableViewCellEditingStyleInsert) {
+     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+     }
+ }
 
 @end

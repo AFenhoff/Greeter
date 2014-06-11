@@ -13,6 +13,7 @@
 #import "SharedObjects.h"
 #import "NSString+ContainsString.h"
 #import "LicenseDecoder.h"
+#import "Common.h"
 
 @implementation AppDelegate
 
@@ -165,6 +166,8 @@
          
          */
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        [Common showAlert:@"The application has been corrupted. Please delete the application and re-install it." forDelegate:self];
+
         abort();
     }    
     

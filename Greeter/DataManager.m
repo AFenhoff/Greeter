@@ -115,6 +115,15 @@
     [s getSuppliersBySupplierName:supplierName];
 }
 
+-(void)getSupplierByFirstName:(NSString *)firstName andLastName:(NSString *)lastName andAddress:(NSString *)address
+{
+    self.callType = SupplierNameSearch;
+    SupplierDataAccess *s = [[SupplierDataAccess alloc] init];
+    s.delegate = self;
+    [s getSupplierByFirstName:firstName andLastName:lastName andAddress:address];
+ 
+}
+
 -(void)getSupplierVehiclesBySupplierNo:(NSString *)supplierNo andIDNumber:(NSString *)idNumber forDelegate:(id)delegate
 {
     self.callType = SupplierVehicles;
@@ -125,6 +134,7 @@
 
 -(void)getSupplierVehicleByBarcode:(NSString *)barcode forDelegate:(id)delegate
 {
+    self.callType = VehicleBarcode;
     VehicleDataAccess *v = [[VehicleDataAccess alloc] init];
     v.delegate = self;
     [v getSupplierVehicleByBarcode:barcode];
@@ -171,7 +181,19 @@
 -(void)didReceiveData:(NSMutableArray *)data
 {
     NSLog(@"DataManager didReceiveData");
-    [self.delegate dataDidSync:self];
+    SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
+    switch (self.callType) {
+        case VehicleBarcode:
+            if(sharedObjects.selectedVehicle)
+            {
+                [self getSupplierByIDNumber:sharedObjects.selectedVehicle.idNumber andState:@"" forDelegate:self.delegate];
+            }
+            break;
+            
+        default:
+            [self.delegate dataDidSync:self];
+            break;
+    }
 }
 
 

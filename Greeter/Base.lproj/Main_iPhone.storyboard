@@ -991,7 +991,7 @@ THIS CONTRACT IS VALID FOR THREE (3) YEARS FROM DATE ABOVE
                         <outlet property="tableView" destination="Vo4-DV-nRE" id="ox5-Fu-1z2"/>
                         <outlet property="toolbar" destination="r35-Gq-RR2" id="2w9-zb-HVl"/>
                         <outlet property="vehicleButton" destination="mCO-jq-0F6" id="MZC-wj-PTo"/>
-                        <segue destination="i3x-E8-YvL" kind="modal" identifier="vehicles" id="Ehc-5G-mMG"/>
+                        <segue destination="i3x-E8-YvL" kind="push" identifier="vehicles" id="Ehc-5G-mMG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kc1-Ax-8ct" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1011,7 +1011,7 @@ THIS CONTRACT IS VALID FOR THREE (3) YEARS FROM DATE ABOVE
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="oli-V8-WGd">
-                                <rect key="frame" x="0.0" y="65" width="320" height="351"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="2xU-VU-Fa8" detailTextLabel="KnZ-2Y-9Wi" rowHeight="77" style="IBUITableViewCellStyleSubtitle" id="XkG-o4-eNp">
@@ -1043,48 +1043,30 @@ THIS CONTRACT IS VALID FOR THREE (3) YEARS FROM DATE ABOVE
                                     <outlet property="delegate" destination="i3x-E8-YvL" id="55W-5U-WCl"/>
                                 </connections>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="06x-AC-8Sl">
-                                <rect key="frame" x="0.0" y="21" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Vehicle" id="GYt-s3-XOT">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="cdX-by-Qbg">
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <connections>
-                                                <action selector="cancelButtonPressed:" destination="XtJ-pF-f34" id="s1a-Vf-ji8"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="IPp-6G-UqO">
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <connections>
-                                                <action selector="newVehicle:" destination="i3x-E8-YvL" id="tIX-kM-bt6"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="06x-AC-8Sl" firstAttribute="leading" secondItem="oli-V8-WGd" secondAttribute="leading" id="2xq-N3-wzZ"/>
-                            <constraint firstItem="06x-AC-8Sl" firstAttribute="top" secondItem="ptk-xN-6SN" secondAttribute="bottom" constant="21" id="J5m-38-hhB"/>
-                            <constraint firstAttribute="bottom" secondItem="oli-V8-WGd" secondAttribute="bottom" id="UiA-HK-PxB"/>
-                            <constraint firstItem="oli-V8-WGd" firstAttribute="leading" secondItem="7ab-a8-E6S" secondAttribute="leading" id="WzI-pj-t7Q"/>
-                            <constraint firstItem="06x-AC-8Sl" firstAttribute="trailing" secondItem="oli-V8-WGd" secondAttribute="trailing" id="ZMx-SP-LpT"/>
-                            <constraint firstAttribute="trailing" secondItem="oli-V8-WGd" secondAttribute="trailing" id="oGO-T8-EkM"/>
-                            <constraint firstItem="oli-V8-WGd" firstAttribute="top" secondItem="06x-AC-8Sl" secondAttribute="bottom" id="vbY-VJ-Jzl"/>
+                            <constraint firstAttribute="trailing" secondItem="oli-V8-WGd" secondAttribute="trailing" id="9Ve-O5-spu"/>
+                            <constraint firstAttribute="bottom" secondItem="oli-V8-WGd" secondAttribute="bottom" id="F2E-bK-tnS"/>
+                            <constraint firstItem="oli-V8-WGd" firstAttribute="top" secondItem="7ab-a8-E6S" secondAttribute="top" id="WDv-LN-2DS"/>
+                            <constraint firstItem="oli-V8-WGd" firstAttribute="leading" secondItem="7ab-a8-E6S" secondAttribute="leading" id="hwF-HS-HoH"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="ky9-H7-vkv"/>
+                    <navigationItem key="navigationItem" id="ky9-H7-vkv">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="72s-k5-uy8">
+                            <connections>
+                                <action selector="newVehicle:" destination="i3x-E8-YvL" id="fsI-tS-hMz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="cancelButton" destination="cdX-by-Qbg" id="NMS-V8-M0g"/>
-                        <outlet property="saveButton" destination="IPp-6G-UqO" id="1bh-to-9qu"/>
+                        <outlet property="saveButton" destination="72s-k5-uy8" id="q47-Dm-Hd7"/>
                         <outlet property="tableView" destination="oli-V8-WGd" id="a11-ds-YTh"/>
                         <segue destination="CHX-eV-5bG" kind="modal" identifier="barcodeSegue" id="mk5-1U-Cnp"/>
-                        <segue destination="zOf-iB-xjw" kind="modal" identifier="makeSegue" id="poS-ky-OC5"/>
+                        <segue destination="kTu-Xa-nxI" kind="push" identifier="addVehicle" id="xVY-H7-KxF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XtJ-pF-f34" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1312,7 +1294,7 @@ THIS CONTRACT IS VALID FOR THREE (3) YEARS FROM DATE ABOVE
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="251"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" alpha="0.84999999999999998" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="103429" borderStyle="roundedRect" placeholder="Employee ID" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WZM-gG-a8I">
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.84999999999999998" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="103429" borderStyle="roundedRect" placeholder="Employee ID" textAlignment="center" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="WZM-gG-a8I">
                                 <rect key="frame" x="89" y="133" width="142" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1596,6 +1578,123 @@ THIS CONTRACT IS VALID FOR THREE (3) YEARS FROM DATE ABOVE
             </objects>
             <point key="canvasLocation" x="4548" y="658"/>
         </scene>
+        <!--Color Table View Controller-->
+        <scene sceneID="heZ-PV-Bq0">
+            <objects>
+                <tableViewController id="vxf-fg-yvb" customClass="ColorTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="dmn-Yx-aMW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="34" id="fJ6-lQ-hhw">
+                                <rect key="frame" x="0.0" y="22" width="320" height="34"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fJ6-lQ-hhw" id="rMb-H9-Wta">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="33"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="vxf-fg-yvb" id="CZ8-y9-oaG"/>
+                            <outlet property="delegate" destination="vxf-fg-yvb" id="zEr-Yh-jhK"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S20-79-p6x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5047" y="658"/>
+        </scene>
+        <!--Add Vehicle View Controller - Vehicle Details-->
+        <scene sceneID="Bva-2h-p5p">
+            <objects>
+                <viewController id="kTu-Xa-nxI" customClass="AddVehicleViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3qw-Na-jjm"/>
+                        <viewControllerLayoutGuide type="bottom" id="CHw-4m-MrW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ArT-Jb-Nu9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aeX-lS-407" customClass="RoundedButton">
+                                <rect key="frame" x="20" y="101" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Press To Select Make">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vsx-i8-WjB" customClass="RoundedButton">
+                                <rect key="frame" x="20" y="150" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Press To Select Model">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Va6-Aa-ZVn" customClass="RoundedButton">
+                                <rect key="frame" x="20" y="249" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Press To Select Color">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="vxf-fg-yvb" kind="modal" identifier="" id="eJR-JE-eI8"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Year" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LZb-cU-OTE">
+                                <rect key="frame" x="112" y="202" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="License Plate" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eYM-y5-hqZ">
+                                <rect key="frame" x="49" y="302" width="128" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="State" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VAZ-QY-JMH">
+                                <rect key="frame" x="201" y="302" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Trailer Plate" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gMv-NK-usb">
+                                <rect key="frame" x="49" y="340" width="128" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Barcode" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DbS-nI-xbK">
+                                <rect key="frame" x="49" y="384" width="223" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="State" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kmP-Wz-6pW">
+                                <rect key="frame" x="201" y="340" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Vehicle Details" id="cVl-DP-ghB"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black"/>
+                    <connections>
+                        <segue destination="zOf-iB-xjw" kind="modal" identifier="makeSegue" id="R0N-Xs-qVj"/>
+                        <segue destination="zOf-iB-xjw" kind="modal" identifier="modelSegue" id="SyS-Am-TrV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o9c-j6-fFU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4548" y="64"/>
+        </scene>
         <!--Search View Controller-->
         <scene sceneID="0XP-dF-FjH">
             <objects>
@@ -1690,12 +1789,11 @@ THIS CONTRACT IS VALID FOR THREE (3) YEARS FROM DATE ABOVE
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="4548" y="64"/>
+            <point key="canvasLocation" x="5047" y="64"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="SYH-cy-NdZ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="F4f-s3-fld" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="EUY-ua-3qN" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YOq-36-5C2"/>
@@ -1764,6 +1862,7 @@ THIS CONTRACT IS VALID FOR THREE (3) YEARS FROM DATE ABOVE
                     </view>
                     <navigationItem key="navigationItem" id="AlQ-Ol-0eU"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F4f-s3-fld" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3001" y="689"/>
         </scene>
@@ -1778,11 +1877,12 @@ THIS CONTRACT IS VALID FOR THREE (3) YEARS FROM DATE ABOVE
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="jcF-oU-Qjy"/>
         <segue reference="FA5-Fj-kcg"/>
         <segue reference="tC1-Qx-Ahk"/>
         <segue reference="dkl-fe-HlM"/>
         <segue reference="mur-kE-wGf"/>
+        <segue reference="jcF-oU-Qjy"/>
         <segue reference="mk5-1U-Cnp"/>
+        <segue reference="R0N-Xs-qVj"/>
     </inferredMetricsTieBreakers>
 </document>

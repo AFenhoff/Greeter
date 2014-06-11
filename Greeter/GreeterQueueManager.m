@@ -102,6 +102,7 @@
 
 -(void)didReceiveData:(NSMutableArray *)data
 {
+    //Need to remove this ID from Core Data
     [self.delegate didReceiveData:data];
 }
 

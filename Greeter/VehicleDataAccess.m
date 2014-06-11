@@ -58,7 +58,6 @@
         veh.state           = [string objectForKey:@"State"];
         veh.trailerNumber   = [string objectForKey:@"TrailerNumber"];
         
-        
         NSError *error = nil;
         if (![sharedObjects.managedObjectContext save:&error]) {
             // Handle the error.
