@@ -36,6 +36,7 @@ bool scanActive=false;
 {
 	//update display according to current dtdev state
     [self connectionState:dtDevices.connstate];
+    [(UIScrollView *)self.view setContentSize:CGSizeMake(320, 2000)];
 }
 - (void)viewDidLoad
 {
