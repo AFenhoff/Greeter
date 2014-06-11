@@ -40,8 +40,8 @@
 			<key>Titles</key>
 			<array>
 				<string>Greeter and Inspector</string>
-				<string>Inspector</string>
 				<string>Greeter</string>
+				<string>Inspector</string>
 			</array>
 			<key>Values</key>
 			<array>

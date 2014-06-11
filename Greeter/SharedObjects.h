@@ -17,6 +17,7 @@
 
 typedef enum GreeterType : NSInteger GreeterType;
 enum GreeterType : NSInteger {
+    BOTH,
     FE,
     NF
 };

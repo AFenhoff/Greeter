@@ -7,6 +7,7 @@
 //
 
 #import "SharedObjects.h"
+#import "Common.h"
 
 @implementation SharedObjects
 
@@ -22,6 +23,8 @@
 - (id)init {
     if (self = [super init]) {
         //someProperty = [[NSString alloc] initWithString:@"Default Property Value"];
+        self.greeterType = [Common getIntSetting:kGreeterMode];
+                            
     }
     return self;
 }

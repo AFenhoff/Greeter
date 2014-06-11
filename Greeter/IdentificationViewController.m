@@ -225,7 +225,7 @@ bool scanActive=false;
             //debugText.text=@"";
             scanActive=false;
 			//[statusImage setImage:[UIImage imageNamed:@"connected.png"]];
-			lineaLabel.text = [NSString stringWithFormat:@"SDK: ver %d.%d (%@)\n%@ %@ connected\nHardware revision: %@\nFirmware revision: %@\nSerial number: %@",dtDevices.sdkVersion/100,dtDevices.sdkVersion%100,[dateFormat stringFromDate:dtDevices.sdkBuildDate],dtDevices.deviceName,dtDevices.deviceModel,dtDevices.hardwareRevision,dtDevices.firmwareRevision,dtDevices.serialNumber];
+			lineaLabel.text = [NSString stringWithFormat:@"%@ %@ connected\nHardware revision: %@\nFirmware revision: %@\nSerial number: %@",dtDevices.deviceName,dtDevices.deviceModel,dtDevices.hardwareRevision,dtDevices.firmwareRevision,dtDevices.serialNumber];
 			lineaLabel.backgroundColor = [UIColor clearColor];
             lineaLabel.textColor = [UIColor blackColor];
 			//[lineaLabel.text  setText:status];

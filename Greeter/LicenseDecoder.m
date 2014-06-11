@@ -103,6 +103,7 @@
     // = + 12 chars to last =
     lastEqualSignPos = [track2 rangeOfString:@"=" options:NSBackwardsSearch].location;
     overflowIDString = [track2 substringWithRange:NSMakeRange(equalSignPos + 13, lastEqualSignPos - (equalSignPos + 13)) ];
+    fullIDString =[NSString stringWithFormat:@"%@%@",fullIDString, overflowIDString];
     ID = fullIDString;
     
     if([State isEqualToString:@"FL"])
