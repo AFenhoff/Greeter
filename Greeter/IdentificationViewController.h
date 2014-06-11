@@ -32,6 +32,7 @@
 -(IBAction)supplierNameSearch:(id)sender;
 -(IBAction)reconnectDevices:(id)sender;
 - (void) animateTextField: (UITextField*) textField up: (BOOL) up;
+-(void)textFieldFinished:(id)sender;
 
 
 @end
