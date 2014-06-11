@@ -43,6 +43,14 @@ bool scanActive=false;
 	dtDevices.delegate = self;
     [super viewDidLoad];
 	[dtDevices connect];
+    self.lastNameTextField.returnKeyType = UIReturnKeyDone;
+    //[self.lastNameTextField addTarget:self action:@selector(textFieldFinished:) forControlEvents:UIControlEventAllEditingEvents];
+    self.supplierNameTextField.returnKeyType = UIReturnKeyDone;
+}
+
+-(void)textFieldFinished:(id)sender
+{
+    [sender resignFirstResponder];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -346,7 +354,6 @@ bool scanActive=false;
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {
     [self animateTextField:textField up:NO];
-    [textField resignFirstResponder];
 }
 
 - (void) animateTextField: (UITextField*) textField up: (BOOL) up
@@ -354,11 +361,11 @@ bool scanActive=false;
     const int movementDistance = 80; // tweak as needed
     const float movementDuration = 0.3f; // tweak as needed
     
-    if (textField.) {
-        
-    }
-    
     int movement = (up ? -movementDistance : movementDistance);
+    
+    if (textField == self.supplierNameTextField) {
+        movement = movement * 2;
+    }
     
     [UIView beginAnimations: @"anim" context: nil];
     [UIView setAnimationBeginsFromCurrentState: YES];
