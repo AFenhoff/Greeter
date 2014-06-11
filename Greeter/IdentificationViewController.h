@@ -10,7 +10,7 @@
 #import "SupplierDataAccess.h"
 #import "DTDevices.h"
 
-@interface IdentificationViewController : BaseViewController <DataManagerDelegate, DTDeviceDelegate>
+@interface IdentificationViewController : BaseViewController <DataManagerDelegate, DTDeviceDelegate, UITextFieldDelegate>
 
 {
     NSMutableString *status;
@@ -31,6 +31,7 @@
 -(IBAction)lastNameSearch:(id)sender;
 -(IBAction)supplierNameSearch:(id)sender;
 -(IBAction)reconnectDevices:(id)sender;
+- (void) animateTextField: (UITextField*) textField up: (BOOL) up;
 
 
 @end
