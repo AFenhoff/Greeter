@@ -11,6 +11,8 @@
 
 @interface VehicleMenuViewController : BaseModalViewController <BarcodeViewControllerDelegate,BaseModalViewControllerDelegate>
 
+- (IBAction)newVehicle:(id)sender;
+
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @end

@@ -312,9 +312,10 @@
     
 }
 
-- (IBAction)saveButtonPressed:(id)sender
+- (IBAction)newVehicle:(id)sender
 {
-    
+    //Do some things and transition into new view control
+    [self performSegueWithIdentifier:@"makeSegue" sender:self];
 }
 
 @end
