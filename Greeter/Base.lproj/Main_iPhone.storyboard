@@ -724,7 +724,7 @@ THIS CONTRACT IS VALID FOR THREE (3) YEARS FROM DATE ABOVE
                         <viewControllerLayoutGuide type="top" id="cER-tZ-V31"/>
                         <viewControllerLayoutGuide type="bottom" id="yvZ-iK-H4F"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="HSQ-8p-RZV">
+                    <view key="view" contentMode="scaleToFill" id="HSQ-8p-RZV" customClass="UIScrollView">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -1048,7 +1048,7 @@ THIS CONTRACT IS VALID FOR THREE (3) YEARS FROM DATE ABOVE
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="IPp-6G-UqO">
                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
-                                                <action selector="saveButtonPressed:" destination="i3x-E8-YvL" id="BgJ-KF-rhC"/>
+                                                <action selector="newVehicle:" destination="i3x-E8-YvL" id="tIX-kM-bt6"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
