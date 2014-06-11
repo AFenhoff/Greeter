@@ -39,18 +39,11 @@ bool _materialCaptured = NO;
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     vehicleOrIDRequired = YES;
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
     [self allItemsAreComplete];
-    
-    /**************************************************************
-     TODO: 
-     Only turn Vehicle button red if vehicle required
-     **************************************************************/
-    if (vehicleOrIDRequired)
-    {
-        [self animateButtonToRed:vehicleButton];
-    }
-
-
 }
 
 - (void)didReceiveMemoryWarning
@@ -116,11 +109,11 @@ bool _materialCaptured = NO;
     
 }
 
--(void) animateButtonToRed:(UIBarButtonItem *)button
+-(void) animateToolbarToColor:(UIColor *)color
 {
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.5];
-    toolbar.backgroundColor = [UIColor redColor];
+    toolbar.backgroundColor = color;
     [UIView commitAnimations];
 }
 
@@ -223,7 +216,19 @@ bool _materialCaptured = NO;
 {
     SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
     syncButton.enabled = _vehicleCaptured && _documentsCaptured && ((sharedObjects.greeterType == FE && _materialCaptured) || sharedObjects.greeterType == NF);
-    toolbar.backgroundColor = syncButton.enabled ? [UIColor grayColor] : [UIColor redColor];
+    //toolbar.backgroundColor = syncButton.enabled ? [UIColor grayColor] : [UIColor redColor];
+    
+    /**************************************************************
+     TODO:
+     Only turn Vehicle button red if vehicle required
+     **************************************************************/
+    if (!syncButton.enabled)
+    {
+        [self animateToolbarToColor:[UIColor redColor]];
+    }else{
+        [self animateToolbarToColor:[UIColor grayColor]];
+    }
+
 }
 
 @end
