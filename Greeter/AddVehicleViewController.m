@@ -9,6 +9,7 @@
 #import "AddVehicleViewController.h"
 #import "ColorTableViewController.h"
 #import "DTDevices.h"
+#import "SelectModelViewController.h"
 
 @interface AddVehicleViewController ()
 
@@ -55,6 +56,27 @@ trailerTextField, trailerStateTextField, barcodeTextField, processLineaCommands;
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    if([segue.destinationViewController isKindOfClass:[SelectModelViewController class]])
+    {
+        SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
+        SelectModelViewController *modelSelector = segue.destinationViewController;
+        //modelSelector.make = sharedObjects.selectedVehicle.make;
+        modelSelector.make = @"Ferrari";
+    }
+}
+
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    if([identifier isEqualToString:@"model"])
+    {
+        SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
+        if(sharedObjects.selectedVehicle.make.length == 0)
+        {
+            [Common showAlert:@"No Make selected.\nCannot display models." forDelegate:self];
+            return NO;
+        }
+    }
+    return YES;
 }
 
 
@@ -67,6 +89,11 @@ trailerTextField, trailerStateTextField, barcodeTextField, processLineaCommands;
 
 -(void)modalComplete:(id)sender
 {
+    if([sender isKindOfClass:[SelectModelViewController class]])
+    {
+        SharedObjects* object = [SharedObjects getSharedObjects];
+        modelButton.titleLabel.text = object.selectedVehicle.model;
+    }
 }
 
 -(IBAction)savePressed:(id)sender

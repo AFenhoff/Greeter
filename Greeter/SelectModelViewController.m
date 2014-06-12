@@ -13,7 +13,7 @@
 @end
 
 @implementation SelectModelViewController
-@synthesize models;
+@synthesize models, make;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,6 +28,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
     [self filterMaterialsForText:@""];
 }
 
@@ -61,10 +62,10 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MakeAndModel *selectedModels = (MakeAndModel *)[self.models objectAtIndex:indexPath.row];
+    MakeAndModel *selectedModel = (MakeAndModel *)[self.models objectAtIndex:indexPath.row];
     
     SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
-    //sharedObjects.selectedMaterial = selectedModels;
+    sharedObjects.selectedVehicle.model = selectedModel.model;
     [self dismissViewControllerAnimated:TRUE completion:nil];
     [self.delegate modalComplete:self];
 }
@@ -213,13 +214,13 @@
     
     if (![searchString isEqualToString:@""]) {
         searchString = [searchString stringByAppendingString:@"*"];
-        NSPredicate* predicate = [NSPredicate predicateWithFormat:@"materialDescription LIKE[c] %@", searchString];
+        NSPredicate* predicate = [NSPredicate predicateWithFormat:@"make == %@ && model LIKE[c] %@", make, searchString];
         [request setPredicate:predicate];
     }
     
     SharedObjects* sharedObject = [SharedObjects getSharedObjects];
     NSManagedObjectContext* context = sharedObject.managedObjectContext;
-    NSEntityDescription* materialEntity = [NSEntityDescription entityForName:@"Material" inManagedObjectContext:context];
+    NSEntityDescription* materialEntity = [NSEntityDescription entityForName:@"MakeAndModel" inManagedObjectContext:context];
     
     [request setEntity:materialEntity];
     

@@ -96,6 +96,7 @@ bool _nameCaptured = YES;
         supp.idRequired     = [NSNumber numberWithInt:1];
         supp.fingerPrint    = 0;
         supp.rowid          = 0;
+        supp.idNumber       = @"";
         
         NSError *error = nil;
         if (![sharedObjects.managedObjectContext save:&error]) {
@@ -252,7 +253,7 @@ bool _nameCaptured = YES;
 -(void)allItemsAreComplete
 {
     SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
-    syncButton.enabled = _nameCaptured && sharedObjects.selectedVehicle && _documentsCaptured && ((sharedObjects.greeterType == FE && _materialCaptured) || sharedObjects.greeterType == NF);
+    syncButton.enabled = _nameCaptured && sharedObjects.selectedVehicle && _documentsCaptured && ((sharedObjects.greeterType == FE && sharedObjects.selectedMaterial) || sharedObjects.greeterType == NF);
     //toolbar.backgroundColor = syncButton.enabled ? [UIColor grayColor] : [UIColor redColor];
     
     /**************************************************************
