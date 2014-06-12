@@ -1700,6 +1700,7 @@ THIS CONTRACT IS VALID FOR THREE (3) YEARS FROM DATE ABOVE
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="makePressed:" destination="kTu-Xa-nxI" eventType="touchUpInside" id="Eab-go-cRq"/>
                                     <segue destination="zOf-iB-xjw" kind="modal" id="tXb-Nc-w15"/>
                                 </connections>
                             </button>
@@ -1711,6 +1712,7 @@ THIS CONTRACT IS VALID FOR THREE (3) YEARS FROM DATE ABOVE
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="modelPressed:" destination="kTu-Xa-nxI" eventType="touchUpInside" id="dmD-3Y-zWf"/>
                                     <segue destination="PbT-ym-b2G" kind="modal" identifier="model" id="d4m-bT-fWz"/>
                                 </connections>
                             </button>

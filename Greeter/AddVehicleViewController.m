@@ -8,6 +8,7 @@
 
 #import "AddVehicleViewController.h"
 #import "ColorTableViewController.h"
+#import "SearchViewController.h"
 #import "DTDevices.h"
 #import "SelectModelViewController.h"
 
@@ -147,7 +148,21 @@ trailerTextField, trailerStateTextField, barcodeTextField, processLineaCommands;
 
 -(void)recordCreatedSuccessfully:(id)sender
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+bool isMake;
+
+-(void)makePressed:(id)sender
+{
+    isMake = true;
+    [self performSegueWithIdentifier:@"makeSegue" sender:self];
+}
+
+-(void)modelPressed:(id)sender
+{
+    isMake = false;
+    [self performSegueWithIdentifier:@"makeSegue" sender:self];
 }
 
 @end
