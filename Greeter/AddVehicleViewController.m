@@ -31,13 +31,16 @@ trailerTextField, trailerStateTextField, barcodeTextField, processLineaCommands;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    SharedObjects* object = [SharedObjects getSharedObjects];
-    object.selectedVehicle = [[Vehicle alloc] init];
 }
 
 - (void) viewDidAppear:(BOOL)animated
 {
     ((DTDevices *)[DTDevices sharedDevice]).delegate = self;
+    SharedObjects* object = [SharedObjects getSharedObjects];
+    object.selectedVehicle = (Vehicle *)[NSEntityDescription insertNewObjectForEntityForName:@"Vehicle" inManagedObjectContext:object.managedObjectContext];
+    object.selectedVehicle.make = @"";
+    object.selectedVehicle.model = @"";
+    object.selectedVehicle.color = @"";
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,14 +49,14 @@ trailerTextField, trailerStateTextField, barcodeTextField, processLineaCommands;
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
 }
-*/
+
 
 -(void)barcodeData:(NSString *)barcode type:(int)type
 {
@@ -71,6 +74,11 @@ trailerTextField, trailerStateTextField, barcodeTextField, processLineaCommands;
     if ([self isValid]) {
         SharedObjects* object = [SharedObjects getSharedObjects];
         object.selectedVehicle.year = [NSNumber numberWithInt:[self.yearTextField.text intValue]];
+        object.selectedVehicle.licensePlate = [self.plateTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        object.selectedVehicle.trailerNumber = [self.trailerTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        object.selectedVehicle.state = [self.plateStateTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        object.selectedVehicle.barcode = [self.barcodeTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        [object.dataManager saveSupplierVehicle];
     }
 }
 
@@ -87,22 +95,31 @@ trailerTextField, trailerStateTextField, barcodeTextField, processLineaCommands;
         errorMessage = [errorMessage stringByAppendingString:@"License Plate is Required!\n"];
     }
     
-    if (object.selectedVehicle.make && [object.selectedVehicle.make isEqualToString:@""]) {
+    if ([object.selectedVehicle.make isEqualToString:@""]) {
         result = NO;
         errorMessage = [errorMessage stringByAppendingString:@"Make is Required!\n"];
     }
     
-    if (object.selectedVehicle.model && [object.selectedVehicle.model isEqualToString:@""]) {
+    if ([object.selectedVehicle.model isEqualToString:@""]) {
         result = NO;
         errorMessage = [errorMessage stringByAppendingString:@"Model is Required!\n"];
     }
     
-    if (object.selectedVehicle.color && [object.selectedVehicle.color isEqualToString:@""]) {
+    if ([object.selectedVehicle.color isEqualToString:@""]) {
         result = NO;
         errorMessage = [errorMessage stringByAppendingString:@"Color is Required!\n"];
     }
     
+    if (!result) {
+        [Common showAlert:errorMessage forDelegate:self];
+    }
+    
     return result;
+}
+
+-(void)recordCreatedSuccessfully:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

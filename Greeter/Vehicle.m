@@ -2,7 +2,7 @@
 //  Vehicle.m
 //  YardOps
 //
-//  Created by Andrew Fenhoff on 6/3/14.
+//  Created by loaner on 6/12/14.
 //  Copyright (c) 2014 DJJ. All rights reserved.
 //
 
@@ -11,16 +11,17 @@
 
 @implementation Vehicle
 
-@dynamic rowid;
-@dynamic supplierNo;
+@dynamic color;
+@dynamic createdBy;
 @dynamic idNumber;
+@dynamic licensePlate;
 @dynamic make;
 @dynamic model;
-@dynamic year;
-@dynamic color;
-@dynamic licensePlate;
-@dynamic trailerNumber;
+@dynamic rowid;
 @dynamic state;
-@dynamic createdBy;
+@dynamic supplierNo;
+@dynamic trailerNumber;
+@dynamic year;
+@dynamic barcode;
 
 @end

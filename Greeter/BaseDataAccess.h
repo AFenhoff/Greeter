@@ -56,6 +56,7 @@
     UIActivityIndicatorView *activityIndicator;
 }
 
+//link directly to the datamanager class
 @property (nonatomic, assign) id<BaseDataAccessDelegate> delegate;
 
 @property (nonatomic, retain) NSString *cookie;
@@ -63,6 +64,7 @@
 @property (nonatomic, assign, readonly) int responseStatusCode;
 @property (nonatomic, retain, readonly)	NSString *responseStatusMsg;
 @property (nonatomic, retain) NSMutableData *returnedData;
+//cheap and dirty way to implement virtual methods so this only goes back to the subclasses that call execute api post and get
 @property (nonatomic, retain) id callbackDelegate;
 @property (nonatomic, retain) NSString * GUID;
 @property (nonatomic, retain) NSString *lastRequestURL;

@@ -11,6 +11,7 @@
 		2E3FF5AD1947BE9B00989645 /* MakeAndModelDataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3FF5AC1947BE9B00989645 /* MakeAndModelDataAccess.m */; };
 		2E6B2C401946509E003EFDED /* MaterialDataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6B2C3F1946509E003EFDED /* MaterialDataAccess.m */; };
 		2E6B2C49194691B7003EFDED /* Material.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6B2C48194691B7003EFDED /* Material.m */; };
+		2EEEC0371949E27E00826FC4 /* Vehicle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EEEC0361949E27E00826FC4 /* Vehicle.m */; };
 		2EFC9075194643C3002F4CCC /* YardOpsModeSelectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC9074194643C3002F4CCC /* YardOpsModeSelectTableViewController.m */; };
 		3450AD571924E90C00742A96 /* AdjustmentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3450AD561924E90C00742A96 /* AdjustmentsViewController.m */; };
 		3450AD9D193D0BAB00742A96 /* SupplierDataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 3450AD9C193D0BAB00742A96 /* SupplierDataAccess.m */; };
@@ -20,7 +21,6 @@
 		345B9A7F18CE53FA009A459D /* IdentityDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 345B9A7E18CE53FA009A459D /* IdentityDetailViewController.m */; };
 		346E67FB193E062400E7B8E3 /* SharedObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 346E67FA193E062400E7B8E3 /* SharedObjects.m */; };
 		346E67FF193E23B100E7B8E3 /* Supplier.m in Sources */ = {isa = PBXBuildFile; fileRef = 346E67FE193E23B100E7B8E3 /* Supplier.m */; };
-		346E6803193EBAF200E7B8E3 /* Vehicle.m in Sources */ = {isa = PBXBuildFile; fileRef = 346E6802193EBAF200E7B8E3 /* Vehicle.m */; };
 		346E6806193EBB1500E7B8E3 /* VehicleDataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 346E6805193EBB1500E7B8E3 /* VehicleDataAccess.m */; };
 		346E680A193F788A00E7B8E3 /* LicenseDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 346E6809193F788A00E7B8E3 /* LicenseDecoder.m */; };
 		346E680D193F88EA00E7B8E3 /* NSString+ContainsString.m in Sources */ = {isa = PBXBuildFile; fileRef = 346E680C193F88EA00E7B8E3 /* NSString+ContainsString.m */; };
@@ -112,6 +112,9 @@
 		2E6B2C3F1946509E003EFDED /* MaterialDataAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaterialDataAccess.m; sourceTree = "<group>"; };
 		2E6B2C47194691B7003EFDED /* Material.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Material.h; sourceTree = "<group>"; };
 		2E6B2C48194691B7003EFDED /* Material.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Material.m; sourceTree = "<group>"; };
+		2EEEC0311949E14E00826FC4 /* YardOps 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "YardOps 3.xcdatamodel"; sourceTree = "<group>"; };
+		2EEEC0351949E27E00826FC4 /* Vehicle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vehicle.h; sourceTree = "<group>"; };
+		2EEEC0361949E27E00826FC4 /* Vehicle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vehicle.m; sourceTree = "<group>"; };
 		2EFC9073194643C3002F4CCC /* YardOpsModeSelectTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YardOpsModeSelectTableViewController.h; sourceTree = "<group>"; };
 		2EFC9074194643C3002F4CCC /* YardOpsModeSelectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YardOpsModeSelectTableViewController.m; sourceTree = "<group>"; };
 		3450AD551924E90C00742A96 /* AdjustmentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdjustmentsViewController.h; sourceTree = "<group>"; };
@@ -132,8 +135,6 @@
 		346E67FD193E23B100E7B8E3 /* Supplier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Supplier.h; sourceTree = "<group>"; };
 		346E67FE193E23B100E7B8E3 /* Supplier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Supplier.m; sourceTree = "<group>"; };
 		346E6800193EA06700E7B8E3 /* Greeter 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Greeter 3.xcdatamodel"; sourceTree = "<group>"; };
-		346E6801193EBAF200E7B8E3 /* Vehicle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vehicle.h; sourceTree = "<group>"; };
-		346E6802193EBAF200E7B8E3 /* Vehicle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vehicle.m; sourceTree = "<group>"; };
 		346E6804193EBB1500E7B8E3 /* VehicleDataAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VehicleDataAccess.h; sourceTree = "<group>"; };
 		346E6805193EBB1500E7B8E3 /* VehicleDataAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VehicleDataAccess.m; sourceTree = "<group>"; };
 		346E6808193F788A00E7B8E3 /* LicenseDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LicenseDecoder.h; sourceTree = "<group>"; };
@@ -342,6 +343,8 @@
 		34B4EA7C18F5E15900251AAB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2EEEC0351949E27E00826FC4 /* Vehicle.h */,
+				2EEEC0361949E27E00826FC4 /* Vehicle.m */,
 				34E30C7017ECEC9A005963B7 /* Greeter.xcdatamodeld */,
 				2E3FF5A81947B2DD00989645 /* MakeAndModel.h */,
 				2E3FF5A91947B2DD00989645 /* MakeAndModel.m */,
@@ -351,8 +354,6 @@
 				2E6B2C48194691B7003EFDED /* Material.m */,
 				349732D81944099F001DC1A6 /* User.h */,
 				349732D91944099F001DC1A6 /* User.m */,
-				346E6801193EBAF200E7B8E3 /* Vehicle.h */,
-				346E6802193EBAF200E7B8E3 /* Vehicle.m */,
 				346E67FD193E23B100E7B8E3 /* Supplier.h */,
 				346E67FE193E23B100E7B8E3 /* Supplier.m */,
 				34B4EA7D18F5E1A300251AAB /* ModelGenerator.h */,
@@ -714,9 +715,9 @@
 				3499AD22180D91D400CA6981 /* SignatureViewController.m in Sources */,
 				2E3FF5AA1947B2DD00989645 /* MakeAndModel.m in Sources */,
 				34CB2F1818D9C70900C1A66C /* BaseModalViewController.m in Sources */,
-				346E6803193EBAF200E7B8E3 /* Vehicle.m in Sources */,
 				34E30CC917ECEF43005963B7 /* NSString+NSString_LeftPadding.m in Sources */,
 				34E30CC217ECEF43005963B7 /* NSArray+BSJSONAdditions.m in Sources */,
+				2EEEC0371949E27E00826FC4 /* Vehicle.m in Sources */,
 				346E680D193F88EA00E7B8E3 /* NSString+ContainsString.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -971,6 +972,7 @@
 		34E30C7017ECEC9A005963B7 /* Greeter.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				2EEEC0311949E14E00826FC4 /* YardOps 3.xcdatamodel */,
 				2E3FF5A71947B16700989645 /* YardOps1.xcdatamodel */,
 				349732F819487F66001DC1A6 /* YardOps 2.xcdatamodel */,
 				349732D41943E4E9001DC1A6 /* Greeter 4.xcdatamodel */,
@@ -978,7 +980,7 @@
 				346E6800193EA06700E7B8E3 /* Greeter 3.xcdatamodel */,
 				34E30C7117ECEC9A005963B7 /* Greeter.xcdatamodel */,
 			);
-			currentVersion = 349732F819487F66001DC1A6 /* YardOps 2.xcdatamodel */;
+			currentVersion = 2EEEC0311949E14E00826FC4 /* YardOps 3.xcdatamodel */;
 			path = Greeter.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

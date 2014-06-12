@@ -69,6 +69,7 @@
         <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Vehicle" representedClassName="Vehicle" syncable="YES">
+        <attribute name="barcode" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="color" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="createdBy" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="idNumber" optional="YES" attributeType="String" syncable="YES"/>
@@ -87,6 +88,6 @@
         <element name="Material" positionX="306" positionY="369" width="128" height="118"/>
         <element name="Supplier" positionX="315" positionY="261" width="128" height="210"/>
         <element name="User" positionX="306" positionY="369" width="128" height="90"/>
-        <element name="Vehicle" positionX="324" positionY="342" width="128" height="210"/>
+        <element name="Vehicle" positionX="324" positionY="342" width="128" height="223"/>
     </elements>
 </model>

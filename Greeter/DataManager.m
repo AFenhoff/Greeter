@@ -7,7 +7,6 @@
 //
 
 #import "DataManager.h"
-#import "BaseDataAccess.h"
 #import "MaterialDataAccess.h"
 #import "SupplierDataAccess.h"
 #import "VehicleDataAccess.h"
@@ -178,6 +177,14 @@
     [greeterQueueManager saveGreeterQueueRecord];
 }
 
+-(void)saveSupplierVehicle
+{
+    self.callType = PostSupplierVehicle;
+    VehicleDataAccess* vehicleAccess = [[VehicleDataAccess alloc] init];
+    vehicleAccess.delegate = self;
+    [vehicleAccess saveSupplierVehicle];
+}
+
 -(void)didReceiveData:(NSMutableArray *)data
 {
     NSLog(@"DataManager didReceiveData");
@@ -189,14 +196,20 @@
                 [self getSupplierByIDNumber:sharedObjects.selectedVehicle.idNumber andState:@"" forDelegate:self.delegate];
             }
             break;
-            
+        case PostSupplierVehicle:
+            //do nothing
+            break;
         default:
             [self.delegate dataDidSync:self];
             break;
     }
 }
 
-
-
+-(void)objectCreatedSuccessfully:(id)sender
+{
+    if ([self.delegate respondsToSelector:@selector(recordCreatedSuccessfully:)]) {
+        [self.delegate	recordCreatedSuccessfully:self];
+    }
+}
 
 @end

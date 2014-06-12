@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BaseDataAccess.h"
 
 typedef enum DataManagerCallType : NSInteger DataManagerCallType;
 enum DataManagerCallType : NSInteger {
@@ -18,17 +19,19 @@ enum DataManagerCallType : NSInteger {
     Users,
     Materials,
     PostGreeterQueue,
-    MakesAndModels
+    MakesAndModels,
+    PostSupplierVehicle
 };
 
 @protocol DataManagerDelegate<NSObject>
 @optional
 
+-(void)recordCreatedSuccessfully:(id)sender;
 -(void)dataDidSync:(id)sender;
 
 @end
 
-@interface DataManager : NSObject
+@interface DataManager : NSObject<BaseDataAccessDelegate>
 
 @property (nonatomic, assign) id<DataManagerDelegate> delegate;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
@@ -48,7 +51,9 @@ enum DataManagerCallType : NSInteger {
 -(void)getUserByEmployeeID:(NSNumber *)employeeID forDelegate:(id)delegate;
 -(void)getMaterialsForBranch:(NSString *)branchCode forDelegate:(id)delegate;
 -(void)getMakesAndModels:(id)delegate;
--(void)saveGreeterQueue;
 
+/*****Save Section********************************************************************************************************/
+-(void)saveGreeterQueue;
+-(void)saveSupplierVehicle;
 
 @end

@@ -211,7 +211,7 @@
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
     returnedResponse = response;
-    [self handleResponse:response];
+//    [self handleResponse:response];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
@@ -278,7 +278,8 @@
     {
         [activityIndicator stopAnimating];
     }
-    [callbackDelegate didReceiveData:jsonList];
+    //[callbackDelegate didReceiveData:jsonList];
+    [self handleResponse:returnedResponse withData:jsonList];
     
 }
 
@@ -294,7 +295,7 @@
     
 }
 
--(void) handleResponse:(NSURLResponse *)response
+-(void) handleResponse:(NSURLResponse *)response withData:(NSMutableArray *)data
  {
      NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
      
@@ -305,10 +306,13 @@
      
      switch (httpResponse.statusCode) {
          case 200:
-             if([self.delegate respondsToSelector:@selector(requestReturnedRecordsSuccessfully:)])
-                 [self.delegate requestReturnedRecordsSuccessfully:self];
+             if ([callbackDelegate respondsToSelector:@selector(didReceiveData:)]) {
+                 //calls back to subclass DataAccess classes so that core data can be handled in those
+                 [callbackDelegate didReceiveData:data];
+             }
              break;
          case 201:
+             //calls back directly because there shouldnt be any core data the way we have it implemented
              if([self.delegate respondsToSelector:@selector(objectCreatedSuccessfully:)])
                  [self.delegate	objectCreatedSuccessfully:self];
              break;
