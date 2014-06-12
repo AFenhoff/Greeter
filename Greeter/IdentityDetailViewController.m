@@ -11,6 +11,7 @@
 #import "DocumentationMenuViewController.h"
 #import "VehicleMenuViewController.h"
 #import "SelectMaterialTableViewController.h"
+#import "Common.h"
 
 @interface IdentityDetailViewController ()
 
@@ -45,6 +46,7 @@ bool _materialCaptured = NO;
     [toolbarButtons removeObject:self.documentsButton];
     toolbar.items = toolbarButtons;
     _documentsCaptured = YES;
+    [tableView setEditing:YES];
 
 }
 
@@ -83,19 +85,22 @@ bool _materialCaptured = NO;
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
+    NSString *fullName = [NSString stringWithFormat:@"%@ %@", sharedObjects.selectedSupplier.firstName, sharedObjects.selectedSupplier.lastName];
+    if([fullName isEqualToString:@"(null) (null)"]){ fullName = @"N/A"; }
     
     switch (indexPath.row) {
         case 0:
             cell.textLabel.text = @"NAME";
-            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", sharedObjects.selectedSupplier.firstName, sharedObjects.selectedSupplier.lastName];//@"ANDREW FENHOFF";
+            cell.detailTextLabel.text = fullName;
             break;
         case 1:
             cell.textLabel.text = @"SUPPLIER NAME";
-            cell.detailTextLabel.text = sharedObjects.selectedSupplier.supplierName;//@"N/A";
+            cell.detailTextLabel.text = sharedObjects.selectedSupplier.supplierName ? sharedObjects.selectedSupplier.supplierName : @"N/A";
+
             break;
         case 2:
             cell.textLabel.text = @"ID NUMBER";
-            cell.detailTextLabel.text = sharedObjects.selectedSupplier.idNumber;//@"N/A";
+            cell.detailTextLabel.text = sharedObjects.selectedSupplier.idNumber ? sharedObjects.selectedSupplier.idNumber : @"N/A";
             break;
         case 3:
             cell.textLabel.text = @"SUPPLIER TYPE";
@@ -113,6 +118,13 @@ bool _materialCaptured = NO;
         default:
             break;
     }
+    
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row > 0){ return; }
+
     
 }
 
@@ -271,19 +283,8 @@ bool _materialCaptured = NO;
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
-    return indexPath.row == 0;
+    return NO;
 }
 
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
- {
-     if (editingStyle == UITableViewCellEditingStyleDelete) {
-     // Delete the row from the data source
-     //[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-     }
-     else if (editingStyle == UITableViewCellEditingStyleInsert) {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
- }
 
 @end

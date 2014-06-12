@@ -217,7 +217,7 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     NSString *myString = [[NSString alloc] initWithData:returnedData encoding:NSUTF8StringEncoding];
-    
+
     //Assumes this is the ADFS STS redirection
     if([myString rangeOfString:@"<!DOCTYPE html PUBLIC " options:NSCaseInsensitiveSearch].location != NSNotFound)
     {

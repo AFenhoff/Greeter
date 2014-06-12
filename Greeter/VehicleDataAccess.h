@@ -13,5 +13,6 @@
 
 -(void)getSupplierVehiclesBySupplier:(NSString *)supplierNo andIDNumber:(NSString *)idNumber;
 -(void)getSupplierVehicleByBarcode:(NSString *)barcode;
+-(void)saveSupplierVehicle;
 
 @end

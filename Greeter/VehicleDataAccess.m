@@ -29,11 +29,17 @@
     [super executeAPIMethod:self.lastRequestURL forDelegate:self];
 }
 
+-(void)saveSupplierVehicle
+{
+    SharedObjects *so = [SharedObjects getSharedObjects];
+    //Get all existing greeter records and send them through
+    [super executeAPIPost:@"suppliers/vehicles/postsuppliervehicle" forDelegate:self withObject:so.selectedVehicle];
+    
+}
 -(void)authenticationComplete:(id)sender
 {
     //NEED TO FIGURE OUT HOW TO RESUME WHERE WE LEFT OFF SINCE WE GET BACK HERE AFTER ADFS AUTHENTICATION
     [super executeAPIMethod:self.lastRequestURL forDelegate:self];
-    
 }
 
 -(void)didReceiveData:(NSMutableArray *)data
