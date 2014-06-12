@@ -12,7 +12,7 @@
 
 -(void)getMakesAndModels:(id)delegate
 {
-    self.lastRequestURL = [NSString stringWithFormat:@"%@", @"vehicle/getallmakesandmodels"];
+    self.lastRequestURL = [NSString stringWithFormat:@"%@", @"vehicles/getallmakesandmodels"];
     [super executeAPIMethod:self.lastRequestURL forDelegate:self];
 }
 

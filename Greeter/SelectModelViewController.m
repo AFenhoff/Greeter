@@ -212,11 +212,10 @@
     NSFetchRequest* request = [[NSFetchRequest alloc]init];
     
     
-    if (![searchString isEqualToString:@""]) {
-        searchString = [searchString stringByAppendingString:@"*"];
-        NSPredicate* predicate = [NSPredicate predicateWithFormat:@"make == %@ && model LIKE[c] %@", make, searchString];
-        [request setPredicate:predicate];
-    }
+    searchString = [searchString stringByAppendingString:@"*"];
+    NSPredicate* predicate = [searchString isEqualToString:@""] ? [NSPredicate predicateWithFormat:@"make == %@", make] : [NSPredicate predicateWithFormat:@"make == %@ && model LIKE[c] %@", make, searchString];
+    
+    [request setPredicate:predicate];
     
     SharedObjects* sharedObject = [SharedObjects getSharedObjects];
     NSManagedObjectContext* context = sharedObject.managedObjectContext;

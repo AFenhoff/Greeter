@@ -61,8 +61,8 @@ trailerTextField, trailerStateTextField, barcodeTextField, processLineaCommands;
     {
         SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
         SelectModelViewController *modelSelector = segue.destinationViewController;
-        //modelSelector.make = sharedObjects.selectedVehicle.make;
-        modelSelector.make = @"Ferrari";
+        modelSelector.make = sharedObjects.selectedVehicle.make;
+        
     }
 }
 
@@ -71,6 +71,9 @@ trailerTextField, trailerStateTextField, barcodeTextField, processLineaCommands;
     if([identifier isEqualToString:@"model"])
     {
         SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
+        //REMOVE THIS LINE
+        sharedObjects.selectedVehicle.make = @"Ferrari";
+        
         if(sharedObjects.selectedVehicle.make.length == 0)
         {
             [Common showAlert:@"No Make selected.\nCannot display models." forDelegate:self];
@@ -162,7 +165,7 @@ bool isMake;
 -(void)modelPressed:(id)sender
 {
     isMake = false;
-    [self performSegueWithIdentifier:@"makeSegue" sender:self];
+    //[self performSegueWithIdentifier:@"makeSegue" sender:self];
 }
 
 @end
