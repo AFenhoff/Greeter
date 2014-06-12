@@ -11,7 +11,7 @@
 #import "SupplierDataAccess.h"
 #import "VehicleDataAccess.h"
 #import "UserDataAccess.h"
-#import "GreeterQueueManager.h"
+#import "GreeterQueueAccess.h"
 #import "MakeAndModelDataAccess.h"
 
 @implementation DataManager
@@ -172,7 +172,7 @@
 -(void)saveGreeterQueue
 {
     self.callType = PostGreeterQueue;
-    GreeterQueueManager *greeterQueueManager = [[GreeterQueueManager alloc] init];
+    GreeterQueueAccess *greeterQueueManager = [[GreeterQueueAccess alloc] init];
     greeterQueueManager.delegate = self;
     [greeterQueueManager saveGreeterQueueRecord];
 }

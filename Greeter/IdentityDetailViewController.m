@@ -12,6 +12,7 @@
 #import "VehicleMenuViewController.h"
 #import "SelectMaterialTableViewController.h"
 #import "Common.h"
+#import "NameViewController.h"
 
 @interface IdentityDetailViewController ()
 
@@ -25,6 +26,7 @@
 bool _vehicleCaptured = NO;
 bool _documentsCaptured = NO;
 bool _materialCaptured = NO;
+bool _nameCaptured = YES;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -46,7 +48,6 @@ bool _materialCaptured = NO;
     [toolbarButtons removeObject:self.documentsButton];
     toolbar.items = toolbarButtons;
     _documentsCaptured = YES;
-    [tableView setEditing:YES];
 
 }
 
@@ -85,8 +86,27 @@ bool _materialCaptured = NO;
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
+    if(!sharedObjects.selectedSupplier)
+    {
+        Supplier *supp = (Supplier *)[NSEntityDescription insertNewObjectForEntityForName:@"Supplier" inManagedObjectContext:sharedObjects.managedObjectContext];
+        
+        supp.supplierName   = @"Peddler (No Acct)";
+        supp.supplierNo     = @"******";
+        supp.supplierType   = @"P";
+        supp.idRequired     = [NSNumber numberWithInt:1];
+        supp.fingerPrint    = 0;
+        supp.rowid          = 0;
+        
+        NSError *error = nil;
+        if (![sharedObjects.managedObjectContext save:&error]) {
+            // Handle the error.
+        }
+        sharedObjects.selectedSupplier = supp;
+        _nameCaptured = NO;
+    }else{ _nameCaptured = YES; }
+
     NSString *fullName = [NSString stringWithFormat:@"%@ %@", sharedObjects.selectedSupplier.firstName, sharedObjects.selectedSupplier.lastName];
-    if([fullName isEqualToString:@"(null) (null)"]){ fullName = @"N/A"; }
+    if([fullName isEqualToString:@"(null) (null)"]){ fullName = @"N/A (Press Here to Change)"; }
     
     switch (indexPath.row) {
         case 0:
@@ -124,7 +144,7 @@ bool _materialCaptured = NO;
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row > 0){ return; }
-
+    [self performSegueWithIdentifier:@"firstAndLastName" sender:self];
     
 }
 
@@ -224,6 +244,12 @@ bool _materialCaptured = NO;
     }
     
     [self allItemsAreComplete];
+    
+    if ([sender isKindOfClass:[NameViewController class]])
+    {
+        _nameCaptured = YES;
+        [tableView reloadData];
+    }
 }
 
 -(void)modalCanceled:(id)sender
@@ -234,7 +260,7 @@ bool _materialCaptured = NO;
 -(void)allItemsAreComplete
 {
     SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
-    syncButton.enabled = sharedObjects.selectedVehicle && _documentsCaptured && ((sharedObjects.greeterType == FE && _materialCaptured) || sharedObjects.greeterType == NF);
+    syncButton.enabled = _nameCaptured && sharedObjects.selectedVehicle && _documentsCaptured && ((sharedObjects.greeterType == FE && _materialCaptured) || sharedObjects.greeterType == NF);
     //toolbar.backgroundColor = syncButton.enabled ? [UIColor grayColor] : [UIColor redColor];
     
     /**************************************************************
@@ -280,11 +306,12 @@ bool _materialCaptured = NO;
     
 }
 
+/*
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
     return NO;
 }
-
+*/
 
 @end

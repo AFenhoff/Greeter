@@ -1,5 +1,5 @@
 //
-//  GreeterQueueManager.h
+//  GreeterQueueAccess.h
 //  YardOps
 //
 //  Created by Andrew Fenhoff on 6/10/14.
@@ -8,7 +8,7 @@
 
 #import "BaseDataAccess.h"
 
-@interface GreeterQueueManager : BaseDataAccess<ADFSViewControllerDelegate>
+@interface GreeterQueueAccess : BaseDataAccess<ADFSViewControllerDelegate>
 
 -(void)saveGreeterQueueRecord;
 
