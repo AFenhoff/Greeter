@@ -6,8 +6,13 @@
 //  Copyright (c) 2014 DJJ. All rights reserved.
 //
 
-#import "BaseTableViewController.h"
+#import "BaseModalViewController.h"
 
-@interface SelectMakeViewController : BaseTableViewController
+@interface SelectMakeViewController : BaseModalViewController
+{
+    NSArray* dataSource;
+}
+
+-(void)filterMakesForText:(NSString *) searchString;
 
 @end

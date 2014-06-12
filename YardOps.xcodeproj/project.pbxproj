@@ -12,6 +12,7 @@
 		2E6B2C401946509E003EFDED /* MaterialDataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6B2C3F1946509E003EFDED /* MaterialDataAccess.m */; };
 		2E6B2C49194691B7003EFDED /* Material.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6B2C48194691B7003EFDED /* Material.m */; };
 		2EEEC0371949E27E00826FC4 /* Vehicle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EEEC0361949E27E00826FC4 /* Vehicle.m */; };
+		2EEEC03D194A0E0D00826FC4 /* SelectMakeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EEEC03C194A0E0D00826FC4 /* SelectMakeViewController.m */; };
 		2EFC9075194643C3002F4CCC /* YardOpsModeSelectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC9074194643C3002F4CCC /* YardOpsModeSelectTableViewController.m */; };
 		3450AD571924E90C00742A96 /* AdjustmentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3450AD561924E90C00742A96 /* AdjustmentsViewController.m */; };
 		3450AD9D193D0BAB00742A96 /* SupplierDataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 3450AD9C193D0BAB00742A96 /* SupplierDataAccess.m */; };
@@ -117,6 +118,8 @@
 		2EEEC0311949E14E00826FC4 /* YardOps 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "YardOps 3.xcdatamodel"; sourceTree = "<group>"; };
 		2EEEC0351949E27E00826FC4 /* Vehicle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vehicle.h; sourceTree = "<group>"; };
 		2EEEC0361949E27E00826FC4 /* Vehicle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vehicle.m; sourceTree = "<group>"; };
+		2EEEC03B194A0E0D00826FC4 /* SelectMakeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectMakeViewController.h; sourceTree = "<group>"; };
+		2EEEC03C194A0E0D00826FC4 /* SelectMakeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectMakeViewController.m; sourceTree = "<group>"; };
 		2EFC9073194643C3002F4CCC /* YardOpsModeSelectTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YardOpsModeSelectTableViewController.h; sourceTree = "<group>"; };
 		2EFC9074194643C3002F4CCC /* YardOpsModeSelectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YardOpsModeSelectTableViewController.m; sourceTree = "<group>"; };
 		3450AD551924E90C00742A96 /* AdjustmentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdjustmentsViewController.h; sourceTree = "<group>"; };
@@ -322,6 +325,8 @@
 				34B2354718D0D7510075BB28 /* VehicleMenuViewController.m */,
 				349733021949DA8E001DC1A6 /* NameViewController.h */,
 				349733031949DA8E001DC1A6 /* NameViewController.m */,
+				2EEEC03B194A0E0D00826FC4 /* SelectMakeViewController.h */,
+				2EEEC03C194A0E0D00826FC4 /* SelectMakeViewController.m */,
 			);
 			name = Greeter;
 			sourceTree = "<group>";
@@ -689,6 +694,7 @@
 				3499AD0E1805912B00CA6981 /* InspectorMenuViewController.m in Sources */,
 				34E30C7517ECEC9A005963B7 /* GreeterMenuViewController.m in Sources */,
 				3499AD25180D947700CA6981 /* VINEntryViewController.m in Sources */,
+				2EEEC03D194A0E0D00826FC4 /* SelectMakeViewController.m in Sources */,
 				346E6806193EBB1500E7B8E3 /* VehicleDataAccess.m in Sources */,
 				34E30C9C17ECED96005963B7 /* LoginViewController.m in Sources */,
 				349732E91946022C001DC1A6 /* NSDictionary+ToCookie.m in Sources */,
