@@ -48,10 +48,8 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MakeAndModel *selectedModels = (MakeAndModel *)[dataSource objectAtIndex:indexPath.row];
-    
-    SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
-    //sharedObjects.selectedMaterial = selectedModels;
+    SharedObjects* object = [SharedObjects getSharedObjects];
+    object.selectedVehicle.make = (NSString *)[dataSource objectAtIndex:indexPath.row];
     [self dismissViewControllerAnimated:TRUE completion:nil];
     [self.delegate modalComplete:self];
 }
@@ -81,9 +79,8 @@
      ******************************************************************/
     
     if (indexPath.section == 0) {
-        MakeAndModel *mat= (MakeAndModel *)[dataSource objectAtIndex:indexPath.row];
-        cell.textLabel.text = mat.model;
-        //cell.detailTextLabel.text = mat.materialCode;
+        
+        cell.textLabel.text = (NSString *)[dataSource objectAtIndex:indexPath.row];
     }
     
 }
