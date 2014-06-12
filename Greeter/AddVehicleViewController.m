@@ -12,6 +12,7 @@
 #import "DTDevices.h"
 #import "SelectModelViewController.h"
 #import "SelectMakeViewController.h"
+#import "IdentityDetailViewController.h"
 
 @interface AddVehicleViewController ()
 
@@ -34,16 +35,21 @@ trailerTextField, trailerStateTextField, barcodeTextField, processLineaCommands;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-}
-
-- (void) viewDidAppear:(BOOL)animated
-{
-    ((DTDevices *)[DTDevices sharedDevice]).delegate = self;
+    makeButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+    modelButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+    colorButton.titleLabel.textAlignment = NSTextAlignmentCenter;
     SharedObjects* object = [SharedObjects getSharedObjects];
     object.selectedVehicle = (Vehicle *)[NSEntityDescription insertNewObjectForEntityForName:@"Vehicle" inManagedObjectContext:object.managedObjectContext];
     object.selectedVehicle.make = @"";
     object.selectedVehicle.model = @"";
     object.selectedVehicle.color = @"";
+    object.selectedVehicle.idNumber = object.selectedSupplier.idNumber;
+    object.selectedVehicle.supplierNo = object.selectedSupplier.supplierNo;
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    ((DTDevices *)[DTDevices sharedDevice]).delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -83,9 +89,6 @@ trailerTextField, trailerStateTextField, barcodeTextField, processLineaCommands;
     if([identifier isEqualToString:@"model"])
     {
         SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
-        //REMOVE THIS LINE
-        sharedObjects.selectedVehicle.make = @"Ferrari";
-        
         if(sharedObjects.selectedVehicle.make.length == 0)
         {
             [Common showAlert:@"No Make selected.\nCannot display models." forDelegate:self];
@@ -108,7 +111,7 @@ trailerTextField, trailerStateTextField, barcodeTextField, processLineaCommands;
     if([sender isKindOfClass:[SelectMakeViewController class]])
     {
         SharedObjects* object = [SharedObjects getSharedObjects];
-        makeButton.titleLabel.text = object.selectedVehicle.model;
+        makeButton.titleLabel.text = object.selectedVehicle.make;
     }
     if([sender isKindOfClass:[SelectModelViewController class]])
     {
@@ -119,7 +122,7 @@ trailerTextField, trailerStateTextField, barcodeTextField, processLineaCommands;
     if([sender isKindOfClass:[ColorTableViewController class]])
     {
         SharedObjects* object = [SharedObjects getSharedObjects];
-        colorButton.titleLabel.text = object.selectedVehicle.model;
+        colorButton.titleLabel.text = object.selectedVehicle.color;
     }
 }
 
@@ -174,7 +177,13 @@ trailerTextField, trailerStateTextField, barcodeTextField, processLineaCommands;
 
 -(void)recordCreatedSuccessfully:(id)sender
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    for (UIViewController *controller in self.navigationController.viewControllers) {
+        if ([controller isKindOfClass:[IdentityDetailViewController class]]) {
+            [self.navigationController popToViewController:controller
+                                                  animated:YES];
+            break;
+        }
+    }
 }
 
 bool isMake;

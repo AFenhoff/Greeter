@@ -46,7 +46,7 @@
 
 -(IBAction)cancelButtonPressed:(id)sender
 {
-    [self.delegate modalCanceled:self];
+    if([self.delegate respondsToSelector:@selector(modalCanceled)]) { [self.delegate modalCanceled:self]; }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
