@@ -6,12 +6,12 @@
 //  Copyright (c) 2014 DJJ. All rights reserved.
 //
 
-#import "GreeterQueueManager.h"
+#import "GreeterQueueAccess.h"
 #import "GreeterQueue.h"
 #import "SharedObjects.h"
 #import "Common.h"
 
-@implementation GreeterQueueManager
+@implementation GreeterQueueAccess
 
 -(void)saveGreeterQueueRecord
 {
@@ -67,15 +67,24 @@
     if (![so.managedObjectContext save:&error]) {
         // Handle the error.
     }
-    
-    //Get all existing greeter records and send them through
-    NSArray *greeterRecords = [self getEntities:@"GreeterQueue" forManagedObjectContext:so.managedObjectContext];
-    for(GreeterQueue *greeterRecord in greeterRecords)
-    {
-        [super executeAPIPost:@"greeterqueue/postgreeterqueue" forDelegate:self withObject:greeterRecord];
-    }
+    [self postGreeterNextRecord];
 }
 
+-(void)postGreeterNextRecord
+{
+    //Get all existing greeter records and send them through
+    SharedObjects *so = [SharedObjects getSharedObjects];
+    NSArray *greeterRecords = [self getEntities:@"GreeterQueue" forManagedObjectContext:so.managedObjectContext];
+    if (greeterRecords.count > 0)
+    {
+        [super executeAPIPost:@"greeterqueue/postgreeterqueue" forDelegate:self withObject:greeterRecords[0]];
+    }else{
+        if([self.delegate respondsToSelector:@selector(objectCreatedSuccessfully:)])
+        {
+            [self.delegate objectCreatedSuccessfully:self];
+        }
+    }
+}
 
 -(NSArray *)getEntities:(NSString *)entityName forManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
 {
@@ -103,8 +112,35 @@
 -(void)didReceiveData:(NSMutableArray *)data
 {
     //Need to remove this ID from Core Data
-    [self.delegate didReceiveData:data];
+    NSDictionary *queueRecord = [data mutableCopy];
+    [self clearGreeterQueueByIDNumber:[queueRecord objectForKey:@"idNumber"]];
+    //Process any other greeter records in core data
+    [self postGreeterNextRecord];
 }
+
+-(void)clearGreeterQueueByIDNumber:(NSString *)idNumber
+{
+    SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
+    
+    //AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    NSFetchRequest * allObjects = [[NSFetchRequest alloc] init];
+    [allObjects setEntity:[NSEntityDescription entityForName:@"GreeterQueue" inManagedObjectContext:sharedObjects.managedObjectContext]];
+    [allObjects setIncludesPropertyValues:NO]; //only fetch the managedObjectID
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:
+                              @"(idNumber == %@)", idNumber];
+    [allObjects setPredicate:predicate];
+    
+    NSError * error = nil;
+    NSArray * objects = [sharedObjects.managedObjectContext executeFetchRequest:allObjects error:&error];
+    //error handling goes here
+    for (NSManagedObject *object in objects) {
+        [sharedObjects.managedObjectContext deleteObject:object];
+    }
+    NSError *saveError = nil;
+    [sharedObjects.managedObjectContext save:&saveError];
+}
+
 
 
 @end

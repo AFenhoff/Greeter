@@ -16,6 +16,7 @@
 		3450AD571924E90C00742A96 /* AdjustmentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3450AD561924E90C00742A96 /* AdjustmentsViewController.m */; };
 		3450AD9D193D0BAB00742A96 /* SupplierDataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 3450AD9C193D0BAB00742A96 /* SupplierDataAccess.m */; };
 		3450ADA0193D1A9300742A96 /* ADFSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3450AD9F193D1A9300742A96 /* ADFSViewController.m */; };
+		34592240194A0C7A00A37C7D /* SelectModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3459223F194A0C7A00A37C7D /* SelectModelViewController.m */; };
 		345B9A7918CE3358009A459D /* IdentificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 345B9A7818CE3358009A459D /* IdentificationViewController.m */; };
 		345B9A7C18CE4C80009A459D /* SearchResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 345B9A7B18CE4C80009A459D /* SearchResultsTableViewController.m */; };
 		345B9A7F18CE53FA009A459D /* IdentityDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 345B9A7E18CE53FA009A459D /* IdentityDetailViewController.m */; };
@@ -124,6 +125,8 @@
 		3450AD9C193D0BAB00742A96 /* SupplierDataAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupplierDataAccess.m; sourceTree = "<group>"; };
 		3450AD9E193D1A9300742A96 /* ADFSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADFSViewController.h; sourceTree = "<group>"; };
 		3450AD9F193D1A9300742A96 /* ADFSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADFSViewController.m; sourceTree = "<group>"; };
+		3459223E194A0C7A00A37C7D /* SelectModelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectModelViewController.h; sourceTree = "<group>"; };
+		3459223F194A0C7A00A37C7D /* SelectModelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectModelViewController.m; sourceTree = "<group>"; };
 		345B9A7718CE3358009A459D /* IdentificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IdentificationViewController.h; sourceTree = "<group>"; };
 		345B9A7818CE3358009A459D /* IdentificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IdentificationViewController.m; sourceTree = "<group>"; };
 		345B9A7A18CE4C80009A459D /* SearchResultsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultsTableViewController.h; sourceTree = "<group>"; };
@@ -527,6 +530,8 @@
 				349732FD1948AA69001DC1A6 /* ColorTableViewController.m */,
 				349732FF1948B03D001DC1A6 /* AddVehicleViewController.h */,
 				349733001948B03D001DC1A6 /* AddVehicleViewController.m */,
+				3459223E194A0C7A00A37C7D /* SelectModelViewController.h */,
+				3459223F194A0C7A00A37C7D /* SelectModelViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -676,6 +681,7 @@
 				34E30CAB17ECEEA4005963B7 /* Common.m in Sources */,
 				349732EF1947338B001DC1A6 /* GreeterQueueAccess.m in Sources */,
 				3499AD171806554800CA6981 /* DetailsTableViewController.m in Sources */,
+				34592240194A0C7A00A37C7D /* SelectModelViewController.m in Sources */,
 				34B8854E18E30A9900C2D435 /* SelectMaterialTableViewController.m in Sources */,
 				34B4EA7F18F5E1A300251AAB /* ModelGenerator.m in Sources */,
 				34E30CC117ECEF43005963B7 /* BSJSONEncoder.m in Sources */,

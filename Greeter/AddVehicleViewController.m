@@ -95,6 +95,7 @@ trailerTextField, trailerStateTextField, barcodeTextField, processLineaCommands;
         errorMessage = [errorMessage stringByAppendingString:@"License Plate is Required!\n"];
     }
     
+    /*
     if ([object.selectedVehicle.make isEqualToString:@""]) {
         result = NO;
         errorMessage = [errorMessage stringByAppendingString:@"Make is Required!\n"];
@@ -104,7 +105,7 @@ trailerTextField, trailerStateTextField, barcodeTextField, processLineaCommands;
         result = NO;
         errorMessage = [errorMessage stringByAppendingString:@"Model is Required!\n"];
     }
-    
+    */
     if ([object.selectedVehicle.color isEqualToString:@""]) {
         result = NO;
         errorMessage = [errorMessage stringByAppendingString:@"Color is Required!\n"];
