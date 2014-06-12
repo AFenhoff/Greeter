@@ -11,6 +11,7 @@
 #import "SearchViewController.h"
 #import "DTDevices.h"
 #import "SelectModelViewController.h"
+#import "SelectMakeViewController.h"
 
 @interface AddVehicleViewController ()
 
@@ -62,7 +63,18 @@ trailerTextField, trailerStateTextField, barcodeTextField, processLineaCommands;
         SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
         SelectModelViewController *modelSelector = segue.destinationViewController;
         modelSelector.make = sharedObjects.selectedVehicle.make;
+        ((SelectModelViewController *)segue.destinationViewController).delegate = self;
         
+    }
+    
+    if([segue.destinationViewController isKindOfClass:[SelectMakeViewController class]])
+    {
+        ((SelectMakeViewController *)segue.destinationViewController).delegate = self;
+    }
+    
+    if([segue.destinationViewController isKindOfClass:[ColorTableViewController class]])
+    {
+        ((ColorTableViewController *)segue.destinationViewController).delegate = self;
     }
 }
 
@@ -93,10 +105,21 @@ trailerTextField, trailerStateTextField, barcodeTextField, processLineaCommands;
 
 -(void)modalComplete:(id)sender
 {
+    if([sender isKindOfClass:[SelectMakeViewController class]])
+    {
+        SharedObjects* object = [SharedObjects getSharedObjects];
+        makeButton.titleLabel.text = object.selectedVehicle.model;
+    }
     if([sender isKindOfClass:[SelectModelViewController class]])
     {
         SharedObjects* object = [SharedObjects getSharedObjects];
         modelButton.titleLabel.text = object.selectedVehicle.model;
+    }
+
+    if([sender isKindOfClass:[ColorTableViewController class]])
+    {
+        SharedObjects* object = [SharedObjects getSharedObjects];
+        colorButton.titleLabel.text = object.selectedVehicle.model;
     }
 }
 

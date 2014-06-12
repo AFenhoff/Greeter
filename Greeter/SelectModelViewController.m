@@ -63,11 +63,11 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MakeAndModel *selectedModel = (MakeAndModel *)[self.models objectAtIndex:indexPath.row];
-    
     SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
     sharedObjects.selectedVehicle.model = selectedModel.model;
-    [self dismissViewControllerAnimated:TRUE completion:nil];
     [self.delegate modalComplete:self];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
 }
 
 /*
