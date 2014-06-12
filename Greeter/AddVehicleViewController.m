@@ -50,6 +50,14 @@ trailerTextField, trailerStateTextField, barcodeTextField, processLineaCommands;
 - (void) viewDidAppear:(BOOL)animated
 {
     ((DTDevices *)[DTDevices sharedDevice]).delegate = self;
+    [self.navigationItem.backBarButtonItem setTarget:self];
+    [self.navigationItem.backBarButtonItem setAction:@selector(backButtonPressed:)];
+}
+
+-(IBAction)backButtonPressed:(id)sender
+{
+    SharedObjects* object = [SharedObjects getSharedObjects];
+    object.selectedVehicle = nil;
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,6 +66,13 @@ trailerTextField, trailerStateTextField, barcodeTextField, processLineaCommands;
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    if([self isMovingFromParentViewController])
+    {
+        
+    }
+}
 
 #pragma mark - Navigation
 
@@ -135,6 +150,7 @@ trailerTextField, trailerStateTextField, barcodeTextField, processLineaCommands;
         object.selectedVehicle.trailerNumber = [self.trailerTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         object.selectedVehicle.state = [self.plateStateTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         object.selectedVehicle.barcode = [self.barcodeTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        object.dataManager.delegate = self;
         [object.dataManager saveSupplierVehicle];
     }
 }

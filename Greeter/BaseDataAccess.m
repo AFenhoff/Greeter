@@ -453,7 +453,6 @@
     [self handleCookiesInRequest:request];
     
 	//Set post body
-    NSLog(@"%@", data);
     [request setHTTPBody:data];
     
     if(conn)
