@@ -27,7 +27,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self filterMaterialsForText:@""];
+    [self filterMakesForText:@""];
 }
 
 - (void)didReceiveMemoryWarning
@@ -123,23 +123,39 @@
     NSManagedObjectContext *context = object.managedObjectContext;
     NSMutableArray* result =[[NSMutableArray alloc]init];
     
+    /*
     NSEntityDescription *entity = [NSEntityDescription  entityForName:@"MakeAndModel" inManagedObjectContext:context];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entity];
     [request setResultType:NSDictionaryResultType];
     [request setReturnsDistinctResults:YES];
     [request setPropertiesToFetch:@[@"make"]];
+    */
+    
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"MakeAndModel"];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"MakeAndModel" inManagedObjectContext:context];
+    
+    // Required! Unless you set the resultType to NSDictionaryResultType, distinct can't work.
+    // All objects in the backing store are implicitly distinct, but two dictionaries can be duplicates.
+    // Since you only want distinct names, only ask for the 'name' property.
+    fetchRequest.resultType = NSDictionaryResultType;
+    fetchRequest.propertiesToFetch = [NSArray arrayWithObject:[[entity propertiesByName] objectForKey:@"make"]];
+    fetchRequest.returnsDistinctResults = YES;
+    
+    // Now it should yield an NSArray of distinct values in dictionaries.
+    NSArray *dictionaries = [context executeFetchRequest:fetchRequest error:nil];
     
     // Execute the fetch.
     
-    NSError *error = nil;
-    NSArray *objects = [context executeFetchRequest:request error:&error];
-    if (objects == nil) {
+    if (dictionaries == nil) {
         // Handle the error. 
     }
     
-    for (int index = 0; index; index++) {
-        NSDictionary* temp = (NSDictionary *)[objects objectAtIndex:index];
+    NSLog (@"makes: %@",dictionaries);
+    
+    for (int index = 0; index < dictionaries.count; index++) {
+        NSDictionary* temp = (NSDictionary *)[dictionaries objectAtIndex:index];
         NSString* value = (NSString *)[temp objectForKey:@"make"];
         [result addObject:value];
     }
