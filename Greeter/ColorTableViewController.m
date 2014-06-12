@@ -87,11 +87,42 @@
             cell.textLabel.text =  @"GRAY";
             break;
         case 4:
-            cell.backgroundColor = [UIColor blackColor];
-            cell.textLabel.text =  @"BLACK";
+            cell.backgroundColor = [UIColor orangeColor];
+            cell.textLabel.text =  @"ORANGE";
             cell.textLabel.textColor = [UIColor whiteColor];
             break;
-
+        case 5:
+            cell.backgroundColor = [UIColor greenColor];
+            cell.textLabel.text = @"GREEN";
+            break;
+        case 6:
+            cell.backgroundColor = [UIColor colorWithRed:(192.0f/255.0f) green:(192.0f/255.0f) blue:(192.0f/255.0f) alpha:1.0f];
+            cell.textLabel.text = @"SILVER";
+            break;
+        case 7:
+            //255,165,0
+            cell.backgroundColor = [UIColor colorWithRed:1.0f green:(165.0f/255.0f) blue:0.0f alpha:1.0f];
+            cell.textLabel.text = @"GOLD";
+            break;
+        case 8:
+            cell.backgroundColor = [UIColor blueColor];
+            cell.textLabel.text =  @"BLUE";
+            cell.textLabel.textColor = [UIColor whiteColor];
+            break;
+        case 9:
+            cell.backgroundColor = [UIColor brownColor];
+            cell.textLabel.text =  @"BROWN";
+            cell.textLabel.textColor = [UIColor whiteColor];
+            break;
+        case 11:
+            cell.backgroundColor = [UIColor yellowColor];
+            cell.textLabel.text =  @"YELLOW";
+            break;
+        case 12:
+            cell.backgroundColor = [UIColor purpleColor];
+            cell.textLabel.text =  @"PURPLE";
+            cell.textLabel.textColor = [UIColor whiteColor];
+            break;
         default:
             break;
     }
@@ -101,7 +132,11 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    selectedColor = [[tableView cellForRowAtIndexPath:indexPath].textLabel.text uppercaseString];
+    SharedObjects* object = [SharedObjects getSharedObjects];
+    if (object.selectedVehicle == nil) {
+        object.selectedVehicle = [[Vehicle alloc]init];
+    }
+    object.selectedVehicle.color = [[tableView cellForRowAtIndexPath:indexPath].textLabel.text uppercaseString];
     [self.delegate modalComplete:self];
     [self dismissViewControllerAnimated:YES completion:nil];
 }

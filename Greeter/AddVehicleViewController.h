@@ -22,4 +22,6 @@
 @property (nonatomic, retain) IBOutlet UITextField *barcodeTextField;
 @property (nonatomic) BOOL processLineaCommands;
 
+-(IBAction)savePressed:(id)sender;
+
 @end

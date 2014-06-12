@@ -31,8 +31,8 @@ trailerTextField, trailerStateTextField, barcodeTextField, processLineaCommands;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
+    SharedObjects* object = [SharedObjects getSharedObjects];
+    object.selectedVehicle = [[Vehicle alloc] init];
 }
 
 - (void) viewDidAppear:(BOOL)animated
@@ -52,8 +52,6 @@ trailerTextField, trailerStateTextField, barcodeTextField, processLineaCommands;
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
 }
 */
 
@@ -66,10 +64,45 @@ trailerTextField, trailerStateTextField, barcodeTextField, processLineaCommands;
 
 -(void)modalComplete:(id)sender
 {
-    if ([sender isKindOfClass:[ColorTableViewController class]])
-    {
-        
+}
+
+-(IBAction)savePressed:(id)sender
+{
+    if ([self isValid]) {
+        SharedObjects* object = [SharedObjects getSharedObjects];
+        object.selectedVehicle.year = [NSNumber numberWithInt:[self.yearTextField.text intValue]];
     }
+}
+
+-(BOOL)isValid
+{
+    BOOL result = YES;
+    NSString* errorMessage = @"";
+    SharedObjects* object = [SharedObjects getSharedObjects];
+    
+    self.plateTextField.text = [self.plateTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    
+    if ([self.plateTextField.text isEqualToString:@""]) {
+        result = NO;
+        errorMessage = [errorMessage stringByAppendingString:@"License Plate is Required!\n"];
+    }
+    
+    if (object.selectedVehicle.make && [object.selectedVehicle.make isEqualToString:@""]) {
+        result = NO;
+        errorMessage = [errorMessage stringByAppendingString:@"Make is Required!\n"];
+    }
+    
+    if (object.selectedVehicle.model && [object.selectedVehicle.model isEqualToString:@""]) {
+        result = NO;
+        errorMessage = [errorMessage stringByAppendingString:@"Model is Required!\n"];
+    }
+    
+    if (object.selectedVehicle.color && [object.selectedVehicle.color isEqualToString:@""]) {
+        result = NO;
+        errorMessage = [errorMessage stringByAppendingString:@"Color is Required!\n"];
+    }
+    
+    return result;
 }
 
 @end
