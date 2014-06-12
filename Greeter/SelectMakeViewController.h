@@ -8,7 +8,7 @@
 
 #import "BaseModalViewController.h"
 
-@interface SelectMakeViewController : BaseModalViewController
+@interface SelectMakeViewController : BaseModalViewController<UISearchBarDelegate>
 {
     NSArray* dataSource;
 }
