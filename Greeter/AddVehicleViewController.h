@@ -11,6 +11,7 @@
 
 @interface AddVehicleViewController : BaseViewController  <BaseModalViewControllerDelegate>
 
+
 @property (nonatomic, retain) IBOutlet UIButton *makeButton;
 @property (nonatomic, retain) IBOutlet UIButton *modelButton;
 @property (nonatomic, retain) IBOutlet UIButton *colorButton;
@@ -23,5 +24,7 @@
 @property (nonatomic) BOOL processLineaCommands;
 
 -(IBAction)savePressed:(id)sender;
+-(IBAction)makePressed:(id)sender;
+-(IBAction)modelPressed:(id)sender;
 
 @end

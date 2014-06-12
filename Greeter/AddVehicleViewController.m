@@ -8,6 +8,7 @@
 
 #import "AddVehicleViewController.h"
 #import "ColorTableViewController.h"
+#import "SearchViewController.h"
 #import "DTDevices.h"
 
 @interface AddVehicleViewController ()
@@ -55,6 +56,9 @@ trailerTextField, trailerStateTextField, barcodeTextField, processLineaCommands;
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    if ([segue.identifier isEqualToString:@"makeSegue"]) {
+        SearchViewController* controller = (SearchViewController *)[segue destinationViewController];
+    }
 }
 
 
@@ -120,7 +124,21 @@ trailerTextField, trailerStateTextField, barcodeTextField, processLineaCommands;
 
 -(void)recordCreatedSuccessfully:(id)sender
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+bool isMake;
+
+-(void)makePressed:(id)sender
+{
+    isMake = true;
+    [self performSegueWithIdentifier:@"makeSegue" sender:self];
+}
+
+-(void)modelPressed:(id)sender
+{
+    isMake = false;
+    [self performSegueWithIdentifier:@"makeSegue" sender:self];
 }
 
 @end
