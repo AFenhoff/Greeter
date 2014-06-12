@@ -45,19 +45,19 @@ trailerTextField, trailerStateTextField, barcodeTextField, processLineaCommands;
     object.selectedVehicle.color = @"";
     object.selectedVehicle.idNumber = object.selectedSupplier.idNumber;
     object.selectedVehicle.supplierNo = object.selectedSupplier.supplierNo;
+    processLineaCommands = YES;
 }
 
 - (void) viewDidAppear:(BOOL)animated
 {
     ((DTDevices *)[DTDevices sharedDevice]).delegate = self;
-    [self.navigationItem.backBarButtonItem setTarget:self];
-    [self.navigationItem.backBarButtonItem setAction:@selector(backButtonPressed:)];
 }
 
 -(IBAction)backButtonPressed:(id)sender
 {
     SharedObjects* object = [SharedObjects getSharedObjects];
     object.selectedVehicle = nil;
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -132,12 +132,14 @@ trailerTextField, trailerStateTextField, barcodeTextField, processLineaCommands;
     {
         SharedObjects* object = [SharedObjects getSharedObjects];
         modelButton.titleLabel.text = object.selectedVehicle.model;
+        [yearTextField becomeFirstResponder];
     }
 
     if([sender isKindOfClass:[ColorTableViewController class]])
     {
         SharedObjects* object = [SharedObjects getSharedObjects];
         colorButton.titleLabel.text = object.selectedVehicle.color;
+        [plateTextField becomeFirstResponder];
     }
 }
 
