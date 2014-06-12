@@ -216,4 +216,47 @@ bool isMake;
     //[self performSegueWithIdentifier:@"makeSegue" sender:self];
 }
 
+#pragma mark - UITextView
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    [self animateTextField:textField up:YES];
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    [self animateTextField:textField up:NO];
+}
+
+- (void) animateTextField: (UITextField*) textField up: (BOOL) up
+{
+    const int movementDistance = 80; // tweak as needed
+    const float movementDuration = 0.3f; // tweak as needed
+    
+    int movement = (up ? -movementDistance : movementDistance);
+    
+    if (textField == self.plateTextField || textField == self.plateStateTextField) {
+        movement = up ? movement - 50 : movement + 50;
+    }
+    
+    if (textField == self.trailerTextField) {
+        movement = up ? movement - 75 : movement + 75;
+    }
+    
+    if (textField == self.barcodeTextField) {
+        movement = up ? movement - 100 : movement + 100;
+    }
+    
+    [UIView beginAnimations: @"anim" context: nil];
+    [UIView setAnimationBeginsFromCurrentState: YES];
+    [UIView setAnimationDuration: movementDuration];
+    self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+    [UIView commitAnimations];
+}
+
 @end
