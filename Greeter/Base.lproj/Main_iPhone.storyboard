@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rS3-R9-Ivy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rS3-R9-Ivy">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -768,7 +768,7 @@ THIS CONTRACT IS VALID FOR THREE (3) YEARS FROM DATE ABOVE
                                 <rect key="frame" x="20" y="222" width="234" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                 <connections>
                                     <outlet property="delegate" destination="ftc-3q-k4Y" id="txp-eH-9A9"/>
                                 </connections>
@@ -777,7 +777,7 @@ THIS CONTRACT IS VALID FOR THREE (3) YEARS FROM DATE ABOVE
                                 <rect key="frame" x="20" y="280" width="234" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                 <connections>
                                     <outlet property="delegate" destination="ftc-3q-k4Y" id="tfA-z0-sc9"/>
                                 </connections>
@@ -1790,13 +1790,15 @@ THIS CONTRACT IS VALID FOR THREE (3) YEARS FROM DATE ABOVE
         <!--Select Make View Controller-->
         <scene sceneID="0XP-dF-FjH">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Dr-4P-N4i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="LJS-eg-B26"/>
                 <viewController id="zOf-iB-xjw" customClass="SelectMakeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bwy-ml-gCB"/>
                         <viewControllerLayoutGuide type="bottom" id="qbV-XS-Zs8"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lat-YH-EPC">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="gYs-BK-AAs">
@@ -1808,12 +1810,6 @@ THIS CONTRACT IS VALID FOR THREE (3) YEARS FROM DATE ABOVE
                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
                                                 <action selector="cancelButtonPressed:" destination="zOf-iB-xjw" id="bXB-UO-6o3"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="QHJ-Q6-ZmO">
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <connections>
-                                                <action selector="saveButtonPressed:" destination="zOf-iB-xjw" id="dNS-wo-w7P"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -1828,7 +1824,7 @@ THIS CONTRACT IS VALID FOR THREE (3) YEARS FROM DATE ABOVE
                                 </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="THq-nG-Msc">
-                                <rect key="frame" x="0.0" y="109" width="320" height="307"/>
+                                <rect key="frame" x="0.0" y="109" width="320" height="371"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -1858,16 +1854,13 @@ THIS CONTRACT IS VALID FOR THREE (3) YEARS FROM DATE ABOVE
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="WqY-JM-8nL"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="cancelButton" destination="nDK-ub-Y8c" id="NIa-Q7-KZU"/>
-                        <outlet property="saveButton" destination="QHJ-Q6-ZmO" id="OjG-dv-8Uf"/>
+                        <outlet property="searchBar" destination="rGE-Iy-aFd" id="3Dk-Kn-X4i"/>
                         <outlet property="tableView" destination="THq-nG-Msc" id="nFs-dT-Kpq"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2Dr-4P-N4i" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="LJS-eg-B26"/>
             </objects>
             <point key="canvasLocation" x="5231" y="64"/>
         </scene>
@@ -2018,6 +2011,7 @@ THIS CONTRACT IS VALID FOR THREE (3) YEARS FROM DATE ABOVE
                     <connections>
                         <outlet property="destinationSearchBar" destination="WFk-8G-TwH" id="ik0-Wk-A6o"/>
                         <outlet property="saveButton" destination="uGi-sE-oCT" id="HyX-27-lnl"/>
+                        <outlet property="searchBar" destination="WFk-8G-TwH" id="mgl-XE-KUu"/>
                         <outlet property="tableView" destination="4RO-A8-PAQ" id="9BI-Tz-rJy"/>
                     </connections>
                 </viewController>

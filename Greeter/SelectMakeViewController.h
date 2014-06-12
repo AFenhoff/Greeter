@@ -13,6 +13,8 @@
     NSArray* dataSource;
 }
 
+@property(nonatomic,retain)IBOutlet UISearchBar* searchBar;
+
 -(void)filterMakesForText:(NSString *) searchString;
 
 @end

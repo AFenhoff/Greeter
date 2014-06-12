@@ -32,6 +32,11 @@
     [self filterMaterialsForText:@""];
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [self.searchBar becomeFirstResponder];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

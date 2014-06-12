@@ -13,6 +13,7 @@
 @end
 
 @implementation SelectMakeViewController
+@synthesize searchBar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,6 +30,11 @@
     // Do any additional setup after loading the view.
 
     [self filterMakesForText:@""];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [self.searchBar becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning

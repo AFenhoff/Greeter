@@ -43,9 +43,7 @@ bool scanActive=false;
 	dtDevices.delegate = self;
     [super viewDidLoad];
 	[dtDevices connect];
-    self.lastNameTextField.returnKeyType = UIReturnKeyDone;
     //[self.lastNameTextField addTarget:self action:@selector(textFieldFinished:) forControlEvents:UIControlEventAllEditingEvents];
-    self.supplierNameTextField.returnKeyType = UIReturnKeyDone;
 }
 
 -(void)textFieldFinished:(id)sender
@@ -98,6 +96,7 @@ bool scanActive=false;
 -(IBAction)lastNameSearch:(id)sender
 {
     [self searchByLastNameOrBarcode:lastNameTextField.text];
+    [self.lastNameTextField endEditing:YES];
 }
 
 -(void)searchByLastNameOrBarcode:(NSString *)lastNameOrBarcode
@@ -184,7 +183,7 @@ bool scanActive=false;
     SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
     sharedObjects.dataManager.delegate = self;
     [sharedObjects.dataManager getSuppliersBySupplierName:supplierNameTextField.text forDelegate:self];
-
+    [self.supplierNameTextField resignFirstResponder];
 }
 
 
@@ -355,6 +354,12 @@ bool scanActive=false;
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
     [self animateTextField:textField up:YES];
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 -(void)textFieldDidEndEditing:(UITextField *)textField

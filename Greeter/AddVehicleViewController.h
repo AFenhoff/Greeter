@@ -9,7 +9,7 @@
 #import "BaseViewController.h"
 #import "BaseModalViewController.h"
 
-@interface AddVehicleViewController : BaseViewController  <BaseModalViewControllerDelegate>
+@interface AddVehicleViewController : BaseViewController  <BaseModalViewControllerDelegate, UITextViewDelegate>
 
 
 @property (nonatomic, retain) IBOutlet UIButton *makeButton;

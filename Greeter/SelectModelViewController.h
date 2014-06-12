@@ -15,6 +15,7 @@
 @property (nonatomic, retain) IBOutlet UISearchBar  *destinationSearchBar;
 @property (nonatomic, retain) NSArray* models;
 @property (nonatomic, retain) NSString *make;
+@property(nonatomic,retain)IBOutlet UISearchBar* searchBar;
 
 -(void)filterMaterialsForText:(NSString *) searchString;
 @end
