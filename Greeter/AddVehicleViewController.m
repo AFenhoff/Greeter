@@ -101,7 +101,7 @@ trailerTextField, trailerStateTextField, barcodeTextField, processLineaCommands;
 
 -(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
-    if([identifier isEqualToString:@"model"])
+    if([identifier isEqualToString:@"modelSegue"])
     {
         SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
         if(sharedObjects.selectedVehicle.make.length == 0)
@@ -127,19 +127,28 @@ trailerTextField, trailerStateTextField, barcodeTextField, processLineaCommands;
     {
         SharedObjects* object = [SharedObjects getSharedObjects];
         makeButton.titleLabel.text = object.selectedVehicle.make;
+        [self performSelector:@selector(modelPressed:) withObject:self afterDelay:0.75 ];
     }
     if([sender isKindOfClass:[SelectModelViewController class]])
     {
         SharedObjects* object = [SharedObjects getSharedObjects];
         modelButton.titleLabel.text = object.selectedVehicle.model;
-        [yearTextField becomeFirstResponder];
+        [self performSelector:@selector(colorPressed:) withObject:self afterDelay:0.75 ];
     }
 
     if([sender isKindOfClass:[ColorTableViewController class]])
     {
         SharedObjects* object = [SharedObjects getSharedObjects];
         colorButton.titleLabel.text = object.selectedVehicle.color;
+
+        NSArray *params = [NSArray arrayWithObjects:plateTextField, @"YES", nil];
+
+        [self performSelector:@selector(animateTextField:)
+                   withObject:params
+                   afterDelay:0.75];
+        
         [plateTextField becomeFirstResponder];
+        [self animateTextField:plateTextField up:YES];
     }
 }
 
@@ -215,8 +224,16 @@ bool isMake;
 -(void)modelPressed:(id)sender
 {
     isMake = false;
-    //[self performSegueWithIdentifier:@"makeSegue" sender:self];
+    [self performSegueWithIdentifier:@"modelSegue" sender:self];
 }
+
+-(void)colorPressed:(id)sender
+{
+    isMake = false;
+    [self performSegueWithIdentifier:@"colorSegue" sender:self];
+}
+
+
 
 #pragma mark - UITextView
 -(void)textFieldDidBeginEditing:(UITextField *)textField
@@ -246,7 +263,7 @@ bool isMake;
         movement = up ? movement - 50 : movement + 50;
     }
     
-    if (textField == self.trailerTextField) {
+    if (textField == self.trailerTextField || textField == yearTextField) {
         movement = up ? movement - 75 : movement + 75;
     }
     
@@ -259,6 +276,11 @@ bool isMake;
     [UIView setAnimationDuration: movementDuration];
     self.view.frame = CGRectOffset(self.view.frame, 0, movement);
     [UIView commitAnimations];
+}
+
+- (void) animateTextField:(NSArray *)parameters
+{
+    [self animateTextField:parameters[0] up:(BOOL)parameters[1]];
 }
 
 @end

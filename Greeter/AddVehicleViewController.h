@@ -26,5 +26,7 @@
 -(IBAction)savePressed:(id)sender;
 -(IBAction)makePressed:(id)sender;
 -(IBAction)modelPressed:(id)sender;
+-(IBAction)colorPressed:(id)sender;
+-(void) animateTextField:(NSArray *)parameters;
 
 @end

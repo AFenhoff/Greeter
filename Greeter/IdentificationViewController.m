@@ -264,7 +264,6 @@ bool scanActive=false;
     //If this is a vehicle barcode
     if([[barcode  substringWithRange:NSMakeRange(0, 3)] isEqualToString:@"DJV"])
     {
-        
         [sharedObjects.dataManager getSupplierVehicleByBarcode:barcode forDelegate:self];
         return;
     }
