@@ -19,6 +19,7 @@
 @property (nonatomic, retain) id<ADFSViewControllerDelegate> delegate;
 @property (nonatomic, retain) IBOutlet UIWebView *webView;
 @property (nonatomic, retain) NSURLRequest *urlRequest;
+@property (nonatomic, retain) NSString* employeeID;
 
 -(void)setURLRequestInWebView:(NSURLRequest *)req;
 

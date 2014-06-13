@@ -11,6 +11,7 @@
 #import "UserDataAccess.h"
 #import "NSString+ToDate.h"
 #import "Common.h"
+#import "ADFSViewController.h"
 
 @interface LoginViewController ()
 
@@ -57,7 +58,6 @@
 //Turn this into a button press event
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    //((GreeterMenuViewController *)segue.destinationViewController).managedObjectContext = managedObjectContext;
 
 }
 
@@ -67,6 +67,7 @@
     
     SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
     sharedObjects.dataManager.delegate = self;
+    sharedObjects.authScreen.employeeID = self.employeeIDTextField.text;
     [sharedObjects.dataManager getUserByEmployeeID:[NSNumber numberWithInt:[employeeIDTextField.text intValue]] forDelegate:self];
 }
 

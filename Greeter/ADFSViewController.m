@@ -16,6 +16,8 @@
 
 @implementation ADFSViewController
 
+@synthesize employeeID;
+
 @synthesize webView, urlRequest, delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -121,6 +123,11 @@
     }
     
     return YES;
+}
+
+-(void)webViewDidFinishLoad:(UIWebView *)myWebView
+{
+    [myWebView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"var field = document.getElementById('ctl00_ContentPlaceHolder1_UsernameTextBox');field.value = '%@';",self.employeeID]];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
