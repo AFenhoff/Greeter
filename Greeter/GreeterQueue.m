@@ -2,7 +2,7 @@
 //  GreeterQueue.m
 //  YardOps
 //
-//  Created by Andrew Fenhoff on 6/10/14.
+//  Created by Andrew Fenhoff on 6/12/14.
 //  Copyright (c) 2014 DJJ. All rights reserved.
 //
 
@@ -43,10 +43,11 @@
 @dynamic trailerTagNo;
 @dynamic trailerTagState;
 @dynamic user;
+@dynamic vehicleColor;
 @dynamic vehicleDesc;
 @dynamic vehicleTagNo;
 @dynamic vehicleTagState;
 @dynamic weight;
-@dynamic vehicleColor;
+@dynamic color;
 
 @end

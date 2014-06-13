@@ -40,10 +40,11 @@
                           [so.selectedVehicle.make uppercaseString], [so.selectedVehicle.model uppercaseString]];
         gq.trailerTagNo = so.selectedVehicle.trailerNumber;
         gq.trailerTagState = so.selectedVehicle.state;
+        gq.color = so.selectedVehicle.color;
         
     }
     
-    if(so.scannedLicense)
+    if(so.scannedLicense.ID)
     {
         gq.idNumber = so.scannedLicense.ID;
         gq.idExpireDate = so.scannedLicense.ExpirationDate;

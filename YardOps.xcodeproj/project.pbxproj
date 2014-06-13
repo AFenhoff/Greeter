@@ -18,6 +18,7 @@
 		3450AD9D193D0BAB00742A96 /* SupplierDataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 3450AD9C193D0BAB00742A96 /* SupplierDataAccess.m */; };
 		3450ADA0193D1A9300742A96 /* ADFSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3450AD9F193D1A9300742A96 /* ADFSViewController.m */; };
 		34592240194A0C7A00A37C7D /* SelectModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3459223F194A0C7A00A37C7D /* SelectModelViewController.m */; };
+		3459224A194A954700A37C7D /* GreeterQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 34592249194A954700A37C7D /* GreeterQueue.m */; };
 		345B9A7918CE3358009A459D /* IdentificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 345B9A7818CE3358009A459D /* IdentificationViewController.m */; };
 		345B9A7C18CE4C80009A459D /* SearchResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 345B9A7B18CE4C80009A459D /* SearchResultsTableViewController.m */; };
 		345B9A7F18CE53FA009A459D /* IdentityDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 345B9A7E18CE53FA009A459D /* IdentityDetailViewController.m */; };
@@ -35,7 +36,6 @@
 		349732E01945E8E9001DC1A6 /* NSHTTPCookie+ToString.m in Sources */ = {isa = PBXBuildFile; fileRef = 349732DF1945E8E9001DC1A6 /* NSHTTPCookie+ToString.m */; };
 		349732E91946022C001DC1A6 /* NSDictionary+ToCookie.m in Sources */ = {isa = PBXBuildFile; fileRef = 349732E81946022C001DC1A6 /* NSDictionary+ToCookie.m */; };
 		349732EF1947338B001DC1A6 /* GreeterQueueAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 349732EE1947338B001DC1A6 /* GreeterQueueAccess.m */; };
-		349732F519476E46001DC1A6 /* GreeterQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 349732F419476E46001DC1A6 /* GreeterQueue.m */; };
 		349732FE1948AA69001DC1A6 /* ColorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 349732FD1948AA69001DC1A6 /* ColorTableViewController.m */; };
 		349733011948B03D001DC1A6 /* AddVehicleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 349733001948B03D001DC1A6 /* AddVehicleViewController.m */; };
 		349733041949DA8E001DC1A6 /* NameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 349733031949DA8E001DC1A6 /* NameViewController.m */; };
@@ -130,6 +130,9 @@
 		3450AD9F193D1A9300742A96 /* ADFSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADFSViewController.m; sourceTree = "<group>"; };
 		3459223E194A0C7A00A37C7D /* SelectModelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectModelViewController.h; sourceTree = "<group>"; };
 		3459223F194A0C7A00A37C7D /* SelectModelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectModelViewController.m; sourceTree = "<group>"; };
+		34592241194A945700A37C7D /* YardOps 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "YardOps 4.xcdatamodel"; sourceTree = "<group>"; };
+		34592248194A954700A37C7D /* GreeterQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GreeterQueue.h; sourceTree = "<group>"; };
+		34592249194A954700A37C7D /* GreeterQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GreeterQueue.m; sourceTree = "<group>"; };
 		345B9A7718CE3358009A459D /* IdentificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IdentificationViewController.h; sourceTree = "<group>"; };
 		345B9A7818CE3358009A459D /* IdentificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IdentificationViewController.m; sourceTree = "<group>"; };
 		345B9A7A18CE4C80009A459D /* SearchResultsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultsTableViewController.h; sourceTree = "<group>"; };
@@ -166,8 +169,6 @@
 		349732E81946022C001DC1A6 /* NSDictionary+ToCookie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+ToCookie.m"; sourceTree = "<group>"; };
 		349732ED1947338B001DC1A6 /* GreeterQueueAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GreeterQueueAccess.h; sourceTree = "<group>"; };
 		349732EE1947338B001DC1A6 /* GreeterQueueAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GreeterQueueAccess.m; sourceTree = "<group>"; };
-		349732F319476E46001DC1A6 /* GreeterQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GreeterQueue.h; sourceTree = "<group>"; };
-		349732F419476E46001DC1A6 /* GreeterQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GreeterQueue.m; sourceTree = "<group>"; };
 		349732F819487F66001DC1A6 /* YardOps 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "YardOps 2.xcdatamodel"; sourceTree = "<group>"; };
 		349732FC1948AA69001DC1A6 /* ColorTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorTableViewController.h; sourceTree = "<group>"; };
 		349732FD1948AA69001DC1A6 /* ColorTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorTableViewController.m; sourceTree = "<group>"; };
@@ -372,10 +373,10 @@
 				2EEEC0351949E27E00826FC4 /* Vehicle.h */,
 				2EEEC0361949E27E00826FC4 /* Vehicle.m */,
 				34E30C7017ECEC9A005963B7 /* Greeter.xcdatamodeld */,
+				34592248194A954700A37C7D /* GreeterQueue.h */,
+				34592249194A954700A37C7D /* GreeterQueue.m */,
 				2E3FF5A81947B2DD00989645 /* MakeAndModel.h */,
 				2E3FF5A91947B2DD00989645 /* MakeAndModel.m */,
-				349732F319476E46001DC1A6 /* GreeterQueue.h */,
-				349732F419476E46001DC1A6 /* GreeterQueue.m */,
 				2E6B2C47194691B7003EFDED /* Material.h */,
 				2E6B2C48194691B7003EFDED /* Material.m */,
 				349732D81944099F001DC1A6 /* User.h */,
@@ -680,7 +681,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				349732F519476E46001DC1A6 /* GreeterQueue.m in Sources */,
+				3459224A194A954700A37C7D /* GreeterQueue.m in Sources */,
 				349732DA1944099F001DC1A6 /* User.m in Sources */,
 				349733041949DA8E001DC1A6 /* NameViewController.m in Sources */,
 				34E30CAB17ECEEA4005963B7 /* Common.m in Sources */,
@@ -998,6 +999,7 @@
 		34E30C7017ECEC9A005963B7 /* Greeter.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				34592241194A945700A37C7D /* YardOps 4.xcdatamodel */,
 				2EEEC0311949E14E00826FC4 /* YardOps 3.xcdatamodel */,
 				2E3FF5A71947B16700989645 /* YardOps1.xcdatamodel */,
 				349732F819487F66001DC1A6 /* YardOps 2.xcdatamodel */,
@@ -1006,7 +1008,7 @@
 				346E6800193EA06700E7B8E3 /* Greeter 3.xcdatamodel */,
 				34E30C7117ECEC9A005963B7 /* Greeter.xcdatamodel */,
 			);
-			currentVersion = 2EEEC0311949E14E00826FC4 /* YardOps 3.xcdatamodel */;
+			currentVersion = 34592241194A945700A37C7D /* YardOps 4.xcdatamodel */;
 			path = Greeter.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

@@ -2,7 +2,7 @@
 //  GreeterQueue.h
 //  YardOps
 //
-//  Created by Andrew Fenhoff on 6/10/14.
+//  Created by Andrew Fenhoff on 6/12/14.
 //  Copyright (c) 2014 DJJ. All rights reserved.
 //
 
@@ -18,14 +18,14 @@
 @property (nonatomic, retain) NSString * branch;
 @property (nonatomic, retain) NSNumber * cfcTaken;
 @property (nonatomic, retain) NSString * city;
-@property (nonatomic, retain) NSDate * dateOfBirth;
+@property (nonatomic, retain) NSString * dateOfBirth;
 @property (nonatomic, retain) NSString * eyeColor;
 @property (nonatomic, retain) NSString * firstName;
 @property (nonatomic, retain) NSString * gender;
 @property (nonatomic, retain) NSString * hairColor;
 @property (nonatomic, retain) NSString * height;
-@property (nonatomic, retain) NSDate * idExpireDate;
-@property (nonatomic, retain) NSDate * idIssueDate;
+@property (nonatomic, retain) NSString * idExpireDate;
+@property (nonatomic, retain) NSString * idIssueDate;
 @property (nonatomic, retain) NSString * idIssuer;
 @property (nonatomic, retain) NSString * idNumber;
 @property (nonatomic, retain) NSString * idType;
@@ -44,10 +44,11 @@
 @property (nonatomic, retain) NSString * trailerTagNo;
 @property (nonatomic, retain) NSString * trailerTagState;
 @property (nonatomic, retain) NSString * user;
+@property (nonatomic, retain) NSString * vehicleColor;
 @property (nonatomic, retain) NSString * vehicleDesc;
 @property (nonatomic, retain) NSString * vehicleTagNo;
 @property (nonatomic, retain) NSString * vehicleTagState;
 @property (nonatomic, retain) NSString * weight;
-@property (nonatomic, retain) NSString * vehicleColor;
+@property (nonatomic, retain) NSString * color;
 
 @end
