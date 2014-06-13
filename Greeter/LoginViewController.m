@@ -34,6 +34,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    if ([[Common getStringSetting:kBranchSettingName] isEqualToString:@""] || [Common getStringSetting:kBranchSettingName].length != 2) {
+        [Common showAlert:@"Invalid Branch Code!\nPlease put a valid branch code in branch setting" forDelegate:self];
+    }
 	// Do any additional setup after loading the view.
     [employeeIDTextField becomeFirstResponder];
 }
@@ -68,14 +71,7 @@
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-  /*
-    UITextField *passwordTextField = [alertView textFieldAtIndex:0];
-    user.password = passwordTextField.text;
-    UserDataAccess *uda = [[UserDataAccess alloc] init];
-    uda.delegate = self;
-    [uda loginUser:user withManagedObject:managedObjectContext];
-    */
-    
+    abort();
 }
 
 /*

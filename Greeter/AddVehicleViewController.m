@@ -173,13 +173,13 @@ trailerTextField, trailerStateTextField, barcodeTextField, processLineaCommands;
     SharedObjects* object = [SharedObjects getSharedObjects];
     
     self.plateTextField.text = [self.plateTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    self.plateStateTextField.text = [self.plateStateTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
     if ([self.plateTextField.text isEqualToString:@""]) {
         result = NO;
         errorMessage = [errorMessage stringByAppendingString:@"License Plate is Required!\n"];
     }
     
-    /*
     if ([object.selectedVehicle.make isEqualToString:@""]) {
         result = NO;
         errorMessage = [errorMessage stringByAppendingString:@"Make is Required!\n"];
@@ -189,10 +189,23 @@ trailerTextField, trailerStateTextField, barcodeTextField, processLineaCommands;
         result = NO;
         errorMessage = [errorMessage stringByAppendingString:@"Model is Required!\n"];
     }
-    */
+
     if ([object.selectedVehicle.color isEqualToString:@""]) {
         result = NO;
         errorMessage = [errorMessage stringByAppendingString:@"Color is Required!\n"];
+    }
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy"];
+    
+    if ([self.yearTextField.text isEqualToString:@""] == NO && !([self.yearTextField.text intValue] > 1900 && [self.yearTextField.text intValue] < ([[formatter stringFromDate:[NSDate date]] intValue] + 1))) {
+        result = NO;
+        errorMessage = [errorMessage stringByAppendingString:@"Year is Invalid!\n"];
+    }
+    
+    if ([self.plateStateTextField.text isEqualToString:@""] || self.plateStateTextField.text.length != 2) {
+        result = NO;
+        errorMessage = [errorMessage stringByAppendingString:@"State is Invalid!\n"];
     }
     
     if (!result) {
