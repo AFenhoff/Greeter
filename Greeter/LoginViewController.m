@@ -71,7 +71,7 @@
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    abort();
+    exit(0);
 }
 
 /*

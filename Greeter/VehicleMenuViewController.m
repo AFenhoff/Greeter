@@ -60,7 +60,7 @@
 {
     
     Vehicle *veh = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@ %@ %@", veh.color, veh.year, veh.make, veh.model ];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@ %@ %@", veh.color, veh.year == 0 ? @"" : veh.year, veh.make, veh.model ];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", veh.state, veh.licensePlate];
     
     /*

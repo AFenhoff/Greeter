@@ -40,7 +40,7 @@
                           [so.selectedVehicle.make uppercaseString], [so.selectedVehicle.model uppercaseString]];
         gq.trailerTagNo = so.selectedVehicle.trailerNumber;
         gq.trailerTagState = so.selectedVehicle.state;
-        gq.color = so.selectedVehicle.color;
+        gq.vehicleColor = so.selectedVehicle.color;
         
     }
     
