@@ -251,8 +251,6 @@ bool scanActive=false;
 	}
 }
 
-
-
 //DTDevice delegate method
 -(void)barcodeData:(NSString *)barcode type:(int)type
 {
@@ -275,10 +273,8 @@ bool scanActive=false;
         return;
     }
     
-    
     //[Common showAlert:barcode forDelegate:self];
     LicenseDecoder *ld = [[LicenseDecoder alloc] init];
-
     [ld decode2DBarcode:barcode];
     if(ld.ID)
     {

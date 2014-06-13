@@ -40,6 +40,7 @@
                           [so.selectedVehicle.make uppercaseString], [so.selectedVehicle.model uppercaseString]];
         gq.trailerTagNo = so.selectedVehicle.trailerNumber;
         gq.trailerTagState = so.selectedVehicle.state;
+        
     }
     
     if(so.scannedLicense)
@@ -111,31 +112,26 @@
 
 -(void)didReceiveData:(NSMutableArray *)data
 {
-    //Need to remove this ID from Core Data
-    NSDictionary *queueRecord = [data mutableCopy];
-    [self clearGreeterQueueByIDNumber:[queueRecord objectForKey:@"idNumber"]];
+    //Remove first object from Core Data
+    [self clearFirstGreeterQueue];
     //Process any other greeter records in core data
     [self postGreeterNextRecord];
 }
 
--(void)clearGreeterQueueByIDNumber:(NSString *)idNumber
+-(void)clearFirstGreeterQueue
 {
     SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
-    
     //AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
     NSFetchRequest * allObjects = [[NSFetchRequest alloc] init];
     [allObjects setEntity:[NSEntityDescription entityForName:@"GreeterQueue" inManagedObjectContext:sharedObjects.managedObjectContext]];
     [allObjects setIncludesPropertyValues:NO]; //only fetch the managedObjectID
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:
-                              @"(idNumber == %@)", idNumber];
-    [allObjects setPredicate:predicate];
-    
+
     NSError * error = nil;
     NSArray * objects = [sharedObjects.managedObjectContext executeFetchRequest:allObjects error:&error];
+
     //error handling goes here
-    for (NSManagedObject *object in objects) {
-        [sharedObjects.managedObjectContext deleteObject:object];
+    if(objects.count > 0 ) {
+        [sharedObjects.managedObjectContext deleteObject:objects[0]];
     }
     NSError *saveError = nil;
     [sharedObjects.managedObjectContext save:&saveError];
