@@ -17,9 +17,9 @@
 
 typedef enum GreeterType : NSInteger GreeterType;
 enum GreeterType : NSInteger {
-    BOTH,
-    FE,
-    NF
+    BOTH = 1,
+    NF = 1,
+    FE = 2
 };
 
 @interface SharedObjects : NSObject <DataManagerDelegate>
@@ -49,5 +49,6 @@ enum GreeterType : NSInteger {
 
 - (void)popAuthenticationForDelegate:(id)delegate withRequestURL:(NSURLRequest *)requestedURL;
 - (void)clearData;
+-(void)clearDataLeaveInYard;
 
 @end

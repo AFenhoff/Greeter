@@ -18,17 +18,17 @@
     SharedObjects *so = [SharedObjects getSharedObjects];
     
     //Commit this to CoreData in case the save fails
-    GreeterQueue *gq = (GreeterQueue *)[NSEntityDescription insertNewObjectForEntityForName:@"GreeterQueue" inManagedObjectContext:so.managedObjectContext];
+    GreeterQueue *gq =  (GreeterQueue *)[NSEntityDescription insertNewObjectForEntityForName:@"GreeterQueue" inManagedObjectContext:so.managedObjectContext];
     gq.name = so.selectedSupplier.supplierName;
     gq.idNumber = so.selectedSupplier.idNumber;
     gq.supplierNo = so.selectedSupplier.supplierNo;
     gq.supplierIDRowID = so.selectedSupplier.rowid;
     gq.branch = [Common getStringSetting:kBranchSettingName];
-    gq.queueType = [NSNumber numberWithInt:1];
+    gq.queueType = [NSNumber numberWithInt:so.greeterType];
     gq.user = [NSString stringWithFormat:@"%@",so.currentUser.employeeID];
     gq.inYardID = so.inYardID;
     gq.materialCode = so.selectedMaterial.materialCode;
-    gq.bodyCount = so.bodyCount;
+    gq.bodyCount = [NSNumber numberWithInt:[so.bodyCount intValue]];
     gq.cfcTaken = so.cfcTaken;
     gq.titlesTaken = so.titlesTaken;
     

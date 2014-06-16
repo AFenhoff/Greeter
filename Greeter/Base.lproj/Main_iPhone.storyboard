@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rS3-R9-Ivy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rS3-R9-Ivy">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -112,10 +112,10 @@
             </objects>
             <point key="canvasLocation" x="1480" y="-103"/>
         </scene>
-        <!--View Controller-->
+        <!--In Yard View Controller-->
         <scene sceneID="zUw-Lk-yFG">
             <objects>
-                <viewController id="QjY-3L-dsD" sceneMemberID="viewController">
+                <viewController id="QjY-3L-dsD" customClass="InYardViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Hso-BJ-rIc"/>
                         <viewControllerLayoutGuide type="bottom" id="Y1r-EU-7zJ"/>
@@ -153,6 +153,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="8D6-eM-gOp"/>
+                    <connections>
+                        <outlet property="bodyCountTextFeild" destination="u6d-Gf-dAS" id="kR8-Wn-S40"/>
+                        <outlet property="inYardIDTextFeild" destination="01p-9b-bgz" id="dfH-Mc-Dyv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vgJ-Z5-dil" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1749,7 +1753,7 @@ THIS CONTRACT IS VALID FOR THREE (3) YEARS FROM DATE ABOVE
                                     <outlet property="delegate" destination="kTu-Xa-nxI" id="iaG-Vv-NIo"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="State" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VAZ-QY-JMH">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="FL" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VAZ-QY-JMH">
                                 <rect key="frame" x="203" y="314" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -2057,11 +2061,11 @@ THIS CONTRACT IS VALID FOR THREE (3) YEARS FROM DATE ABOVE
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="E4v-VV-M4P"/>
-        <segue reference="JpF-z8-4yc"/>
-        <segue reference="kum-bQ-Ksh"/>
-        <segue reference="Z7r-A5-gWs"/>
         <segue reference="jcF-oU-Qjy"/>
+        <segue reference="w75-IK-Fik"/>
+        <segue reference="JpF-z8-4yc"/>
+        <segue reference="Z7r-A5-gWs"/>
+        <segue reference="E4v-VV-M4P"/>
         <segue reference="mk5-1U-Cnp"/>
     </inferredMetricsTieBreakers>
 </document>

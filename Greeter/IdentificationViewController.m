@@ -63,7 +63,7 @@ bool scanActive=false;
     //crashes the application. The bug is in the Linea SDK
     processLineaCommands = YES;
     SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
-    [sharedObjects clearData];
+    [sharedObjects clearDataLeaveInYard];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -101,6 +101,8 @@ bool scanActive=false;
 
 -(void)searchByLastNameOrBarcode:(NSString *)lastNameOrBarcode
 {
+    
+    
     if([lastNameOrBarcode length] == 0)
     {
         [Common showAlert:@"Please enter Last Name" forDelegate:self];
@@ -110,7 +112,8 @@ bool scanActive=false;
     
     SharedObjects *sharedObjects = [SharedObjects getSharedObjects];
     sharedObjects.dataManager.delegate = self;
-    [sharedObjects.dataManager getSuppliersByLastName:lastNameOrBarcode forDelegate:self];
+    [sharedObjects.dataManager getSupplierByIDNumber:lastNameOrBarcode andState:@"" forDelegate:self];
+    //[sharedObjects.dataManager getSuppliersByLastName:lastNameOrBarcode forDelegate:self];
     
 }
 

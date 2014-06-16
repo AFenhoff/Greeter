@@ -39,8 +39,8 @@
     self.selectedSupplier = nil;
     self.selectedVehicle = nil;
     self.scannedLicense = nil;
-    self.inYardID = @"";
     self.selectedMaterial = nil;
+    self.inYardID = @"";
     self.bodyCount = 0;
     self.cfcTaken = 0;
     self.titlesTaken = 0;
@@ -50,6 +50,26 @@
     self.scannedTrack2 = @"";
     self.scannedTrack3 = @"";
 }
+
+-(void)clearDataLeaveInYard
+{
+    self.dataManager = [[DataManager alloc] init];
+    self.selectedSupplier = nil;
+    self.selectedVehicle = nil;
+    self.scannedLicense = nil;
+    self.selectedMaterial = nil;
+    //self.inYardID = @"";
+    //self.bodyCount = 0;
+    self.cfcTaken = 0;
+    self.titlesTaken = 0;
+    self.foundSupplierCount = 0;
+    self.scannedBarcode = @"";
+    self.scannedTrack1 = @"";
+    self.scannedTrack2 = @"";
+    self.scannedTrack3 = @"";
+}
+
+
 
 
 -(ADFSViewController *)authScreen

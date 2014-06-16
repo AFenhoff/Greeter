@@ -19,7 +19,8 @@
     {
         supplierNo = @"BRANCHPEDDLER";
     }
-    self.lastRequestURL = [NSString stringWithFormat:@"suppliers/vehicles/getbysuppliernoidnumber/%@/%@", supplierNo, idNumber];
+    self.lastRequestURL = [NSString stringWithFormat:@"suppliers/vehicles/getbysuppliernoidnumber/%@/%@", supplierNo,idNumber.length == 0 ? @"notsupplied" : idNumber ];
+    
     [super executeAPIMethod:self.lastRequestURL forDelegate:self];
 }
 

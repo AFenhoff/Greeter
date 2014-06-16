@@ -22,6 +22,7 @@
 		345B9A7918CE3358009A459D /* IdentificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 345B9A7818CE3358009A459D /* IdentificationViewController.m */; };
 		345B9A7C18CE4C80009A459D /* SearchResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 345B9A7B18CE4C80009A459D /* SearchResultsTableViewController.m */; };
 		345B9A7F18CE53FA009A459D /* IdentityDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 345B9A7E18CE53FA009A459D /* IdentityDetailViewController.m */; };
+		346BB327194AADE0008E6C53 /* InYardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 346BB326194AADE0008E6C53 /* InYardViewController.m */; };
 		346E67FB193E062400E7B8E3 /* SharedObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 346E67FA193E062400E7B8E3 /* SharedObjects.m */; };
 		346E67FF193E23B100E7B8E3 /* Supplier.m in Sources */ = {isa = PBXBuildFile; fileRef = 346E67FE193E23B100E7B8E3 /* Supplier.m */; };
 		346E6806193EBB1500E7B8E3 /* VehicleDataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 346E6805193EBB1500E7B8E3 /* VehicleDataAccess.m */; };
@@ -139,6 +140,8 @@
 		345B9A7B18CE4C80009A459D /* SearchResultsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultsTableViewController.m; sourceTree = "<group>"; };
 		345B9A7D18CE53FA009A459D /* IdentityDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IdentityDetailViewController.h; sourceTree = "<group>"; };
 		345B9A7E18CE53FA009A459D /* IdentityDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IdentityDetailViewController.m; sourceTree = "<group>"; };
+		346BB325194AADE0008E6C53 /* InYardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InYardViewController.h; sourceTree = "<group>"; };
+		346BB326194AADE0008E6C53 /* InYardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InYardViewController.m; sourceTree = "<group>"; };
 		346E67F9193E062400E7B8E3 /* SharedObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedObjects.h; sourceTree = "<group>"; };
 		346E67FA193E062400E7B8E3 /* SharedObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedObjects.m; sourceTree = "<group>"; };
 		346E67FC193E223200E7B8E3 /* Greeter 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Greeter 2.xcdatamodel"; sourceTree = "<group>"; };
@@ -309,6 +312,19 @@
 				349732D61943F45F001DC1A6 /* CookieStore.m */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		347C24D6194F15DC008AEA2F /* Add Vehicle */ = {
+			isa = PBXGroup;
+			children = (
+				349732FC1948AA69001DC1A6 /* ColorTableViewController.h */,
+				349732FD1948AA69001DC1A6 /* ColorTableViewController.m */,
+				349732FF1948B03D001DC1A6 /* AddVehicleViewController.h */,
+				349733001948B03D001DC1A6 /* AddVehicleViewController.m */,
+				3459223E194A0C7A00A37C7D /* SelectModelViewController.h */,
+				3459223F194A0C7A00A37C7D /* SelectModelViewController.m */,
+			);
+			name = "Add Vehicle";
 			sourceTree = "<group>";
 		};
 		349732D31941F80B001DC1A6 /* Greeter */ = {
@@ -532,12 +548,9 @@
 				3450AD9F193D1A9300742A96 /* ADFSViewController.m */,
 				2EFC9073194643C3002F4CCC /* YardOpsModeSelectTableViewController.h */,
 				2EFC9074194643C3002F4CCC /* YardOpsModeSelectTableViewController.m */,
-				349732FC1948AA69001DC1A6 /* ColorTableViewController.h */,
-				349732FD1948AA69001DC1A6 /* ColorTableViewController.m */,
-				349732FF1948B03D001DC1A6 /* AddVehicleViewController.h */,
-				349733001948B03D001DC1A6 /* AddVehicleViewController.m */,
-				3459223E194A0C7A00A37C7D /* SelectModelViewController.h */,
-				3459223F194A0C7A00A37C7D /* SelectModelViewController.m */,
+				347C24D6194F15DC008AEA2F /* Add Vehicle */,
+				346BB325194AADE0008E6C53 /* InYardViewController.h */,
+				346BB326194AADE0008E6C53 /* InYardViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -694,6 +707,7 @@
 				34E30CA217ECEDDD005963B7 /* BaseViewController.m in Sources */,
 				3499AD0E1805912B00CA6981 /* InspectorMenuViewController.m in Sources */,
 				34E30C7517ECEC9A005963B7 /* GreeterMenuViewController.m in Sources */,
+				346BB327194AADE0008E6C53 /* InYardViewController.m in Sources */,
 				3499AD25180D947700CA6981 /* VINEntryViewController.m in Sources */,
 				2EEEC03D194A0E0D00826FC4 /* SelectMakeViewController.m in Sources */,
 				346E6806193EBB1500E7B8E3 /* VehicleDataAccess.m in Sources */,
@@ -892,7 +906,7 @@
 					"$(PROJECT_DIR)/Greeter",
 				);
 				PRODUCT_NAME = YardOps;
-				PROVISIONING_PROFILE = "929D1308-5A33-475A-8ED1-001525C4C621";
+				PROVISIONING_PROFILE = "FADB2AC8-C72A-4047-B925-06C29F6E9791";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
@@ -904,8 +918,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: The David J. Joseph Company";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: The David J. Joseph Company";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Greeter/YardOps-Prefix.pch";
 				INFOPLIST_FILE = "Greeter/YardOps-Info.plist";
@@ -914,7 +928,7 @@
 					"$(PROJECT_DIR)/Greeter",
 				);
 				PRODUCT_NAME = YardOps;
-				PROVISIONING_PROFILE = "929D1308-5A33-475A-8ED1-001525C4C621";
+				PROVISIONING_PROFILE = "FADB2AC8-C72A-4047-B925-06C29F6E9791";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
